@@ -84,14 +84,16 @@ describe EventsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved event as @event" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
+        # Event.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of(Event).to receive(:save).and_return(false)
         post :create, {:event => { "title" => "invalid value" }}, valid_session
         assigns(:event).should be_a_new(Event)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of(Event).to receive(:save).and_return(false)
+        # Event.any_instance.stub(:save).and_return(false)
         post :create, {:event => { "title" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
@@ -106,7 +108,8 @@ describe EventsController do
         # specifies that the Event created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Event.any_instance.should_receive(:update).with({ "title" => "MyString" })
+        # Event.any_instance.should_receive(:update).with({ "title" => "MyString" })
+        expect_any_instance_of(Event).to receive(:update).with({ "title" => "MyString" })
         put :update, {:id => event.to_param, :event => { "title" => "MyString" }}, valid_session
       end
 
@@ -127,7 +130,8 @@ describe EventsController do
       it "assigns the event as @event" do
         event = Event.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
+        # Event.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of(Event).to receive(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "title" => "invalid value" }}, valid_session
         assigns(:event).should eq(event)
       end
@@ -135,7 +139,8 @@ describe EventsController do
       it "re-renders the 'edit' template" do
         event = Event.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of(Event).to receive(:save).and_return(false)
+        # Event.any_instance.stub(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "title" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
