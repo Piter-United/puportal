@@ -11,17 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319161750) do
+ActiveRecord::Schema.define(version: 20150319161943) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "links"
     t.string   "logo"
     t.string   "hashtag"
-    t.text     "tags",        default: "--- []\n"
+    t.text     "tags",        default: [],              array: true
   end
 
   create_table "events", force: :cascade do |t|
@@ -29,10 +32,10 @@ ActiveRecord::Schema.define(version: 20150319161750) do
     t.text     "description"
     t.integer  "community_id"
     t.integer  "location"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "logo"
-    t.text     "tags",         default: "--- []\n"
+    t.text     "tags",         default: [],              array: true
   end
 
   create_table "members", force: :cascade do |t|
@@ -42,20 +45,21 @@ ActiveRecord::Schema.define(version: 20150319161750) do
     t.string   "login"
     t.text     "password"
     t.string   "avatar"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.text     "skills",     default: "--- []\n"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "skills",     default: [],              array: true
   end
 
   create_table "places", force: :cascade do |t|
     t.string   "address"
     t.text     "description"
     t.text     "photos"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "name"
     t.string   "link"
     t.text     "contacts"
+    t.text     "interests",   default: [],              array: true
   end
 
 end
