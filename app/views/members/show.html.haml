@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @member.name
+%p
+  %strong Links:
+  = @member.links
+%p
+  %strong Email:
+  = @member.email
+%p
+  %strong Login:
+  = @member.login
+%p
+  %strong Password:
+  = @member.password
+%p
+  %strong Avatar:
+  = @member.avatar
+= link_to 'Edit', edit_member_path(@member)
+|
+= link_to 'Back', members_path
