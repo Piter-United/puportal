@@ -31,6 +31,7 @@
 
 ==== Технические детали проекта:
 
-- Ruby 2.2.1
+- Ruby > 2.2
 - Rails 4.2.0
-- Sqlite3 (в последствии возможно переедем на PostgreSQL)
+- PostgreSQL > 9.3
+- sass, haml
