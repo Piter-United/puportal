@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319154348) do
+ActiveRecord::Schema.define(version: 20150319155931) do
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
@@ -33,13 +33,26 @@ ActiveRecord::Schema.define(version: 20150319154348) do
     t.string   "logo"
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string   "name"
+    t.text     "links"
+    t.string   "email"
+    t.string   "login"
+    t.text     "password"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "places", force: :cascade do |t|
     t.string   "address"
     t.text     "description"
-    t.integer  "company_id"
     t.text     "photos"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.string   "link"
+    t.text     "contacts"
   end
 
 end
