@@ -1,15 +1,20 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe "events/show" do
+RSpec.describe "events/show", type: :view do
   before(:each) do
-    @event = assign(:event, stub_model(Event,
-      :title => "Title"
+    @event = assign(:event, Event.create!(
+      :title => "Title",
+      :description => "MyText",
+      :community_id => 1,
+      :location => 2
     ))
   end
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Title/)
+    expect(rendered).to match(/Title/)
+    expect(rendered).to match(/MyText/)
+    expect(rendered).to match(/1/)
+    expect(rendered).to match(/2/)
   end
 end

@@ -1,18 +1,27 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe "events/edit" do
+RSpec.describe "events/edit", type: :view do
   before(:each) do
-    @event = assign(:event, stub_model(Event,
-      :title => "MyString"
+    @event = assign(:event, Event.create!(
+      :title => "MyString",
+      :description => "MyText",
+      :community_id => 1,
+      :location => 1
     ))
   end
 
   it "renders the edit event form" do
     render
 
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", event_path(@event), "post" do
+
       assert_select "input#event_title[name=?]", "event[title]"
+
+      assert_select "textarea#event_description[name=?]", "event[description]"
+
+      assert_select "input#event_community_id[name=?]", "event[community_id]"
+
+      assert_select "input#event_location[name=?]", "event[location]"
     end
   end
 end

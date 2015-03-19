@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @community.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @community.description %>
+</p>
+
+<p>
+  <strong>Leaders:</strong>
+  <%= @community.leaders %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @community.site %>
+</p>
+
+<p>
+  <strong>Vk:</strong>
+  <%= @community.vk %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @community.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @community.twitter %>
+</p>
+
+<p>
+  <strong>Meetupcom:</strong>
+  <%= @community.meetupcom %>
+</p>
+
+<p>
+  <strong>Google:</strong>
+  <%= @community.google %>
+</p>
+
+<%= link_to 'Edit', edit_community_path(@community) %> |
+<%= link_to 'Back', communities_path %>

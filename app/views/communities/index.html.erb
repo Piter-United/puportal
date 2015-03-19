@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Communities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Leaders</th>
+      <th>Site</th>
+      <th>Vk</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Meetupcom</th>
+      <th>Google</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communities.each do |community| %>
+      <tr>
+        <td><%= community.name %></td>
+        <td><%= community.description %></td>
+        <td><%= community.leaders %></td>
+        <td><%= community.site %></td>
+        <td><%= community.vk %></td>
+        <td><%= community.facebook %></td>
+        <td><%= community.twitter %></td>
+        <td><%= community.meetupcom %></td>
+        <td><%= community.google %></td>
+        <td><%= link_to 'Show', community %></td>
+        <td><%= link_to 'Edit', edit_community_path(community) %></td>
+        <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Community', new_community_path %>

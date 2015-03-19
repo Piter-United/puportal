@@ -11,13 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307113833) do
+ActiveRecord::Schema.define(version: 20150319123828) do
+
+  create_table "communities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "leaders"
+    t.string   "site"
+    t.string   "vk"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "meetupcom"
+    t.string   "google"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "events", force: :cascade do |t|
+    t.time     "date"
     t.string   "title"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.integer  "community_id"
+    t.integer  "location"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "address"
+    t.text     "description"
+    t.integer  "company_id"
+    t.text     "photos"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

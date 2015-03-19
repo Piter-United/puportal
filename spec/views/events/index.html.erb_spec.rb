@@ -1,20 +1,28 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe "events/index" do
+RSpec.describe "events/index", type: :view do
   before(:each) do
     assign(:events, [
-      stub_model(Event,
-        :title => "Title"
+      Event.create!(
+        :title => "Title",
+        :description => "MyText",
+        :community_id => 1,
+        :location => 2
       ),
-      stub_model(Event,
-        :title => "Title"
+      Event.create!(
+        :title => "Title",
+        :description => "MyText",
+        :community_id => 1,
+        :location => 2
       )
     ])
   end
 
   it "renders a list of events" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Title".to_s, :count => 2
+    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => 2.to_s, :count => 2
   end
 end
