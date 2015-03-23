@@ -1,35 +1,35 @@
 = form_for(@member) do |f|
   - if @member.errors.any?
     #error_explanation
-      %h2
+      h2
         = pluralize(@member.errors.count, "error")
-        prohibited this member from being saved:
-      %ul
+        | prohibited this member from being saved:
+      ul
         - @member.errors.full_messages.each do |message|
-          %li= message
+          li= message
   .field
     = f.label :name
-    %br/
+    br/
     = f.text_field :name
   .field
     = f.label :links
-    %br/
+    br/
     = f.text_area :links
   .field
     = f.label :email
-    %br/
+    br/
     = f.text_field :email
   .field
     = f.label :login
-    %br/
+    br/
     = f.text_field :login
   .field
     = f.label :password
-    %br/
+    br/
     = f.text_area :password
   .field
     = f.label :avatar
-    %br/
+    br/
     = f.text_field :avatar
   .actions
     = f.submit

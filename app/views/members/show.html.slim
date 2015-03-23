@@ -1,22 +1,22 @@
-%p#notice= notice
-%p
-  %strong Name:
+p#notice= notice
+p
+  strong Name:
   = @member.name
-%p
-  %strong Links:
+p
+  strong Links:
   = @member.links
-%p
-  %strong Email:
+p
+  strong Email:
   = @member.email
-%p
-  %strong Login:
+p
+  strong Login:
   = @member.login
-%p
-  %strong Password:
+p
+  strong Password:
   = @member.password
-%p
-  %strong Avatar:
+p
+  strong Avatar:
   = @member.avatar
 = link_to 'Edit', edit_member_path(@member)
-|
+| \
 = link_to 'Back', members_path

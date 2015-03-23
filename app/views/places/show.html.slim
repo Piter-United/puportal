@@ -1,16 +1,16 @@
-%p#notice= notice
-%p
-  %strong Address:
+p#notice= notice
+p
+  strong Address:
   = @place.address
-%p
-  %strong Description:
+p
+  strong Description:
   = @place.description
-%p
-  %strong Company:
+p
+  strong Company:
   = @place.company_id
-%p
-  %strong Photos:
+p
+  strong Photos:
   = @place.photos
 = link_to 'Edit', edit_place_path(@place)
-|
+| \
 = link_to 'Back', places_path

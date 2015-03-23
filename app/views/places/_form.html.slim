@@ -1,27 +1,27 @@
 = form_for(@place) do |f|
   - if @place.errors.any?
     #error_explanation
-      %h2
+      h2
         = pluralize(@place.errors.count, "error")
-        prohibited this place from being saved:
-      %ul
+        | prohibited this place from being saved:
+      ul
         - @place.errors.full_messages.each do |message|
-          %li= message
+          li= message
   .field
     = f.label :address
-    %br/
+    br/
     = f.text_field :address
   .field
     = f.label :description
-    %br/
+    br/
     = f.text_area :description
   .field
     = f.label :company_id
-    %br/
+    br/
     = f.number_field :company_id
   .field
     = f.label :photos
-    %br/
+    br/
     = f.text_area :photos
   .actions
     = f.submit

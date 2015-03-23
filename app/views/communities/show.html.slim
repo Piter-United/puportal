@@ -1,31 +1,31 @@
-%p#notice= notice
-%p
-  %strong Name:
+p#notice= notice
+p
+  strong Name:
   = @community.name
-%p
-  %strong Description:
+p
+  strong Description:
   = @community.description
-%p
-  %strong Leaders:
+p
+  strong Leaders:
   = @community.leaders
-%p
-  %strong Site:
+p
+  strong Site:
   = @community.site
-%p
-  %strong Vk:
+p
+  strong Vk:
   = @community.vk
-%p
-  %strong Facebook:
+p
+  strong Facebook:
   = @community.facebook
-%p
-  %strong Twitter:
+p
+  strong Twitter:
   = @community.twitter
-%p
-  %strong Meetupcom:
+p
+  strong Meetupcom:
   = @community.meetupcom
-%p
-  %strong Google:
+p
+  strong Google:
   = @community.google
 = link_to 'Edit', edit_community_path(@community)
-|
+| \
 = link_to 'Back', communities_path

@@ -1,19 +1,19 @@
-%p#notice= notice
-%p
-  %strong Date:
+p#notice= notice
+p
+  strong Date:
   = @event.date
-%p
-  %strong Title:
+p
+  strong Title:
   = @event.title
-%p
-  %strong Description:
+p
+  strong Description:
   = @event.description
-%p
-  %strong Community:
+p
+  strong Community:
   = @event.community_id
-%p
-  %strong Location:
+p
+  strong Location:
   = @event.location
 = link_to 'Edit', edit_event_path(@event)
-|
+| \
 = link_to 'Back', events_path

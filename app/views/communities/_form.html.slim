@@ -1,47 +1,47 @@
 = form_for(@community) do |f|
   - if @community.errors.any?
     #error_explanation
-      %h2
+      h2
         = pluralize(@community.errors.count, "error")
-        prohibited this community from being saved:
-      %ul
+        | prohibited this community from being saved:
+      ul
         - @community.errors.full_messages.each do |message|
-          %li= message
+          li= message
   .field
     = f.label :name
-    %br/
+    br/
     = f.text_field :name
   .field
     = f.label :description
-    %br/
+    br/
     = f.text_area :description
   .field
     = f.label :leaders
-    %br/
+    br/
     = f.text_area :leaders
   .field
     = f.label :site
-    %br/
+    br/
     = f.text_field :site
   .field
     = f.label :vk
-    %br/
+    br/
     = f.text_field :vk
   .field
     = f.label :facebook
-    %br/
+    br/
     = f.text_field :facebook
   .field
     = f.label :twitter
-    %br/
+    br/
     = f.text_field :twitter
   .field
     = f.label :meetupcom
-    %br/
+    br/
     = f.text_field :meetupcom
   .field
     = f.label :google
-    %br/
+    br/
     = f.text_field :google
   .actions
     = f.submit
