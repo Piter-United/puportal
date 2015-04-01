@@ -7,7 +7,7 @@
       ul
         - @community.errors.full_messages.each do |message|
           li= message
-  .field
+  .field.form-group
     = f.label :name
     br/
     = f.text_field :name
@@ -33,3 +33,20 @@
     = f.text_field :tags
   .actions
     = f.submit
+
+      / .form-group
+      /   label for="exampleInputEmail1"
+      /     = f.label :name
+      /   input#exampleInputName.form-control placeholder=("Введите название сообщества") type="Name" /
+      / .form-group
+      /   label for="exampleInputPassword1"  Password
+      /   input#exampleInputPassword1.form-control placeholder="Password" type="password" /
+      / .form-group
+      /   label for="exampleInputFile"  File input
+      /   input#exampleInputFile type="file" /
+      /   p.help-block Example block-level help text here.
+      / .checkbox
+      /   label
+      /     input type="checkbox" /
+      /     | Check me out
+      / button.btn.btn-default type="submit"  Submit

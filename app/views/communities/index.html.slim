@@ -1,8 +1,8 @@
 .container
   p#notice= notice
   h3 Сообщества
-  button.btn.btn-default
-    = link_to 'New Community', new_community_path
+  
+  = link_to 'New Community', new_community_path, :class => "btn btn-default"
   br/
   br/
 
@@ -11,8 +11,10 @@
       = link_to community.name, community
     p 
       = community.description
-    button.btn.btn-default
-      = link_to 'Edit', edit_community_path(community)
+
+    = link_to 'Edit', edit_community_path(community), :class => "btn btn-default"
+    
+
     /= link_to 'Show', community
     /= link_to 'Edit', edit_community_path(community)
     /= ink_to 'Destroy', destroy_community_path(community), {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}
