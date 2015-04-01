@@ -16,32 +16,20 @@
     br/
     = f.text_area :description
   .field
-    = f.label :leaders
+    = f.label :links
     br/
-    = f.text_area :leaders
+    = f.text_field :links
   .field
-    = f.label :site
+    = f.label :logo
     br/
-    = f.text_field :site
+    = f.text_field :logo
   .field
-    = f.label :vk
+    = f.label :hashtag
     br/
-    = f.text_field :vk
+    = f.text_field :hashtag
   .field
-    = f.label :facebook
+    = f.label :tags
     br/
-    = f.text_field :facebook
-  .field
-    = f.label :twitter
-    br/
-    = f.text_field :twitter
-  .field
-    = f.label :meetupcom
-    br/
-    = f.text_field :meetupcom
-  .field
-    = f.label :google
-    br/
-    = f.text_field :google
+    = f.text_field :tags
   .actions
     = f.submit

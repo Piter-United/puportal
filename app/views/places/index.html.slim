@@ -1,23 +1,24 @@
-p#notice= notice
-h1 Listing Places
-table
-  thead
-    tr
-      th Address
-      th Description
-      th Company
-      th Photos
-      th colspan="3" 
-  tbody
-    - @places.each do |place|
+.container
+  p#notice= notice
+  h1 Площадки
+  table
+    thead
       tr
-        td= place.address
-        td= place.description
-        td= place.company_id
-        td= place.photos
-        td= link_to 'Show', place
-        td= link_to 'Edit', edit_place_path(place)
-        td= link_to('Destroy', place, {method:"Вы уверены?", data: { confirm: "Вы уверены?"}})
+        th Address
+        th Description
+        th Company
+        th Photos
+        th colspan="3" 
+    tbody
+      - @places.each do |place|
+        tr
+          td= place.address
+          td= place.description
+          td= place.company_id
+          td= place.photos
+          td= link_to 'Show', place
+          td= link_to 'Edit', edit_place_path(place)
+          td= link_to('Destroy', place, {method:"Вы уверены?", data: { confirm: "Вы уверены?"}})
 
-br/
-= link_to 'New Place', new_place_path
+  br/
+  = link_to 'New Place', new_place_path

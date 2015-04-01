@@ -1,32 +1,18 @@
-p#notice= notice
-h1 Сообщества
-table
-  thead
-    tr
-      th Name
-      th Description
-      th Leaders
-      th Site
-      th Vk
-      th Facebook
-      th Twitter
-      th Meetupcom
-      th Google
-      th colspan="3" 
-  tbody
-    - @communities.each do |community|
-      tr
-        td= community.name
-        td= community.description
-        td= community.leaders
-        td= community.site
-        td= community.vk
-        td= community.facebook
-        td= community.twitter
-        td= community.meetupcom
-        td= community.google
-        td= link_to 'Show', community
-        td= link_to 'Edit', edit_community_path(community)
-        td= ink_to('Destroy', community, {method:"Вы уверены?", data: { confirm: "Вы уверены?"}})
-br/
-= link_to 'New Community', new_community_path
+.container
+  p#notice= notice
+  h3 Сообщества
+  button.btn.btn-default
+    = link_to 'New Community', new_community_path
+  br/
+  br/
+
+  - @communities.each do |community|
+    h4 
+      = link_to community.name, community
+    p 
+      = community.description
+    button.btn.btn-default
+      = link_to 'Edit', edit_community_path(community)
+    /= link_to 'Show', community
+    /= link_to 'Edit', edit_community_path(community)
+    /= ink_to 'Destroy', destroy_community_path(community), {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}

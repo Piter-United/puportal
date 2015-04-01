@@ -8,7 +8,7 @@ html
     = csrf_meta_tags
   
   body
-    nav.navbar.navbar-default
+    nav.navbar-fixed.navbar-default
       .container
         /! Brand and toggle get grouped for better mobile display
         .navbar-header
@@ -20,7 +20,7 @@ html
           a.navbar-brand href="/"  Piter United
         /! Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav
+          ul.nav.navbar-nav.navbar-right
             li.active
             	= link_to 'Главная', :controller => :index, :action => :index 
             li
@@ -29,11 +29,9 @@ html
             	= link_to 'Митапы', events_path
             li
             	= link_to 'Площадки', places_path
-            li
-            	= link_to 'Участники', members_path
-              
-          ul.nav.navbar-nav.navbar-right
+            / li
+            / 	= link_to 'Участники', members_path
             li
               a href="#"  Войти
-    .container
+    .container-fluid
     	= yield
