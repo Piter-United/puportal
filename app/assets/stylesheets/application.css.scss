@@ -14,8 +14,9 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/* @import "bootstrap-sprockets";
+@import "bootstrap"; */
+@import "materialize";
 @import "index";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 @import "main.scss";

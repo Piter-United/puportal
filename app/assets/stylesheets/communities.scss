@@ -1,3 +1,28 @@
 // Place all the styles related to the communities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.communities-list{
+	background-color: white;
+	margin-top: 10px;
+	/*box-shadow: 5px 5px 5px #ddd;*/
+	width: 70%;
+	.row{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
+.community-item{
+	padding: 20px 20px;
+	border-bottom: 1px solid #eee;
+	vertical-align: middle;
+	margin: none;
+	svg{
+		height: 100px;
+		width: 100px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+

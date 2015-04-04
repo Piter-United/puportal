@@ -1,18 +1,32 @@
 .container
-  p#notice= notice
-  h3 Сообщества
-  
-  = link_to 'New Community', new_community_path, :class => "btn btn-default"
-  br/
-  br/
+  h5 СООБЩЕСТВА
+  /= link_to 'New Community', new_community_path, :class => "btn btn-default"
 
+.container
   - @communities.each do |community|
-    h4 
-      = link_to community.name, community
-    p 
-      = community.description
+    .communities
+      .row.community-item
+        h5
+          strong
+            = community.name
+        p
+          = community.description
+      .row.community-item
+        h5 
+          strong Piter United
+        p Сообщество активистов из различных сообществ нашего города, сосредоточенных на создании благоприятной экосистемы.
+      .row.community-item
+        h5 
+          strong Piter United
+        p Сообщество активистов из различных сообществ нашего города, сосредоточенных на создании благоприятной экосистемы.
 
-    = link_to 'Edit', edit_community_path(community), :class => "btn btn-default"
+  / - @communities.each do |community|
+  /   h4 
+  /     = link_to community.name, community
+  /   p 
+  /     = community.description
+
+  /   = link_to 'Edit', edit_community_path(community), :class => "btn btn-default"
     
 
     /= link_to 'Show', community

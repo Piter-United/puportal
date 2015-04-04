@@ -8,34 +8,60 @@ html
     = csrf_meta_tags
   
   body
-    nav.navbar-fixed.navbar-default
-      .container
-        /! Brand and toggle get grouped for better mobile display
-        .navbar-header
-          button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href="/"  Piter United
-        /! Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.active
-            	= link_to 'Главная', :controller => :index, :action => :index 
+    .navbar-fixed
+      nav
+        .nav-wrapper.container
+          a.brand-logo href="/"
+          a.button-collapse data-activates="mobile-demo" href="#" 
+            i.mdi-navigation-menu
+          ul.right.hide-on-med-and-down
             li
-            	= link_to 'Сообщества', communities_path
+              = link_to 'Главная', :controller => :index, :action => :index
             li
-            	= link_to 'Митапы', events_path
+              = link_to 'Сообщества', communities_path
             li
-            	= link_to 'Площадки', places_path
-            / li
-            / 	= link_to 'Участники', members_path
+              = link_to 'Митапы', events_path
             li
-              a href="#"  Войти
-    .container-fluid
+              = link_to 'Площадки', places_path
+            li
+              a href="/" Войти
+
+          ul#mobile-demo.side-nav
+            li
+              = link_to 'Главная', :controller => :index, :action => :index
+            li
+              = link_to 'Сообщества', communities_path
+            li
+              = link_to 'Митапы', events_path
+            li
+              = link_to 'Площадки', places_path
+            li
+              a href="/" Войти
+
+    main
     	= yield
 
-    footer.footer
+    footer.page-footer
       .container
-        p Text
+        .row
+          .col.l6.s12
+            h5.white-text Piter United
+            p.grey-text.text-lighten-4 Объединение IT-сообществ Санкт-Петербурга.
+          .col.l4.offset-l2.s12
+            h5.white-text Links
+            ul
+              li
+                a.grey-text.text-lighten-3 href="#!"  Google+ Community
+              li
+                a.grey-text.text-lighten-3 href="#!"  Vkontakte Group
+              li
+                a.grey-text.text-lighten-3 href="#!"  Facebook Group
+              li
+                a.grey-text.text-lighten-3 href="#!"  Twitter
+      .footer-copyright
+        .container
+          | © 2015 Piter United
+          a.grey-text.text-lighten-4.right href="#!"
+
+  javascript:
+    $(".button-collapse").sideNav();
