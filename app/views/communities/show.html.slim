@@ -1,31 +1,10 @@
-p#notice= notice
-p
-  strong Name:
-  = @community.name
-p
-  strong Description:
-  = @community.description
-p
-  strong Leaders:
-  = @community.leaders
-p
-  strong Site:
-  = @community.site
-p
-  strong Vk:
-  = @community.vk
-p
-  strong Facebook:
-  = @community.facebook
-p
-  strong Twitter:
-  = @community.twitter
-p
-  strong Meetupcom:
-  = @community.meetupcom
-p
-  strong Google:
-  = @community.google
-= link_to 'Edit', edit_community_path(@community)
-| \
-= link_to 'Back', communities_path
+.container
+  p.title
+    = @community.name
+  p
+    = @community.description
+
+  = link_to 'Edit', edit_community_path(@community), :class => "waves-effect waves-light btn"
+  |  
+  = link_to 'Back', communities_path, :class => "waves-effect waves-light btn"
+  / = link_to 'Destroy', {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}

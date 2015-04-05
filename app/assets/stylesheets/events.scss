@@ -1,3 +1,16 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card-panel.event{
+	padding: 0px 0px;
+}
+
+.datetime{
+	border-bottom: 1px solid #fafafa;
+	padding: 10px 40px;
+}
+
+.title-event{
+	padding: 18px 40px;
+}

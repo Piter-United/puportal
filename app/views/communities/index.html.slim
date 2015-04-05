@@ -1,24 +1,36 @@
-.container
-  /= link_to 'New Community', new_community_path, :class => "btn btn-default"
+.row.moto
+  .container
+    h3 Сообщества
+    p IT-сообщества Санкт-Петербурга
+    a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
+      i.mdi-content-add
 
-.container
-  .card-panel.white
-    p.title Сообщества
+.row.community-list
+  .container
     - @communities.each do |community|
-      .row.community-item
-        h5
-          strong
-            = community.name
-        p
-          = community.description
-      .row.community-item
-        h5 
-          strong Piter United
-        p Сообщество активистов из различных сообществ нашего города, сосредоточенных на создании благоприятной экосистемы.
-      .row.community-item
-        h5 
-          strong Piter United
-        p Сообщество активистов из различных сообществ нашего города, сосредоточенных на создании благоприятной экосистемы.
+      .card-panel.white
+        .row.valign-wrapper
+          .col.s12.m3.l2.center
+            svg height="100" width="100" 
+              circle cx="50" cy="50" fill="#fafafa" r="50" stroke="#fafafa" stroke-width="" /
+
+            /= image_tag "comm.png", :class => "circle responsive-img"
+          .col.s12.m9.l10
+            p.title
+              = link_to community.name, community, :class => "title"
+            p
+              = community.description
+
+      .card-panel.white
+        .row.valign-wrapper
+          .col.s12.m3.l2.center
+            /= image_tag "comm.png", :class => "circle responsive-img"
+            svg height="100" width="100" 
+              circle cx="50" cy="50" fill="#fafafa" r="50" stroke="#fafafa" stroke-width="" /
+
+          .col.s12.m9.l10
+            p.title Piter United
+            p Сообщество активистов создающих благоприятную экосистему для развития сообществ Санкт-Петербурга
 
   / - @communities.each do |community|
   /   h4 
@@ -32,3 +44,12 @@
     /= link_to 'Show', community
     /= link_to 'Edit', edit_community_path(community)
     /= ink_to 'Destroy', destroy_community_path(community), {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}
+
+    /.col.s12.m12.l12
+      / .card-panel.lighten-5.z-depth-1
+      /   .row.valign-wrapper
+      /     .col.s2
+      /       = image_tag "community.jpg", :class => "circle responsive-img"
+      /     .col.s10
+      /       span.black-text
+      /         | This is a square image. Add the "circle" class to it to make it appear circular.

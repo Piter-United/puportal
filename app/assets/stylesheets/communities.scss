@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.communities-list{
-	background-color: white;
-	margin-top: 10px;
-	/*box-shadow: 5px 5px 5px #ddd;*/
-	width: 70%;
-	.row{
-		margin-left: 0px;
-		margin-right: 0px;
-	}
+a.floating-absolute-right{
+	position: absolute;
+	right: 100px;
+	top: 313px;
+}
+
+.row.community-list{
+	margin-top: -80px;
+	padding-bottom: 80px;
 }
 
 .community-item{
