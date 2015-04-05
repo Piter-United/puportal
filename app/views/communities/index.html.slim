@@ -1,10 +1,10 @@
 .container
-  h5 СООБЩЕСТВА
   /= link_to 'New Community', new_community_path, :class => "btn btn-default"
 
 .container
-  - @communities.each do |community|
-    .communities
+  .card-panel.white
+    p.title Сообщества
+    - @communities.each do |community|
       .row.community-item
         h5
           strong

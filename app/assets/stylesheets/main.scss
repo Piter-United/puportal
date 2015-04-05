@@ -6,10 +6,16 @@ body {
   background-color: #fafafa;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
+  color: #5c5c5c;
 }
 
 main {
   flex: 1 0 auto;
+}
+
+.brand-img{
+  width: 50px;
+  margin-top: 10px;
 }
 
 .row{
@@ -17,7 +23,7 @@ main {
 }
 
 nav{
-  background-color: #00BCD4;
+  background-color: #e57373;
   box-shadow: none;
 }
 

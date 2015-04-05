@@ -11,7 +11,8 @@ html
     .navbar-fixed
       nav
         .nav-wrapper.container
-          a.brand-logo href="/"
+          a.brand-logo
+            = image_tag "pulogo.png", :class => "brand-img"
           a.button-collapse data-activates="mobile-demo" href="#" 
             i.mdi-navigation-menu
           ul.right.hide-on-med-and-down

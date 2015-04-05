@@ -1,55 +1,68 @@
 .row.moto
 	.container
-		h3 Piter United
-		p Объединение IT-сообществ Петербурга
-
-.row.stat
+		.col.s12.m8.l8
+			h3 Piter United
+			p Объединение IT-сообществ Санкт-Петербурга
+		.col.s12.m12.l4.calltoaction-container
+			a.waves-effect.waves-light.btn-large.red.lighten-3 Присоединиться
+		      
+.row.landing-item.about_pu
 	.container
-		.row
-		  .col.s4
-		    .card-panel.white
-		      p.num 25+
-		      p IT-cообществ
-		  .col.s4
-		    .card-panel.white
-		      p.num 250+
-		      p Митапов в год
-		  .col.s4
-		    .card-panel.white
-		      p.num 1000+
-		      p IT-специалистов
-
-.row.about_pu
-	.container
-		.col.s9
-			p Piter United - это профессионально-социальная инициатива по созданию благоприятной "экосистемы" для появления и развития IT-сообществ в Санкт-Петербурге.
-		.col.s3
+		.col.s12.m8.l8
+			p.title Piter United
+			p Мы IT-специалисты из различных компаний Питера: программисты, менеджеры, аналитики и т.д. Мы готовы обмениваться своим опытом и знаниями с коллегами и за счет этого профессионально развиваться, расширять кругозор и находить единомышленников.
+		.col.s12.m12.l4
+			svg.z-depth-1.right height="200" width="200" 
+			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
 
 .row.landing-item-white.about_itgm
 	.container
-		.col.s4
-		.col.s8
-			p.title IT Global Meetup
-			p Регулярный слет IT-сообществ Петербурга. Примерно раз в квартал, все IT-сообщества города собираются в одно время в одном месте, ради знакомства и обмена опытом. Слет проводится силами активистов Piter United при поддержки партнеров.
+		.col.s12.m12.l4
+			svg.z-depth-1 height="200" width="200" 
+			  circle cx="100" cy="100" fill="white" r="80" stroke="" stroke-width="" /
+
+		.col.s12.m8.l8
+			p.title Сообщества
+			p Мы объединяемся в сообщества вокруг различных профессиональных областей интересов: языки программирования, платформы, специализации, предметные области и др.
 
 .row.landing-item.communities
 	.container
-		.col.s8
-			p.title Сообщества
-			p Участниками каждого сообщества являются IT-специалисты из различных компаний, объединившиеся вокруг профессиональной области интересов. У каждого сообщества есть своя электронная площадка для общения и ежемесячные встречи, любой желающий может стать участником.
-		.col.s4
+		.col.s12.m8.l8
+			p.title Митапы
+			p Каждое из сообществ проводит ежемесячные встречи, на которых мы обсуждаем профессиональные темы, знакомимся и общаемся в различных форматах: доклады, круглые столы, совместный кодинг, решение кейсов и др.
+		.col.s12.m12.l4
+			svg.z-depth-1.right height="200" width="200" 
+			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
+
+.parallax-container
+  .parallax
+  	= image_tag "community.jpg"
+  a.waves-effect.waves-light.btn-large.red.lighten-3.callto Присоединиться
 
 .row.landing-item-white.meetups
 	.container
-		.col.s4
-		.col.s8
-			p.title Митапы
-			p Каждое сообщество проводит ежемесячные встречи в различных форматах, на которых обсуждаются профессиональные темы, происходит обмен знаниями и опытом, а также формирование профессиональных связей.
+		.col.s12.m12.l4
+			svg.z-depth-1 height="200" width="200" 
+			  circle cx="100" cy="100" fill="white" r="80" stroke="" stroke-width="" /
+		.col.s12.m8.l8
+			p.title IT Global Meetup
+			p Примерно раз в квартал, все наши сообщества собираются в одно время в одном месте, на слет IT-сообществ Питера. На этом масштабном мероприятии наши сообщества знакомятся между собой, обсуждают кросс-профессиональные темы и обретают новых участников.
 
-.row.landing-item.partners
+.row.landing-item.communities
 	.container
-		p.title Инициативу поддерживают
+		.col.s12.m8.l8
+			p.title Сообщество Piter United
+			p Еще у нас есть сообщество активистов Piter United, которое сформировано с целью создания благоприятной экосистемы для появления новых и развития существующих IT-сообществ Питера. Мы стараемся аккумулировать опыт развития наших сообществ и удачные решения распространять между сообществами.
+		.col.s12.m12.l4
+			svg.z-depth-1.right height="200" width="200" 
+			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
+
+.row.landing-item-white.partners
+	.container
+		p.title Нас поддержиают!
 		p логотипы IT-компаний и др. организаций
 
-
-
+javascript:
+	$(document).ready(function(){
+    $('.parallax').parallax();
+  });

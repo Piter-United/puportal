@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .moto{
-	background-color: #00BCD4;
+	background-color: #e57373;
+	/* #00BCD4 */
 	border-bottom: 1px solid #eee;
 	padding: 120px 0px;
 	color: white;
@@ -14,6 +15,18 @@
 		padding-top: 5px;
 		margin: 0px;
 	}
+	a{
+		margin-top: 30px;
+		text-align: right;
+	}
+}
+
+.calltoaction-container{
+	text-align: right;
+}
+
+a.callto{
+	margin-top: 130px;
 }
 
 .landing-item-white{
@@ -29,25 +42,12 @@
 
 p.title{
 	font-weight: bold;
-	color: #455A64;
+	color: #e57373;
 }
 
-.stat{
-	margin-top: -80px;
+.parallax-container{
+	height: 300px;
 	text-align: center;
-	p.num{
-		font-size: 42px;
-		margin-bottom: 0px;
-		margin-top: 15px;
-	}
-	p{
-		margin-top: 0px;
-	}
-}
-
-.about_pu{
-	margin-top: 20px;
-	padding-bottom: 80px;
 }
 
 .partners{
