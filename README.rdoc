@@ -32,6 +32,7 @@
 * Release 1: Landing, Communities (CRUD), Events (CRUD), Authorization (G+, Vk, Fb, Github, LinkedIn)
 * Release 2: Registration Workflow, Permissions for Activists, Places (CRUD), User Profile
 
+---
 ==== Технические детали проекта:
 
 - Ruby > 2.2
