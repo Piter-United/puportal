@@ -34,7 +34,7 @@
 - Ruby > 2.2
 - Rails 4.2.0
 - PostgreSQL > 9.3
-- sass, slim, bootstrap
+- scss, slim, materializecss (http://materializecss.com/getting-started.html)
 тем кто начинает устанавливать окружение Ruby+Rails только для этого проекта НЕ советую ставить его через RVM
 
 ===== Настройки Postgresql для корректного подключения к БД
