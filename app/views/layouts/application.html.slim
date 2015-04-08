@@ -17,7 +17,7 @@ html
             i.mdi-navigation-menu
           ul.right.hide-on-med-and-down
             li
-              = link_to 'Главная', :controller => :index, :action => :index
+              = link_to 'Главная', root_path
             li
               = link_to 'Сообщества', communities_path
             li
@@ -25,11 +25,11 @@ html
             / li
             /   = link_to 'Площадки', places_path
             li
-              a href="/" Войти
+              = link_to 'Войти', new_member_session_path
 
           ul#mobile-demo.side-nav
             li
-              = link_to 'Главная', :controller => :index, :action => :index
+              = link_to 'Главная', root_path
             li
               = link_to 'Сообщества', communities_path
             li
@@ -37,7 +37,7 @@ html
             / li
             /   = link_to 'Площадки', places_path
             li
-              a href="/" Войти
+              = link_to 'Войти', new_member_session_path
 
     main
     	= yield
