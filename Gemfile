@@ -64,4 +64,8 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4.4'
+  gem 'rspec'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'json-schema-rspec'
 end
