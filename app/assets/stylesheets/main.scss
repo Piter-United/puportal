@@ -31,3 +31,24 @@ footer.page-footer{
   margin-top: 0px;
   background-color: #455A64;
 }
+
+/* Login and Sign Up */
+
+.login-card{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actions{
+  display: inline-block;
+  
+  a{
+    padding-left: 15px;
+    font-size: 14px;
+  }
+}
+
+.remember{
+  display: inline-block;
+}

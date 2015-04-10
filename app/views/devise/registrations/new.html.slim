@@ -1,24 +1,35 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
+.container
+  .row
     br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @validatable
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+    .card-panel.white.login-card
+      h5
+        | Регистрация
+      br
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .input-field
+          = f.label :email
+          = f.email_field :email, autofocus: true
+        .input-field
+          = f.label :password
+          / - if @validatable
+          /   em
+          /     | (
+          /     = @minimum_password_length
+          /     |  characters minimum)
+          = f.password_field :password, autocomplete: "off"
+        .input-field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off"
+        br
+        .actions
+          = f.submit "Создать", :class => "btn"
+
+          - if controller_name != 'sessions'
+            = link_to "Уже есть аккаунт?", new_session_path(resource_name)
+            br
+  .container
+    .row
+      .card-panel.white.login-card    
+        = render "devise/shared/links"
+  br

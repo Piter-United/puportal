@@ -1,18 +1,35 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container
+  br
+  .row
+    .card-panel.white.login-card
+      span
+        h5 Войти
+        br
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .input-field
+            = f.label :email
+            = f.email_field :email, autofocus: true
+          .input-field
+            = f.label :password
+            = f.password_field :password, autocomplete: "off"
+          br
+          .actions
+            = f.submit "Log in", :class => "btn"
+            
+            / - if devise_mapping.rememberable?
+            /   .input-field.remember
+            /     = f.check_box :remember_me
+            /     = f.label :remember_me
+
+            - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+              = link_to "Забыли пароль?", new_password_path(resource_name)
+
+            - if devise_mapping.registerable? && controller_name != 'registrations'
+              span
+              = link_to "Нет аккаунта?", new_registration_path(resource_name)
+
+  .row
+    .card-panel.white.login-card
+      span
+        = render "devise/shared/links"
+  br

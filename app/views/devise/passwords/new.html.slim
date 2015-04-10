@@ -1,11 +1,18 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.container
+	.row
+		br
+	  	.card-panel.white.login-card		
+			h5
+			  | Забыли пароль?
+			br
+			= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+			  = devise_error_messages!
+			  .input-field
+			    = f.label :email
+			    = f.email_field :email, autofocus: true
+			  br
+			  .actions
+			    = f.submit "Восстановить", :class => "btn"
+			    a
+			    	=link_to "Отмена", root_path
+			/= render "devise/shared/links"
