@@ -21,6 +21,13 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'materialize-sass'
 gem 'autoprefixer-rails'
 
+gem 'devise'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-gplus'
+gem 'omniauth-github'
+gem 'omniauth-linkedin'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -40,6 +47,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pry'
+  gem 'thin'
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.2.0'
   gem 'rspec-activemodel-mocks'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,4 +64,8 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4.4'
+  gem 'rspec'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'json-schema-rspec'
 end
