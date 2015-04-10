@@ -3,7 +3,8 @@
   .row
     .card-panel.white.login-card
       span
-        h5 Войти
+        p.title
+          | Войти
         br
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .input-field
