@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404210426) do
+ActiveRecord::Schema.define(version: 20150410195338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "sn",         null: false
+    t.string   "provider",   null: false
     t.string   "uid"
     t.string   "token"
     t.datetime "expires_at"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150404210426) do
     t.datetime "updated_at"
   end
 
-  add_index "authentications", ["sn", "uid"], name: "index_authentications_on_sn_and_uid", unique: true, using: :btree
+  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", unique: true, using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"

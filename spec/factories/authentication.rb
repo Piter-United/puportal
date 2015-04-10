@@ -5,9 +5,9 @@ FactoryGirl.define do
     token
     expires_at { Time.now + 1.day }
 
-    Authentication.sns.each do |type, value|
+    Authentication.providers.each do |type, value|
       trait type.to_sym do
-        sn value
+        provider value
       end
     end
   end

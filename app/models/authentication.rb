@@ -2,7 +2,7 @@ class Authentication < ActiveRecord::Base
 
   belongs_to :owner, class_name: 'Member', inverse_of: :authentications, foreign_key: :owner_id
 
-  enum sn: {
+  enum provider: {
     vkontakte: 'vkontakte',
     facebook: 'facebook',
     gplus: 'gplus',
@@ -10,11 +10,11 @@ class Authentication < ActiveRecord::Base
     linkedin: 'linkedin'
   }
 
-  validates :token, presence: true, uniqueness: { with: true, scope: [:sn] }
+  validates :token, presence: true, uniqueness: { with: true, scope: [:provider] }
 
-  scope :by_auth, ->(auth)  { sn(auth.provider).uid(auth.uid) }
-  scope :sn,      ->(name)  { where sn: name }
-  scope :uid,     ->(uid)   { where uid: uid }
-  scope :token,   ->(token) { where token: token }
+  scope :by_auth,  ->(auth)  { provider(auth.provider).uid(auth.uid) }
+  scope :provider, ->(name)  { where provider: name }
+  scope :uid,      ->(uid)   { where uid: uid }
+  scope :token,    ->(token) { where token: token }
 
 end

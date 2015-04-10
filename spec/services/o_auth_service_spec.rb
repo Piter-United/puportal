@@ -20,7 +20,7 @@ RSpec.describe OAuthService do
       specify "new authentication attribtues" do
         service.authenticate(omniauth)
         auth = Authentication.last
-        auth.sn = omniauth.provider
+        auth.provider = omniauth.provider
         auth.uid = omniauth.uid
         auth.token = omniauth.credentials.token
         auth.expires_at = Time.at(omniauth.credentials.expires_at)
