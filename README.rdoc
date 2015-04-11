@@ -1,5 +1,8 @@
 == README
 
+=== Demo
+https://piterunited.herokuapp.com/
+
 === Piter United Portal
 Агрегатор и информационный рупор инициативы!
 
