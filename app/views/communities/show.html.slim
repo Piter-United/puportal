@@ -1,10 +1,18 @@
-.container
-  p.title
-    = @community.name
-  p
-    = @community.description
+.row.moto
+  .container
+    h3 
+    	= @community.name
+	p
+		= @community.description
 
-  = link_to 'Edit', edit_community_path(@community), :class => "waves-effect waves-light btn"
-  |  
-  = link_to 'Back', communities_path, :class => "waves-effect waves-light btn"
-  / = link_to 'Destroy', {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}
+.container
+	.card-panel.newitemform.white
+	  p.title
+	    = @community.name
+	  p
+	    = @community.description
+
+	  = link_to 'Edit', edit_community_path(@community), :class => "waves-effect waves-light btn"
+	  |  
+	  = link_to 'Back', communities_path, :class => "waves-effect waves-light btn"
+	  / = link_to 'Destroy', {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}

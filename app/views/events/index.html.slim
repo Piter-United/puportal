@@ -1,9 +1,18 @@
 .row.moto
   .container
-    h3 Митапы
-    p Календарь встреч IT-сообществ Санкт-Петербурга
-    a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_event_path
-      i.mdi-content-add
+    .row
+      .col.s6
+        h3 Митапы
+        p Календарь встреч IT-сообществ Санкт-Петербурга
+      .col.s6
+        .input-field.months
+          select
+            option value="1" Апрель 2015
+            option value="2" Май 2015
+            option value="3" Июнь 2015
+.row.new
+  a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_event_path
+    i.mdi-content-add
 
 .row.community-list
   .container
@@ -47,6 +56,10 @@
           .col.l9
             span SPb SQA Group Meetup #14
 
+javascript:
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 
 / .container
 /   p#notice= notice

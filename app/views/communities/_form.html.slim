@@ -1,32 +1,30 @@
 = form_for(@community) do |f|
-  .row
-    .container
-      p.title Новое сообщество
-      - if @community.errors.any?
-        #error_explanation
-          p.title
-            = pluralize(@community.errors.count, "error")
-            | prohibited this community from being saved:
-          ul
-            - @community.errors.full_messages.each do |message|
-              li= message
-      .input-field
-        = f.label :name
-        = f.text_field :name, :class => "validate"
-      .input-field
-        = f.label :description
-        = f.text_area :description, :class => "materialize-textarea"
-      .input-field
-        = f.label :links
-        = f.text_field :links
-      .input-field
-        = f.label :logo
-        = f.text_field :logo
-      .input-field
-        = f.label :hashtag
-        = f.text_field :hashtag
-      / .input-field
-      /   = f.label :tags
-      /   = f.text_field :tags
-      .actions
-        = f.submit :class => "btn"
+  - if @community.errors.any?
+    #error_explanation
+      p.title
+        = pluralize(@community.errors.count, "error")
+        | prohibited this community from being saved:
+      ul
+        - @community.errors.full_messages.each do |message|
+          li= message
+  .input-field
+    = f.label :name
+    = f.text_field :name, :class => "validate"
+  .input-field
+    = f.label :description
+    = f.text_area :description, :class => "materialize-textarea"
+  .input-field
+    = f.label :links
+    = f.text_field :links
+  .input-field
+    = f.label :logo
+    = f.text_field :logo
+  .input-field
+    = f.label :hashtag
+    = f.text_field :hashtag
+  / .input-field
+  /   = f.label :tags
+  /   = f.text_field :tags
+  .actions
+    = f.submit :class => "btn"
+    = link_to 'Отмена', communities_path

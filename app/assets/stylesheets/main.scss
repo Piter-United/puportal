@@ -18,6 +18,12 @@ main {
   margin-top: 10px;
 }
 
+a.floating-absolute-right{
+  position: absolute;
+  right: 100px;
+  bottom: -25px;
+}
+
 .row{
   margin-bottom: 0px;
 }
@@ -47,6 +53,16 @@ footer.page-footer{
     padding-left: 15px;
     font-size: 14px;
   }
+}
+
+.new{
+  position: relative;
+}
+
+.card-panel.newitemform{
+  padding: 20px;
+  margin-top: -80px;
+  margin-bottom: 80px;
 }
 
 .remember{

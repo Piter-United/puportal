@@ -1,5 +1,12 @@
-h1 Editing Community
-= render 'form'
-= link_to 'Show', @community
-| \
-= link_to 'Back', communities_path
+.row.moto
+  .container
+    h3 
+    	= @community.name
+    	| &nbsp |
+    	small
+    		| &nbsp Редактирование
+
+.container
+	.card-panel.newitemform.white.event
+		= render 'form'
+		/ = link_to 'Show', @community

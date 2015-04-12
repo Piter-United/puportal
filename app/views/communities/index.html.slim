@@ -2,8 +2,10 @@
   .container
     h3 Сообщества
     p IT-сообщества Санкт-Петербурга
-    a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
-      i.mdi-content-add
+
+.row.new
+  a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
+    i.mdi-content-add
 
 .row.community-list
   .container
@@ -20,17 +22,6 @@
               = link_to community.name, community, :class => "title"
             p
               = community.description
-
-      .card-panel.white
-        .row.valign-wrapper
-          .col.s12.m3.l2.center
-            /= image_tag "comm.png", :class => "circle responsive-img"
-            svg height="100" width="100" 
-              circle cx="50" cy="50" fill="#fafafa" r="50" stroke="#fafafa" stroke-width="" /
-
-          .col.s12.m9.l10
-            p.title Piter United
-            p Сообщество активистов создающих благоприятную экосистему для развития сообществ Санкт-Петербурга
 
   / - @communities.each do |community|
   /   h4 

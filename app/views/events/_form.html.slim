@@ -22,6 +22,8 @@
     = f.number_field :community_id
   .input-field
     = f.label :location
-    = f.number_field :location
+    = f.text_field :location
+  br
   .actions
-    = f.submit
+    = f.submit :class => "btn"
+    = link_to 'Отмена', events_path

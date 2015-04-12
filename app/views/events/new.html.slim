@@ -1,4 +1,12 @@
+.row.moto
+  .container
+    h3 Новый митап
+
 .container
-	p.title Создать Митап
-	= render 'form'
-	= link_to 'Back', events_path
+	.card-panel.newitemform.white.event
+		= render 'form'
+
+javascript:
+	$(document).ready(function() {
+    $('select').material_select();
+  });
