@@ -12,6 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize-sprockets
-//= require_tree .
+//= require select2
+//= require select2_locale_ru
+//= require marked
+//= require lepture_editor
+//= require location
+//= require editor
+//= require community_tags
+//= require event_tags
+//= require picker.time
+//= require_self
+
+$(function(){
+  $('.select2').select2({
+    width: '100%',
+  });
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+  $('.timepicker').pickatime()
+})
