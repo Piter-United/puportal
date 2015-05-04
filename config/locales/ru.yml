@@ -1,0 +1,9 @@
+ru:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %B"
+
+  time:
+    formats:
+      time: "%H:%M"

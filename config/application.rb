@@ -12,6 +12,10 @@ module PublicHtml
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = true
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
+
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

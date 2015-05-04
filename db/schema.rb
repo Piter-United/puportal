@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410195338) do
+ActiveRecord::Schema.define(version: 20150428203817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,17 @@ ActiveRecord::Schema.define(version: 20150410195338) do
     t.string   "title"
     t.text     "description"
     t.integer  "community_id"
-    t.integer  "location"
+    t.integer  "address"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "logo"
     t.text     "tags",         default: [],              array: true
+    t.float    "latitude"
+    t.float    "longitude"
+    t.time     "start"
+    t.time     "finish"
+    t.date     "date"
+    t.json     "location",     default: {}
   end
 
   create_table "members", force: :cascade do |t|

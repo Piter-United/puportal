@@ -1,29 +1,40 @@
-= form_for(@event) do |f|
+= form_for(@event, html: { multipart: true }) do |f|
   - if @event.errors.any?
     #error_explanation
-      h2
+      p.title
         = pluralize(@event.errors.count, "error")
         | prohibited this event from being saved:
       ul
         - @event.errors.full_messages.each do |message|
           li= message
-  / .field
-  /   = f.label :datetime
-  /   br/
-  /   = f.time_select :datetime
+
   .input-field
-    = f.label :title
-    = f.text_field :title
+    = f.text_field :title, placeholder: 'title'
+
   .input-field
-    = f.label :description
-    = f.text_area :description, :class => "materialize-textarea"
+    .row
+      .col.s6= f.text_field :date, placeholder: 'date', class: 'datepicker'
+      .col.s3= f.text_field :start, placeholder: 'start', class: 'timepicker'
+      .col.s3= f.text_field :finish, placeholder: 'finish', class: 'timepicker'
+
   .input-field
-    = f.label :community_id
-    = f.number_field :community_id
+    = f.select :community_id, options_for_select(Community.all.map{ |c| [c.name, c.id] }), {}, { class: 'select2' }
+
+  .input-field.location
+    = f.fields_for :location, @event.location do |ff|
+      = ff.text_field :address, placeholder: 'address', class: 'location_address'
+      = ff.hidden_field :latitude, class: 'location_latitude'
+      = ff.hidden_field :longitude, class: 'location_longitude'
+
   .input-field
-    = f.label :location
-    = f.text_field :location
+    = f.text_area :description, class: 'lepture_editor'
+
+  .input-field
+    = f.array_field :tags, class: 'event_tags'
   br
   .actions
-    = f.submit :class => "btn"
-    = link_to 'Отмена', events_path
+    button.btn.waves-effect.waves-light type="submit" name="action"
+      | Submit
+      i.mdi-content-send.right
+    | &nbsp;
+    = @event.decorate.link title: 'back', action: :index, class: "waves-effect waves-light btn"

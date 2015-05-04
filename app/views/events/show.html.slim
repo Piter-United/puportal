@@ -1,19 +1,31 @@
 p#notice= notice
-p
-  strong Date:
-  = @event.date
-p
-  strong Title:
-  = @event.title
-p
-  strong Description:
-  = @event.description
-p
-  strong Community:
-  = @event.community_id
-p
-  strong Location:
-  = @event.location
-= link_to 'Edit', edit_event_path(@event)
-| \
-= link_to 'Back', events_path
+
+.container
+  p
+    strong Community:
+    = @event_decorator.community.name
+  p
+    strong Title:
+    = @event_decorator.title
+  p
+    strong Date:
+    = @event_decorator.datetime
+  p
+    strong Description:
+    = @event_decorator.description
+  p
+    strong Tags:
+    = @event_decorator.tags
+
+  p
+    strong Location:
+    dl
+      dt address
+      dd= @event_decorator.location.address
+      dt latitude
+      dd= @event_decorator.location.latitude
+      dt longitude
+      dd= @event_decorator.location.longitude
+
+  = @event_decorator.link title: 'edit', action: :edit,  class: "waves-effect waves-light btn"
+  = @event_decorator.link title: 'back', action: :index, class: "waves-effect waves-light btn"

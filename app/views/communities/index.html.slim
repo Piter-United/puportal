@@ -10,37 +10,10 @@
 .row.community-list
   .container
     - @communities.each do |community|
+      - decorator = community.decorate
       .card-panel.white
         .row.valign-wrapper
-          .col.s12.m3.l2.center
-            svg height="100" width="100" 
-              circle cx="50" cy="50" fill="#fafafa" r="50" stroke="#fafafa" stroke-width="" /
-
-            /= image_tag "comm.png", :class => "circle responsive-img"
+          .col.s12.m3.l2.center= decorator.thumb
           .col.s12.m9.l10
-            p.title
-              = link_to community.name, community, :class => "title"
-            p
-              = community.description
-
-  / - @communities.each do |community|
-  /   h4 
-  /     = link_to community.name, community
-  /   p 
-  /     = community.description
-
-  /   = link_to 'Edit', edit_community_path(community), :class => "btn btn-default"
-    
-
-    /= link_to 'Show', community
-    /= link_to 'Edit', edit_community_path(community)
-    /= ink_to 'Destroy', destroy_community_path(community), {method:"Вы уверены?", data: { confirm: "Вы уверены?"}}
-
-    /.col.s12.m12.l12
-      / .card-panel.lighten-5.z-depth-1
-      /   .row.valign-wrapper
-      /     .col.s2
-      /       = image_tag "community.jpg", :class => "circle responsive-img"
-      /     .col.s10
-      /       span.black-text
-      /         | This is a square image. Add the "circle" class to it to make it appear circular.
+            p.title= decorator.link class: "title"
+            p= decorator.description

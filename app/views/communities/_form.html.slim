@@ -1,4 +1,4 @@
-= form_for(@community) do |f|
+= form_for(@community, html: { multipart: true }) do |f|
   - if @community.errors.any?
     #error_explanation
       p.title
@@ -7,24 +7,29 @@
       ul
         - @community.errors.full_messages.each do |message|
           li= message
+
   .input-field
-    = f.label :name
-    = f.text_field :name, :class => "validate"
+    = f.text_field :name, placeholder: 'name'
+
   .input-field
-    = f.label :description
-    = f.text_area :description, :class => "materialize-textarea"
+    = f.text_field :hashtag, placeholder: 'hashtag'
+
+  .file-field.input-field
+    = text_field_tag :logo_path, :ass, class: 'file-path validate'
+    .btn
+      span Logo
+      = f.file_field :logo
+
   .input-field
-    = f.label :links
-    = f.text_field :links
+    = f.text_area :description, class: 'lepture_editor'
+
   .input-field
-    = f.label :logo
-    = f.text_field :logo
-  .input-field
-    = f.label :hashtag
-    = f.text_field :hashtag
-  / .input-field
-  /   = f.label :tags
-  /   = f.text_field :tags
+    = f.array_field :tags, class: 'community_tags'
+
+  br
   .actions
-    = f.submit :class => "btn"
-    = link_to 'Отмена', communities_path
+    button.btn.waves-effect.waves-light type="submit" name="action"
+      | Submit
+      i.mdi-content-send.right
+    | &nbsp;
+    = @community.decorate.link title: 'отмена', action: :index
