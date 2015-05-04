@@ -79,6 +79,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'json-schema-rspec'
+  gem 'shoulda-matchers'
 end
 
 ruby "2.2.0"

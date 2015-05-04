@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Community, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject{ create(:community) }
+
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_uniqueness_of(:name)}
+
+  it { is_expected.to validate_presence_of(:hashtag) }
+  it { is_expected.to validate_presence_of(:description) }
+
+  it { is_expected.to have_many(:events).class_name('Event').inverse_of(:community) }
 end

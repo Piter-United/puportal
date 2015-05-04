@@ -7,6 +7,7 @@ class Community < ActiveRecord::Base
 
   array_attribute :tags
 
-  validates :name, :hashtag, :logo, :description, presence: true
+  validates :hashtag, :logo, :description, presence: true
 
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
