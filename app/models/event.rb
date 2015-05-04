@@ -9,5 +9,5 @@ class Event < ActiveRecord::Base
 
   validates :community, :title, :date, :start, :finish, :description, presence: true
 
-  scope :ordered, -> { order('events.start DESC')  }
+  scope :ordered, ->{ order("events.start DESC")  }
 end

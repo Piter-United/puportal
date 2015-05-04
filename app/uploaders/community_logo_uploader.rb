@@ -1,5 +1,4 @@
 class CommunityLogoUploader < CarrierWave::Uploader::Base
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   storage :file
@@ -10,19 +9,19 @@ class CommunityLogoUploader < CarrierWave::Uploader::Base
 
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #   # default = "fallback/" + [version_name, "default.png"].compact.join('_')
+  #   # ActionController::Base.helpers.asset_path(default)
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  process :resize_to_fill => [500, 500]
+  process resize_to_fill: [500, 500]
 
   version :thumb do
-    process :resize_to_fit => [100, 100]
+    process resize_to_fit: [100, 100]
   end
 
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-
 end

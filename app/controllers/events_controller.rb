@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @events, each_serializer: EventSerializer }
+      format.json{ render json: @events, each_serializer: EventSerializer }
     end
   end
 
@@ -26,9 +26,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html{ redirect_to @event, notice: "Event was successfully created." }
       else
-        format.html { render :new }
+        format.html{ render :new }
       end
     end
   end
@@ -36,9 +36,9 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html{ redirect_to @event, notice: "Event was successfully updated." }
       else
-        format.html { render :edit }
+        format.html{ render :edit }
       end
     end
   end
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html{ redirect_to events_url, notice: "Event was successfully destroyed." }
     end
   end
 

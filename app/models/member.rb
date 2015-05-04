@@ -1,5 +1,4 @@
 class Member < ActiveRecord::Base
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, :lockable, :timeoutable,
@@ -16,5 +15,4 @@ class Member < ActiveRecord::Base
   def email_required?
     !oauth
   end
-
 end

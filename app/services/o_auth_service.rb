@@ -29,7 +29,7 @@ class OAuthService
   def build_authentication(omniauth)
     authentication = Authentication.by_auth(omniauth).first_or_initialize
     authentication.token = omniauth.credentials.token
-    authentication.expires_at = Time.at(omniauth.credentials.expires_at)
+    authentication.expires_at = Time.zone.at(omniauth.credentials.expires_at)
     authentication
   end
 
@@ -41,5 +41,4 @@ class OAuthService
       member.skip_confirmation!
     end
   end
-
 end

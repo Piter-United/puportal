@@ -1,11 +1,5 @@
 module Transactions
-
   def transaction
-    if block_given?
-      ActiveRecord::Base.transaction do
-        yield
-      end
-    end
+    ActiveRecord::Base.transaction{ yield } if block_given?
   end
-
 end

@@ -10,7 +10,6 @@ module EmbeddedAttribute
 
     serialize atrribute, struct
 
-    struct.members.each { |member| delegate member, to: atrribute }
+    struct.members.each{ |member| delegate member, to: atrribute }
   end
-
 end

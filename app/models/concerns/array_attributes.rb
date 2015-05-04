@@ -1,7 +1,7 @@
 module ArrayAttributes
   extend ActiveSupport::Concern
 
-  DEFAULT_SEPARATOR = ','.freeze
+  DEFAULT_SEPARATOR = ",".freeze
 
   def array_attribute(name, options = {})
     separator = options.fetch(:separator, DEFAULT_SEPARATOR)
@@ -14,5 +14,4 @@ module ArrayAttributes
       end
     end
   end
-
 end

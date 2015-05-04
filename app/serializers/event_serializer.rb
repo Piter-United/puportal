@@ -24,5 +24,4 @@ class EventSerializer < ActiveModel::Serializer
       thumb: object.logo.thumb.url
     }
   end
-
 end

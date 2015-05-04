@@ -7,7 +7,7 @@ class CommunitiesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @communities, each_serializer: CommunitySerializer }
+      format.json{ render json: @communities, each_serializer: CommunitySerializer }
     end
   end
 
@@ -26,9 +26,9 @@ class CommunitiesController < ApplicationController
 
     respond_to do |format|
       if @community.save
-        format.html { redirect_to @community, notice: 'Community was successfully created.' }
+        format.html{ redirect_to @community, notice: "Community was successfully created." }
       else
-        format.html { render :new }
+        format.html{ render :new }
       end
     end
   end
@@ -36,9 +36,9 @@ class CommunitiesController < ApplicationController
   def update
     respond_to do |format|
       if @community.update(community_params)
-        format.html { redirect_to @community, notice: 'Community was successfully updated.' }
+        format.html{ redirect_to @community, notice: "Community was successfully updated." }
       else
-        format.html { render :edit }
+        format.html{ render :edit }
       end
     end
   end
@@ -47,7 +47,7 @@ class CommunitiesController < ApplicationController
     @community.destroy
 
     respond_to do |format|
-      format.html { redirect_to communities_url, notice: 'Community was successfully destroyed.' }
+      format.html{ redirect_to communities_url, notice: "Community was successfully destroyed." }
     end
   end
 

@@ -14,7 +14,7 @@ class CommunityDecorator < Draper::Decorator
     when action.nil?
       link_url = h.polymorphic_url([object])
     else
-      link_url = h.polymorphic_url([object], { action: action })
+      link_url = h.polymorphic_url([object], action: action)
     end
 
     h.link_to link_title, link_url, options
@@ -31,5 +31,4 @@ class CommunityDecorator < Draper::Decorator
   def logo
     h.image_tag object.logo.url
   end
-
 end

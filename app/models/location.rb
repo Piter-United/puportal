@@ -1,14 +1,14 @@
-class Location < Struct.new(:address, :latitude, :longitude)
+Location = Struct.new(:address, :latitude, :longitude) do
   include ActiveModel::Model
   include ActiveModel::Dirty
 
   define_attribute_methods *members
-  alias attribute []
+  alias_method :attribute, :[]
 
   validates :address, :latitude, :longitude, presence: true
 
   def initialize(data)
-    data.each { |k,v| self.send("#{ k }=", v) if self.respond_to?("#{ k }=") }
+    data.each{ |k, v| self.send("#{ k }=", v) if self.respond_to?("#{ k }=") }
   end
 
   def self.load(data = {})
