@@ -49,8 +49,7 @@ RSpec.describe OAuthService do
     end
 
     it "update expires at" do
-      expect{ service.link_accounts!(member, omniauth) }.to \
-      change{ authentication.reload.expires_at }.from(authentication.expires_at).to(Time.at(omniauth.credentials.expires_at))
+      expect{ service.link_accounts!(member, omniauth) }.to change{ authentication.reload.expires_at }
     end
 
     context "already linked account" do
