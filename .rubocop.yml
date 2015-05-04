@@ -1,0 +1,37 @@
+AllCops:
+  RunRailsCops: true
+
+  Exclude:
+      - 'bin/**/*'
+      - 'app/helpers/*'
+      - 'db/**/*'
+      - 'config/**/*'
+      - 'spec/**/*'
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 100
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
