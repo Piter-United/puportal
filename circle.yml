@@ -3,3 +3,7 @@ machine:
     version: 2.2.0
   services:
     - postgresql
+
+test:
+  post:
+    - bundle exec rubocop
