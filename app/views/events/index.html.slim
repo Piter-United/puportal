@@ -1,32 +1,58 @@
-.row.moto
+/ .row.moto
+/   .container
+/     .row
+/       .col.s6
+/         h3 Митапы
+/         p Календарь встреч IT-сообществ Санкт-Петербурга
+/       .col.s6
+/         .input-field.months
+/           select
+/             option value="1" Апрель 2015
+/             option value="2" Май 2015
+/             option value="3" Июнь 2015
+.row.header-meetups
   .container
     .row
       .col.s6
-        h3 Митапы
-        p Календарь встреч IT-сообществ Санкт-Петербурга
+        .header-meetups-title
+          p.meetups-title Встречи сообществ
+          h3 Май 2015
       .col.s6
-        .input-field.months
-          select
-            option value="1" Апрель 2015
-            option value="2" Май 2015
-            option value="3" Июнь 2015
+
 .row.new
   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_event_path
     i.mdi-content-add
 
-.row.community-list
+.row.meetup-list
   .container
     - @events.group_by{ |e| e.date }.each do |date, events|
-      .card-panel.white.event
+      div.meetups-list-items
         - events.map(&:decorate).each do |event|
-          .datetime
-            p.title= event.date
-          .row.title-event.valign-wrapper
-            .col.l1
-              i.small.mdi-action-query-builder
-            .col.l2= event.time
-            .col.l9
+          p.meetup-date= event.date
+          .row.meetups-item
+            .col.s8
               span= event.link
+              br
+              span ТРИЗ для менеджеров
+            .col.s4.right-align
+              span= event.time
+              br
+              span ул. Большая Морская, 19
+          br
+
+/ .row.community-list
+/   .container
+/     - @events.group_by{ |e| e.date }.each do |date, events|
+/       .card-panel.white.event
+/         - events.map(&:decorate).each do |event|
+/           .datetime
+/             p.title= event.date
+/           .row.title-event.valign-wrapper
+/             .col.l1
+/               i.small.mdi-action-query-builder
+/             .col.l2= event.time
+/             .col.l9
+/               span= event.link
 
 javascript:
   $(document).ready(function() {

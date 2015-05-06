@@ -11,17 +11,24 @@ html
     .navbar-fixed
       nav.red.lighten-2
         .nav-wrapper.container
-          a.brand-logo
-            = image_tag "pulogo.png", :class => "brand-img"
+          / a.brand-logo
+          /   = image_tag "pulogo.png", :class => "brand-img"
           a.button-collapse data-activates="mobile-demo" href="#" 
             i.mdi-navigation-menu
-          ul.right.hide-on-med-and-down
+          ul.left.hide-on-med-and-down.rnav
             li
               = link_to 'Главная', root_path
             li
               = link_to 'Сообщества', communities_path
             li
               = link_to 'Митапы', events_path
+          ul.right.hide-on-med-and-down.lnav
+            / li
+            /   = link_to 'Главная', root_path
+            / li
+            /   = link_to 'Сообщества', communities_path
+            / li
+            /   = link_to 'Митапы', events_path
             / li
             /   = link_to 'Площадки', places_path
             li

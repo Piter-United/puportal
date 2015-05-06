@@ -17,10 +17,17 @@ main {
   width: 50px;
   margin-top: 10px;
 }
+ul.rnav{
+  margin-left: -15px;
+}
+
+ul.lnav{
+  margin-right: -35px;
+}
 
 a.floating-absolute-right{
   position: absolute;
-  right: 100px;
+  right: 220px;
   bottom: -25px;
 }
 
