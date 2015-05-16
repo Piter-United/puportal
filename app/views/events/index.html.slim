@@ -13,11 +13,12 @@
 .row.header-meetups
   .container
     .row
-      .col.s6
+      .col.s12.m6
         .header-meetups-title
           p.meetups-title Встречи сообществ
           h3 Май 2015
-      .col.s6
+      .col.s12.m6
+          = image_tag "schedule_proto.png", :class => "right sched"
 
 .row.new
   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_event_path

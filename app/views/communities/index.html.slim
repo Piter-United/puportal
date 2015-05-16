@@ -1,7 +1,11 @@
-.row.moto
+.row.moto-community.valign-wrapper
   .container
-    h3 Сообщества
-    p IT-сообщества Санкт-Петербурга
+    .col.s12.m6
+      p Санкт-Петербург
+      h3.valign Сообщества
+    .col.s12.m6
+      .input-field
+        input#last_name.validate type="text" /
 
 .row.new
   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
@@ -11,9 +15,29 @@
   .container
     - @communities.each do |community|
       - decorator = community.decorate
-      .card-panel.white
-        .row.valign-wrapper
-          .col.s12.m3.l2.center= decorator.thumb
-          .col.s12.m9.l10
-            p.title= decorator.link class: "title"
-            p= decorator.description
+      .col.s12.m4
+        .card-panel.center.center
+          svg height="80" width="80"
+            circle cx="40" cy="40" fill="transparent" r="39" stroke="#ddd" stroke-width="1"
+          p.community-name= decorator.link
+          p.community-title Три слова о сообществе, а если больше?
+          p.count-members 305
+          p.count-members-title УЧАСТНИКОВ
+
+    
+
+
+/ .row.new
+/   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
+/     i.mdi-content-add
+
+/ .row.community-list
+/   .container
+/     - @communities.each do |community|
+/       - decorator = community.decorate
+/       .card-panel.white
+/         .row.valign-wrapper
+/           .col.s12.m3.l2.center= decorator.thumb
+/           .col.s12.m9.l10
+/             p.title= decorator.link class: "title"
+/             p= decorator.description

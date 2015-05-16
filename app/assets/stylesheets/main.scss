@@ -1,10 +1,12 @@
 /* Stick Footer */
+@import "variables.scss";
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   background-color: #fafafa;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
   font-size: 18px;
   color: #5c5c5c;
 }
@@ -18,25 +20,29 @@ main {
   margin-top: 10px;
 }
 ul.rnav{
-  margin-left: -15px;
+  /*margin-left: -15px;*/
+  padding-left: 10px;
 }
 
 ul.lnav{
-  margin-right: -35px;
+  /*margin-right: -35px;*/
+  padding-right: 10px;
 }
 
 a.floating-absolute-right{
   position: absolute;
-  right: 220px;
+  right: 258px;
   bottom: -25px;
 }
 
 .row{
   margin-bottom: 0px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 nav{
-  background-color: #e57373;
+  background-color: $header-background;
   box-shadow: none;
 }
 

@@ -1,9 +1,10 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables.scss";
 
 .moto{
-	background-color: #e57373;
+	background-color: $header-background;
 	/* #00BCD4 */
 	border-bottom: 1px solid #eee;
 	padding-top: 80px;
@@ -43,7 +44,7 @@ a.callto{
 
 .title{
 	font-weight: bold;
-	color: #e57373;
+	color: $header-background;
 }
 
 .parallax-container{
