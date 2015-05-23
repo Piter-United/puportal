@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.0"
+ruby "2.2.2"
 
 gem "rails", "4.2.0"
 # Heroku gem
@@ -13,6 +13,8 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "materialize-sass"
 gem "autoprefixer-rails"
+
+gem "therubyracer", platforms: :ruby
 
 gem "devise"
 gem "omniauth-vkontakte"
@@ -28,10 +30,18 @@ gem "russian"
 gem "active_model_serializers"
 gem "carrierwave", ">= 0.10.0"
 gem "mini_magick"
+gem "foreman"
+gem "rollbar", "~> 1.5.1"
 
 gem "jquery-rails"
 gem "turbolinks"
 gem "sdoc", "~> 0.4.0", group: :doc
+
+group :development do
+  gem "capistrano-rails",           require: false
+  gem "capistrano-bundler",         require: false
+  gem "capistrano-rbenv", "~> 2.0", require: false
+end
 
 group :development, :test do
   gem "pry"
@@ -52,4 +62,9 @@ group :test do
   gem "factory_girl_rails"
   gem "json-schema-rspec"
   gem "shoulda-matchers"
+end
+
+group :production do
+  gem "unicorn"
+  gem "unicorn-worker-killer"
 end

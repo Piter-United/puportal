@@ -20,3 +20,4 @@
 /public/uploads
 .DS_Store
 /nbproject
+config/deploy
