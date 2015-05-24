@@ -12,12 +12,12 @@ set :log_level, :debug
 set :pty, true
 
 set :rbenv_type, :system
-set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_ruby, File.read(".ruby-version").strip
 # set :rbenv_prefix, "RBENV_ROOT=#{ fetch(:rbenv_path) } RBENV_VERSION=#{ fetch(:rbenv_ruby) } #{ fetch(:rbenv_path) }/bin/rbenv exec"
 # set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # set :rbenv_roles, :all
 
-set :rbenv_custom_path, '/opt/rbenv'#'/home/deploy/.rbenv/'
+set :rbenv_custom_path, "/opt/rbenv"#"/home/deploy/.rbenv/"
 
 set :ssh_options, {
   forward_agent: true,
@@ -33,35 +33,35 @@ set :keep_releases, 5
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 namespace :foreman do
-  desc 'start server'
+  desc "start server"
   task :start do
     on roles(:all) do
       sudo "start #{ fetch(:application) }"
     end
   end
 
-  desc 'stop server'
+  desc "stop server"
   task :stop do
     on roles(:all) do
       sudo "stop #{ fetch(:application) }"
     end
   end
 
-  desc 'restart server'
+  desc "restart server"
   task :restart do
     on roles(:all) do
       sudo "restart #{ fetch(:application) }"
     end
   end
 
-  desc 'server status'
+  desc "server status"
   task :status do
     on roles(:all) do
       execute "initctl list | grep #{ fetch(:application) }"
     end
   end
 
-  desc 'export init file'
+  desc "export init file"
   task :export do
     on roles(:all) do
       foreman_temp = "/tmp/foreman/#{ Time.now.to_i }"
@@ -78,7 +78,7 @@ namespace :foreman do
 end
 
 namespace :deploy do
-  desc 'Restart application'
+  desc "Restart application"
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke "foreman:restart"
@@ -96,7 +96,7 @@ namespace :deploy do
     end
   end
 
-  desc 'Grand permissions for nginx'
+  desc "Grand permissions for nginx"
   task :grand_permissions do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       execute "chown deploy:www-data -R #{ current_path }/public"
