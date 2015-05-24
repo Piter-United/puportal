@@ -4,8 +4,8 @@
 			h3 Piter United
 			p Объединение IT-сообществ Санкт-Петербурга
 		.col.s12.m12.l4.calltoaction-container
-			a.waves-effect.waves-light.btn-large.light-blue.darken-4 Присоединиться
-		      
+			= link_to 'Присоединиться', new_member_registration_path, class: 'waves-effect waves-light btn-large light-blue darken-4'
+
 .row.landing-item.about_pu
 	.container
 		.col.s12.m8.l8
@@ -37,8 +37,7 @@
 .parallax-container
   .parallax
   	= image_tag "community.jpg"
-  a.waves-effect.waves-light.btn-large.light-blue.darken-4.callto
-  	| Присоединиться
+  = link_to 'Присоединиться', new_member_registration_path, class: 'waves-effect waves-light btn-large light-blue darken-4 callto'
 
 .row.landing-item-white.meetups
 	.container
