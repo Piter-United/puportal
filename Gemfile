@@ -32,7 +32,6 @@ gem "foreman"
 gem "rollbar", "~> 1.5.1"
 
 gem "jquery-rails"
-gem "turbolinks"
 gem "sdoc", "~> 0.4.0", group: :doc
 
 group :development do
