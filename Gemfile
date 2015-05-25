@@ -3,8 +3,6 @@ source "https://rubygems.org"
 ruby "2.2.2"
 
 gem "rails", "4.2.0"
-# Heroku gem
-gem "rails_12factor", group: :production
 
 gem "pg"
 gem "sass-rails", "~> 5.0"

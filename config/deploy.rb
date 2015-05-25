@@ -27,7 +27,7 @@ set :ssh_options, {
 set :deploy_to, "/home/deploy/#{ fetch(:application) }"
 set :deploy_user, :deploy
 set :linked_files, fetch(:linked_files, []).push("config/database.yml", "config/secrets.yml", ".env")
-set :linked_dirs,  fetch(:linked_dirs, []).push("tmp/pids", "tmp/sockets", "public/uploads")
+set :linked_dirs,  fetch(:linked_dirs, []).push("tmp/pids", "tmp/sockets", "public/uploads", "log")
 set :keep_releases, 5
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

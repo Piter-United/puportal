@@ -1,1 +1,1 @@
-web: bundle exec unicorn -c ./config/unicorn.rb
+web: bundle exec unicorn -c ./config/unicorn.rb --no-default-middleware

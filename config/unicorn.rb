@@ -1,11 +1,12 @@
+require 'syslog/logger'
+
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
 listen File.expand_path("#{ File.dirname(__FILE__) }/../tmp/sockets/unicorn.sock")
 
-stderr_path File.expand_path("#{ File.dirname(__FILE__) }/../log/unicorn.stderr.log")
-stdout_path File.expand_path("#{ File.dirname(__FILE__) }/../log/unicorn.stdout.log")
+logger Syslog::Logger.new("unicorn")
 
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 
