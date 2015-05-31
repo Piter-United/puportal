@@ -12,7 +12,6 @@ module Members
     alias_method :facebook,  :common
     alias_method :gplus,     :common
     alias_method :github,    :common
-    alias_method :linkedin,  :common
 
     private
 

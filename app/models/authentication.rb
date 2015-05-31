@@ -5,8 +5,7 @@ class Authentication < ActiveRecord::Base
     vkontakte: "vkontakte",
     facebook: "facebook",
     gplus: "gplus",
-    github: "github",
-    linkedin: "linkedin"
+    github: "github"
   }
 
   validates :token, presence: true, uniqueness: { with: true, scope: [:provider] }

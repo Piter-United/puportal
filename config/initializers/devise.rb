@@ -237,7 +237,6 @@ Devise.setup do |config|
   config.omniauth :facebook,  ENV['FB_APP_ID'], ENV['FB_SECRET'], scope: ENV['FB_SCOPE']
   config.omniauth :gplus,     ENV['GP_APP_ID'], ENV['GP_SECRET'], scope: ENV['GP_SCOPE']
   config.omniauth :github,    ENV['GH_APP_ID'], ENV['GH_SECRET'], scope: ENV['GH_SCOPE']
-  config.omniauth :linkedin,  ENV['LI_APP_ID'], ENV['LI_SECRET'], scope: ENV['LI_SCOPE']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

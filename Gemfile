@@ -19,7 +19,6 @@ gem "omniauth-vkontakte"
 gem "omniauth-facebook"
 gem "omniauth-gplus"
 gem "omniauth-github"
-gem "omniauth-linkedin"
 
 gem "geocoder"
 gem "draper"
