@@ -7,12 +7,14 @@ class LocationsController < ApplicationController
   def index
     data = Geocoder.search(params.require(:address), bounds: SPB_BOUDNS)
 
-    render json: data.map do |r|
+    locations = data.map do |r|
       {
         address: r.address,
         latitude: r.latitude,
         longitude: r.longitude
       }
     end
+
+    render json: locations
   end
 end
