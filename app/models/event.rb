@@ -9,5 +9,5 @@ class Event < ActiveRecord::Base
 
   validates :community, :title, :date, :start, :finish, :description, presence: true
 
-  scope :ordered, ->{ order("events.start DESC")  }
+  scope :on, ->(day = nil) { day ? where(date: day) : where(date: Date.today.beginning_of_month..Date.today.end_of_month) }
 end

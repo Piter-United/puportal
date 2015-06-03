@@ -12,6 +12,8 @@ module PublicHtml
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = true
 
+    config.autoload_paths += %W[#{ config.root }/lib]
+
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     config.assets.precompile += %w(.svg .eot .woff .ttf)

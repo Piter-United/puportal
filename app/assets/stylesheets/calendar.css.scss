@@ -1,0 +1,14 @@
+.calendar{
+  .meetups {
+    color: white;
+    background: green;
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  .today a, .today strong{
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+}

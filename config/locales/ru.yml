@@ -3,6 +3,7 @@ ru:
     formats:
       default: "%d.%m.%Y"
       short: "%d %B"
+      month_and_year: "%B %Y"
 
   time:
     formats:

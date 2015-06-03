@@ -16,9 +16,13 @@
       .col.s12.m6
         .header-meetups-title
           p.meetups-title Встречи сообществ
-          h3 Май 2015
+          h3= l (@day || Date.today).beginning_of_month, format: :month_and_year
       .col.s12.m6
-          = image_tag "schedule_proto.png", :class => "right sched"
+        = calendar Date.today do |date|
+          - if @events_index[date].present?
+            = link_to date.day, events_path(day: date), class: 'meetups'
+          - else
+            strong= date.day
 
 .row.new
   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_event_path
@@ -26,9 +30,9 @@
 
 .row.meetup-list
   .container
-    - @events.group_by{ |e| e.date }.each do |date, events|
+    - @events.each do |date, events|
       div.meetups-list-items
-        - events.map(&:decorate).each do |event|
+        - events.sort_by{ |e| [e.date, e.start, e.finish] }.map(&:decorate).each do |event|
           p.meetup-date= event.date
           .row.meetups-item
             .col.s8

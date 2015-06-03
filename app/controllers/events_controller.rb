@@ -2,8 +2,9 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
-    @event_decorators = @events.ordered.decorate
+    @day = Date.parse(params[:day]) if params[:day]
+    @events = Event.on(@day).group_by(&:date)
+    @events_index = Event.on.group_by(&:date)
 
     respond_to do |format|
       format.html
