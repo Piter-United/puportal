@@ -2,7 +2,7 @@ class CommunitiesController < ApplicationController
   before_action :find_community, only: [:show, :edit, :update, :destroy]
 
   def index
-    @communities = Community.all
+    @communities = Community.search(params)
     @community_decorators = @communities.decorate
 
     respond_to do |format|

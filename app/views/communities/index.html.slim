@@ -5,7 +5,8 @@
       h3.valign Сообщества
     .col.s12.m6
       .input-field
-        input#last_name.validate type="text" /
+        = form_tag communities_path, method: :get do
+          = text_field_tag :q, params[:q], class: 'validate'
 
 .row.new
   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
@@ -23,9 +24,6 @@
           p.community-title Три слова о сообществе, а если больше?
           p.count-members 305
           p.count-members-title УЧАСТНИКОВ
-
-    
-
 
 / .row.new
 /   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path

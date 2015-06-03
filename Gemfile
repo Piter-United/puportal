@@ -29,6 +29,7 @@ gem "carrierwave", ">= 0.10.0"
 gem "mini_magick"
 gem "foreman"
 gem "rollbar", "~> 1.5.1"
+gem 'pg_search'
 
 group :development do
   gem "capistrano-rails",           require: false
