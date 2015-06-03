@@ -7,3 +7,6 @@ ru:
   time:
     formats:
       time: "%H:%M"
+
+  oauth:
+    already_linked_account: Данный аккаунт уже прилинкован другим пользователем
