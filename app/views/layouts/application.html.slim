@@ -32,10 +32,10 @@ html
             / li
             /   = link_to 'Площадки', places_path
             li
-              - if member_signed_in?
-                = link_to 'Выйти', destroy_member_session_path, method: :delete
+              - if user_signed_in?
+                = link_to 'Выйти', destroy_user_session_path, method: :delete
               - else
-                = link_to 'Войти', new_member_session_path
+                = link_to 'Войти', new_user_session_path
 
           ul#mobile-demo.side-nav
             li
@@ -47,10 +47,10 @@ html
             / li
             /   = link_to 'Площадки', places_path
             li
-              - if member_signed_in?
-                = link_to 'Выйти', destroy_member_session_path, method: :delete
+              - if user_signed_in?
+                = link_to 'Выйти', destroy_user_session_path, method: :delete
               - else
-                = link_to 'Войти', new_member_session_path
+                = link_to 'Войти', new_user_session_path
 
     main
     	= yield

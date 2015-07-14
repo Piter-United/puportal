@@ -1,10 +1,10 @@
-module Members
+module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def common
-      if member_signed_in?
+      if user_signed_in?
         link_accounts
       else
-        registrate_member
+        registrate_user
       end
     end
 
@@ -15,11 +15,11 @@ module Members
 
     private
 
-    def registrate_member
-      @member = oauth.authenticate(omniauth)
+    def registrate_user
+      @user = oauth.authenticate(omniauth)
 
-      if @member.persisted?
-        sign_in_and_redirect @member, event: :authentication
+      if @user.persisted?
+        sign_in_and_redirect @user, event: :authentication
         set_flash_message(:notice, :success, kind: omniauth.provider) if is_navigational_format?
       else
         session["devise.#{ omniauth.provider }_data"] = omniauth
@@ -28,7 +28,7 @@ module Members
     end
 
     def link_accounts
-      oauth.link_accounts!(current_member, omniauth)
+      oauth.link_accounts!(current_user, omniauth)
 
       redirect_to root_path, notice: :ok
     rescue OAuthService::Error => error

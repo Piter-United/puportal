@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714205415) do
+ActiveRecord::Schema.define(version: 20150714214139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,19 @@ ActiveRecord::Schema.define(version: 20150714205415) do
     t.json     "location",     default: {}
   end
 
-  create_table "members", force: :cascade do |t|
+  create_table "places", force: :cascade do |t|
+    t.string   "address"
+    t.text     "description"
+    t.text     "photos"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.string   "link"
+    t.text     "contacts"
+    t.text     "interests",   default: [],              array: true
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.text     "links"
     t.string   "email"
@@ -84,21 +96,9 @@ ActiveRecord::Schema.define(version: 20150714205415) do
     t.datetime "locked_at"
   end
 
-  add_index "members", ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true, using: :btree
-  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
-  add_index "members", ["unconfirmed_email"], name: "index_members_on_unconfirmed_email", unique: true, using: :btree
-
-  create_table "places", force: :cascade do |t|
-    t.string   "address"
-    t.text     "description"
-    t.text     "photos"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "name"
-    t.string   "link"
-    t.text     "contacts"
-    t.text     "interests",   default: [],              array: true
-  end
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unconfirmed_email"], name: "index_users_on_unconfirmed_email", unique: true, using: :btree
 
 end

@@ -13,8 +13,8 @@ RSpec.describe OAuthService do
   end
 
   describe '#authenticate' do
-    context "absent member" do
-      it("registrate new member")     { expect{ service.authenticate(omniauth) }.to change{ Member.count }.to(+1) }
+    context "absent user" do
+      it("registrate new user")       { expect{ service.authenticate(omniauth) }.to change{ User.count }.to(+1) }
       it("create new authentication") { expect{ service.authenticate(omniauth) }.to change{ Authentication.count }.to(+1) }
 
       specify "new authentication attribtues" do
@@ -27,35 +27,35 @@ RSpec.describe OAuthService do
       end
     end
 
-    context "already registered member" do
-      let!(:member)         { create(:member) }
-      let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: member, uid: omniauth.uid) }
+    context "already registered user" do
+      let!(:user)           { create(:user) }
+      let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: user, uid: omniauth.uid) }
 
-      it("not registrate new member")     { expect{ service.authenticate(omniauth) }.to_not change{ Member.count } }
+      it("not registrate new user")       { expect{ service.authenticate(omniauth) }.to_not change{ User.count } }
       it("not create new authentication") { expect{ service.authenticate(omniauth) }.to_not change{ Authentication.count } }
     end
   end
 
   describe '#link_accounts' do
-    let!(:member)         { create(:member) }
-    let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: member, uid: omniauth.uid) }
+    let!(:user)           { create(:user) }
+    let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: user, uid: omniauth.uid) }
 
-    it("not registrate new member")     { expect{ service.link_accounts!(member, omniauth) }.to_not change{ Member.count } }
-    it("not create new authentication") { expect{ service.link_accounts!(member, omniauth) }.to_not change{ Authentication.count } }
+    it("not registrate new user")       { expect{ service.link_accounts!(user, omniauth) }.to_not change{ User.count } }
+    it("not create new authentication") { expect{ service.link_accounts!(user, omniauth) }.to_not change{ Authentication.count } }
 
     it "update token" do
-      expect{ service.link_accounts!(member, omniauth) }.to \
+      expect{ service.link_accounts!(user, omniauth) }.to \
       change{ authentication.reload.token }.from(authentication.token).to(omniauth.credentials.token)
     end
 
     it "update expires at" do
-      expect{ service.link_accounts!(member, omniauth) }.to change{ authentication.reload.expires_at }
+      expect{ service.link_accounts!(user, omniauth) }.to change{ authentication.reload.expires_at }
     end
 
     context "already linked account" do
-      let(:other_member) { create(:member) }
+      let(:other_user) { create(:user) }
 
-      it("raise already linked account error") { expect{ service.link_accounts!(other_member, omniauth) }.to raise_error(OAuthService::AlreadyLinkedAccount) }
+      it("raise already linked account error") { expect{ service.link_accounts!(other_user, omniauth) }.to raise_error(OAuthService::AlreadyLinkedAccount) }
     end
   end
 

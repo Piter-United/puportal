@@ -1,5 +1,5 @@
 class Authentication < ActiveRecord::Base
-  belongs_to :owner, class_name: "Member", inverse_of: :authentications, foreign_key: :owner_id
+  belongs_to :owner, class_name: "User", inverse_of: :authentications, foreign_key: :owner_id
 
   enum provider: {
     vkontakte: "vkontakte",

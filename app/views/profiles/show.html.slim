@@ -17,4 +17,4 @@
     strong Accounts
     ul.accounts
       - @profile.absent_authentications.map do |provider|
-        li= link_to "Link #{provider.to_s.titleize} account", omniauth_authorize_path(Member, provider)
+        li= link_to "Link #{provider.to_s.titleize} account", omniauth_authorize_path(User, provider)

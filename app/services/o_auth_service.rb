@@ -7,19 +7,19 @@ class OAuthService
   def authenticate(omniauth)
     transaction do
       authentication = build_authentication(omniauth)
-      authentication.owner = registrate_member(omniauth) if authentication.new_record?
+      authentication.owner = registrate_user(omniauth) if authentication.new_record?
       authentication.save!
       authentication.owner
     end
   end
 
-  def link_accounts!(member, omniauth)
+  def link_accounts!(user, omniauth)
     transaction do
       authentication = build_authentication(omniauth)
 
-      fail AlreadyLinkedAccount if authentication.persisted? && authentication.owner != member
+      fail AlreadyLinkedAccount if authentication.persisted? && authentication.owner != user
 
-      authentication.owner = member
+      authentication.owner = user
       authentication.save!
     end
   end
@@ -37,12 +37,12 @@ class OAuthService
     authentication
   end
 
-  def registrate_member(omniauth)
-    Member.create! do |member|
-      member.oauth = true
-      member.name ||= omniauth.info.name
-      member.avatar ||= omniauth.info.image
-      member.skip_confirmation!
+  def registrate_user(omniauth)
+    User.create! do |user|
+      user.oauth = true
+      user.name ||= omniauth.info.name
+      user.avatar ||= omniauth.info.image
+      user.skip_confirmation!
     end
   end
 end
