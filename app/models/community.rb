@@ -8,7 +8,7 @@ class Community < ActiveRecord::Base
 
   array_attribute :tags
 
-  validates :hashtag, :logo, :description, presence: true
+  validates :hashtag, :description, presence: true
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   pg_search_scope :full_text_search, using: {
