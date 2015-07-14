@@ -3,6 +3,8 @@ class Community < ActiveRecord::Base
   include PgSearch
 
   has_many :events, inverse_of: :community
+  has_many :members, class_name: "Member", inverse_of: :community
+  has_many :users, through: :members
 
   mount_uploader :logo, ::CommunityLogoUploader
 

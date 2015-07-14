@@ -10,6 +10,10 @@
       = @community_decorator.logo
       = @community_decorator.description
 
-	  = @community_decorator.link action: :edit, title: :edit, class: "waves-effect waves-light btn"
+	  = @community_decorator.link action: :edit,  title: :edit, class: "waves-effect waves-light btn"
 	  | &nbsp;
 	  = @community_decorator.link action: :index, title: :back, class: "waves-effect waves-light btn"
+	  | &nbsp;
+	  = @community_decorator.link action: :join,  title: :join, class: "waves-effect waves-light btn"
+	  | &nbsp;
+	  = @community_decorator.link action: :live,  title: :live, class: "waves-effect waves-light btn"

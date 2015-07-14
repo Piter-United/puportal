@@ -11,6 +11,12 @@ class CommunityDecorator < Draper::Decorator
     case
     when action == :index
       link_url = h.polymorphic_url(object.class)
+    when action == :join
+      link_url = h.community_membership_path(community_id: object.id)
+      options[:method] = :post
+    when action == :live
+      link_url = h.community_membership_path(community_id: object.id)
+      options[:method] = :delete
     when action.nil?
       link_url = h.polymorphic_url([object])
     else
