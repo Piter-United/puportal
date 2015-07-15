@@ -1,6 +1,6 @@
 class Calendar < Struct.new(:view, :date, :callback)
   HEADER = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
-  START_DAY = :sunday
+  START_DAY = :monday
 
   delegate :content_tag, to: :view
 
@@ -12,10 +12,11 @@ class Calendar < Struct.new(:view, :date, :callback)
 
   def header
     content_tag :tr do
-      Date::DAYNAMES.inject([]) { |row, day|
+      days = Date::DAYNAMES.each_with_object([]) do |_, row|
         row << content_tag(:th, I18n.t(:"date.standalone_abbr_day_names")[row.size])
-        row
-      }.join.html_safe
+      end
+      days.push days.shift # monday - first day
+      days.join.html_safe
     end
   end
 
