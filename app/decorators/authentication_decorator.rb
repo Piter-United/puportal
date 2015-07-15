@@ -13,5 +13,4 @@ class AuthenticationDecorator < Draper::Decorator
       h.link_to provider, "http://github.com/#{ uid }"
     end
   end
-
 end

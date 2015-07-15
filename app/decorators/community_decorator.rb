@@ -5,25 +5,35 @@ class CommunityDecorator < Draper::Decorator
 
   def link(options = {})
     action = options.delete(:action)
-    link_title = options.delete(:title) || object.name
-    link_url = nil
+    options[:title] ||= object.name
 
-    case
-    when action == :index
-      link_url = h.polymorphic_url(object.class)
-    when action == :join
-      link_url = h.community_membership_path(community_id: object.id)
-      options[:method] = :post
-    when action == :live
-      link_url = h.community_membership_path(community_id: object.id)
-      options[:method] = :delete
-    when action.nil?
-      link_url = h.polymorphic_url([object])
+    case action
+    when :index
+      index_link options
+    when :join
+      join_link options
+    when :live
+      live_link options
+    when nil
+      h.link_to options[:title], h.polymorphic_url([object]), options
     else
-      link_url = h.polymorphic_url([object], action: action)
+      h.link_to options[:title], h.polymorphic_url([object], action: action), options
     end
+  end
 
-    h.link_to link_title, link_url, options
+  def index_link(options = {})
+    path = h.polymorphic_url(object.class)
+    h.link_to options[:title], path, options
+  end
+
+  def join_link(options = {})
+    path = h.community_membership_path(community_id: object.id)
+    h.link_to options[:title], path, options.merge(method: :post)
+  end
+
+  def live_link(options = {})
+    path = h.community_membership_path(community_id: object.id)
+    h.link_to options[:title], path, options.merge(method: :delete)
   end
 
   def description

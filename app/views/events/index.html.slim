@@ -16,9 +16,9 @@
       .col.s12.m6
         .header-meetups-title
           p.meetups-title Встречи сообществ
-          h3= l (@day || Date.today).beginning_of_month, format: :month_and_year
+          h3= l (@day || Time.zone.today).beginning_of_month, format: :month_and_year
       .col.s12.m6
-        = calendar Date.today do |date|
+        = calendar Time.zone.today do |date|
           - if @events_index[date].present?
             = link_to date.day, events_path(day: date), class: 'meetups'
           - else

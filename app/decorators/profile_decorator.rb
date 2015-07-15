@@ -9,6 +9,6 @@ class ProfileDecorator < Draper::Decorator
 
   def absent_authentications
     exists = object.authentications.map(&:provider)
-    absent = Authentication.providers.values - exists
+    Authentication.providers.values - exists
   end
 end

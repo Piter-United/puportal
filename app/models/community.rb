@@ -14,14 +14,13 @@ class Community < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   pg_search_scope :full_text_search, using: {
-                                       tsearch: { dictionary: 'russian' },
-                                       trigram: { only: [:name, :hashtag], threshold: 0.285 }
-                                     },
-                                     against: {
-                                       name: 'A',
-                                       hashtag: 'B',
-                                       description: 'C'
-                                     }
+    tsearch: { dictionary: "russian" },
+    trigram: { only: [:name, :hashtag], threshold: 0.285 }
+  }, against: {
+    name: "A",
+    hashtag: "B",
+    description: "C"
+  }
 
-  scope :search, ->(params) { params[:q].present? ? full_text_search(params[:q]) : all }
+  scope :search, ->(params){ params[:q].present? ? full_text_search(params[:q]) : all }
 end

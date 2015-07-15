@@ -1,5 +1,5 @@
-class Calendar < Struct.new(:view, :date, :callback)
-  HEADER = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+Calendar = Struct.new(:view, :date, :callback) do
+  HEADER = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
   START_DAY = :monday
 
   delegate :content_tag, to: :view
@@ -23,7 +23,7 @@ class Calendar < Struct.new(:view, :date, :callback)
   def week_rows
     weeks.map do |week|
       content_tag :tr do
-        week.map { |day| day_cell(day) }.join.html_safe
+        week.map{ |day| day_cell(day) }.join.html_safe
       end
     end.join.html_safe
   end
@@ -34,7 +34,7 @@ class Calendar < Struct.new(:view, :date, :callback)
 
   def day_classes(day)
     classes = []
-    classes << "today" if day == Date.today
+    classes << "today" if day == Time.zone.today
     classes << "not-month" if day.month != date.month
     classes.empty? ? nil : classes.join(" ")
   end

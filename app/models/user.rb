@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :oauth
 
   has_many :authentications, inverse_of: :owner, foreign_key: :owner_id
-  has_many :members, class_name: 'Member', inverse_of: :community
+  has_many :members, class_name: "Member", inverse_of: :community
   has_many :communities, through: :members
 
   def password_required?

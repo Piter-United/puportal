@@ -14,8 +14,7 @@
 
 .row.community-list
   .container
-    - @communities.each do |community|
-      - decorator = community.decorate
+    - @communities.map{ |c| c.decorate }.each do |decorator|
       .col.s12.m4
         .card-panel.center.center
           svg height="80" width="80"
