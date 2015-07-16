@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20150714221302) do
     t.integer "user_id"
   end
 
+  add_index "members", ["community_id", "user_id"], name: "index_members_on_community_id_and_user_id", unique: true, using: :btree
+
   create_table "places", force: :cascade do |t|
     t.string   "address"
     t.text     "description"

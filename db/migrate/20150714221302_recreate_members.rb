@@ -5,6 +5,6 @@ class RecreateMembers < ActiveRecord::Migration
   		t.integer :user_id
   	end
 
-  	add_index :members, [:community_id, :user_id]
+  	add_index :members, [:community_id, :user_id], unique: true
   end
 end
