@@ -9,5 +9,5 @@ RSpec.describe Event, type: :model do
   it { is_expected.to validate_presence_of(:finish) }
   it { is_expected.to validate_presence_of(:description)}
 
-  it { is_expected.to belong_to(:community).class_name('Community').inverse_of(:events) }
+  it { is_expected.to belong_to(:community).class_name("Community").inverse_of(:events) }
 end
