@@ -9,8 +9,9 @@
           = text_field_tag :q, params[:q], class: 'validate'
 
 .row.new
-  a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
-    i.mdi-content-add
+  - if can? :create, Community
+    = link_to new_community_path, class: 'floating-absolute-right btn-floating btn-large waves-effect waves-light light-blue darken-4 z-depth-2' do
+      i.mdi-content-add
 
 .row.community-list
   .container

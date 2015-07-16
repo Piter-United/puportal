@@ -2,6 +2,8 @@ class CommunitiesController < ApplicationController
   before_action :find_community, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize! :read, Community
+
     @communities = Community.search(params)
     @community_decorators = @communities.decorate
 
@@ -12,16 +14,22 @@ class CommunitiesController < ApplicationController
   end
 
   def show
+    authorize! :read, Community
   end
 
   def new
+    authorize! :create, Community
+
     @community = Community.new
   end
 
   def edit
+    authorize! :update, Community
   end
 
   def create
+    authorize! :create, Community
+
     @community = Community.new(community_params)
 
     respond_to do |format|
@@ -34,6 +42,8 @@ class CommunitiesController < ApplicationController
   end
 
   def update
+    authorize! :update, Community
+
     respond_to do |format|
       if @community.update(community_params)
         format.html{ redirect_to @community, notice: "Community was successfully updated." }
@@ -44,6 +54,8 @@ class CommunitiesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, Community
+
     @community.destroy
 
     respond_to do |format|

@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize! :read, Event
+
     @day = Date.parse(params[:day]) if params[:day]
     @events = Event.on(@day).group_by(&:date)
     @events_index = Event.on.group_by(&:date)
@@ -13,16 +15,22 @@ class EventsController < ApplicationController
   end
 
   def show
+    authorize! :read, Event
   end
 
   def new
+    authorize! :create, Event
+
     @event = Event.new
   end
 
   def edit
+    authorize! :update, Event
   end
 
   def create
+    authorize! :create, Event
+
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -35,6 +43,8 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize! :update, Event
+
     respond_to do |format|
       if @event.update(event_params)
         format.html{ redirect_to @event, notice: "Event was successfully updated." }
@@ -45,6 +55,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, Event
+
     @event.destroy
 
     respond_to do |format|

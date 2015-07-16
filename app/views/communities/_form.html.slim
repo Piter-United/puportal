@@ -32,4 +32,5 @@
       | Submit
       i.mdi-content-send.right
     | &nbsp;
-    = @community.decorate.link title: 'отмена', action: :index
+    - if can? :read, Community
+      = @community.decorate.link title: 'отмена', action: :index

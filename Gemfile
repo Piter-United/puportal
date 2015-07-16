@@ -30,6 +30,7 @@ gem "mini_magick"
 gem "foreman"
 gem "rollbar", "~> 1.5.1"
 gem "pg_search"
+gem "cancancan", "~> 1.10"
 
 group :development do
   gem "overcommit"

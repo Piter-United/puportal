@@ -1,19 +1,26 @@
 .row.moto
   .container
     h3= @community_decorator.name
-	p= @community_decorator.description
+  p= @community_decorator.description
 
 .container
-	.card-panel.newitemform.white
-	  p.title= @community_decorator.name
-	  p
+  .card-panel.newitemform.white
+    p.title= @community_decorator.name
+    p
       = @community_decorator.logo
       = @community_decorator.description
 
-	  = @community_decorator.link action: :edit,  title: :edit, class: "waves-effect waves-light btn"
-	  | &nbsp;
-	  = @community_decorator.link action: :index, title: :back, class: "waves-effect waves-light btn"
-	  | &nbsp;
-	  = @community_decorator.link action: :join,  title: :join, class: "waves-effect waves-light btn"
-	  | &nbsp;
-	  = @community_decorator.link action: :live,  title: :live, class: "waves-effect waves-light btn"
+    - if can? :update, @community
+      = @community_decorator.link action: :edit,  title: :edit, class: "waves-effect waves-light btn"
+      | &nbsp;
+
+    - if can? :read, @community
+      = @community_decorator.link action: :index, title: :back, class: "waves-effect waves-light btn"
+      | &nbsp;
+
+    - if can? :create, Member
+      = @community_decorator.link action: :join,  title: :join, class: "waves-effect waves-light btn"
+      | &nbsp;
+
+    - if can? :destroy, Member
+      = @community_decorator.link action: :live,  title: :live, class: "waves-effect waves-light btn"

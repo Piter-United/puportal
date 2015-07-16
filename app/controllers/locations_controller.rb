@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
   ]
 
   def index
+    authorize! :read, Geocoder
+
     data = Geocoder.search(params.require(:address), bounds: SPB_BOUDNS)
 
     locations = data.map do |r|
