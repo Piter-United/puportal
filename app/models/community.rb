@@ -2,9 +2,9 @@ class Community < ActiveRecord::Base
   extend ArrayAttributes
   include PgSearch
 
-  has_many :events, inverse_of: :community
+  has_many :events,  class_name: "Event",  inverse_of: :community
   has_many :members, class_name: "Member", inverse_of: :community
-  has_many :users, through: :members
+  has_many :users,   class_name: "User",   through: :members
 
   mount_uploader :logo, ::CommunityLogoUploader
 
