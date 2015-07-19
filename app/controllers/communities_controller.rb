@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
-  before_action :find_community, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :find_community,     only: [:show, :edit, :update, :destroy]
 
   def index
     authorize! :read, Community
