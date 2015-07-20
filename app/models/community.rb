@@ -22,5 +22,5 @@ class Community < ActiveRecord::Base
     description: "C"
   }
 
-  scope :search, ->(params){ params[:q].present? ? full_text_search(params[:q]) : all }
+  scope :filter, ->(params){ params[:q].present? ? full_text_search(params[:q]) : all }
 end

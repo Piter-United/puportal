@@ -5,7 +5,7 @@ class CommunitiesController < ApplicationController
   def index
     authorize! :read, Community
 
-    @communities = Community.search(params)
+    @communities = Community.filter(params)
     @community_decorators = @communities.decorate
 
     respond_to do |format|

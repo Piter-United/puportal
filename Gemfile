@@ -19,6 +19,7 @@ gem "omniauth-vkontakte"
 gem "omniauth-facebook"
 gem "omniauth-gplus"
 gem "omniauth-github"
+gem "activeadmin", "~> 1.0.0.pre1"
 
 gem "geocoder"
 gem "draper"
