@@ -9,12 +9,7 @@ class Event < ActiveRecord::Base
 
   validates :community, :title, :date, :start, :finish, :description, presence: true
 
-  scope :on, lambda { |day = nil|
-    if day
-      where(date: day)
-    else
-      current_month = Time.zone.today.beginning_of_month..Time.zone.today.end_of_month
-      where(date: current_month)
-    end
-  }
+  scope :on, ->(day = nil){ day ? where(date: day) : current_month }
+  scope :current_month, ->{ where(date: Time.current_month) }
+  scope :current_week, ->{ where(date: Time.current_week) }
 end
