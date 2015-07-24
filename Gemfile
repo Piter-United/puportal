@@ -32,6 +32,8 @@ gem "foreman"
 gem "rollbar", "~> 1.5.1"
 gem "pg_search"
 gem "cancancan", "~> 1.10"
+gem "gibbon"
+gem "mandrill_mailer"
 
 group :development do
   gem "overcommit"

@@ -17,4 +17,12 @@ class User < ActiveRecord::Base
   def email_required?
     !oauth
   end
+
+  after_create :subscribe_to_weekly_newsletter
+
+  private
+
+  def subscribe_to_weekly_newsletter
+    SubscribeJob.perform_later(self)
+  end
 end
