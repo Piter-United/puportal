@@ -1,26 +1,30 @@
-.row.moto
-  .container
-    h3= @community_decorator.name
-  p= @community_decorator.description
+= cover title: @community_decorator.name, description: @community_decorator.description, image: @community_decorator.object.logo do
+  - if can? :create, Member
+    - @community_decorator.join_link title: 'Присоединиться', class: 'btn-large waves-effect waves-light'
 
-.container
-  .card-panel.newitemform.white
-    p.title= @community_decorator.name
-    p
-      = @community_decorator.logo
-      = @community_decorator.description
-
+.section
+  .fixed-action-btn
     - if can? :update, @community
-      = @community_decorator.link action: :edit,  title: :edit, class: "waves-effect waves-light btn"
-      | &nbsp;
+      = @community_decorator.link action: :edit,  title: :edit, class: "btn-floating btn-large waves-effect waves-light orange" do
+        = icon('pencil')
 
-    - if can? :read, @community
-      = @community_decorator.link action: :index, title: :back, class: "waves-effect waves-light btn"
-      | &nbsp;
+  .container
+    = @community_decorator.description
+    .row
+      .col.s12
+        p
+          - if can? :create, Member
+            = @community_decorator.link action: :join,  title: :join, class: "btn waves-effect waves-light green"
+            | &nbsp;
 
-    - if can? :create, Member
-      = @community_decorator.link action: :join,  title: :join, class: "waves-effect waves-light btn"
-      | &nbsp;
+          - if can? :destroy, Member
+            = @community_decorator.link action: :live,  title: :live, class: "btn waves-effect waves-light red"
 
-    - if can? :destroy, Member
-      = @community_decorator.link action: :live,  title: :live, class: "waves-effect waves-light btn"
+- if @community.users.any?
+  .divider
+  .section
+    .container
+      h3 Участники
+      .row
+        - @community.users.each do |user|
+          .col.l1= image_tag user.avatar, class: "responsive-img"

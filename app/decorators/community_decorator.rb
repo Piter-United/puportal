@@ -3,6 +3,10 @@ class CommunityDecorator < Draper::Decorator
 
   delegate :name
 
+  def members_count
+    object.members.count
+  end
+
   def link(options = {})
     action = options.delete(:action)
     options[:title] ||= object.name
@@ -40,11 +44,8 @@ class CommunityDecorator < Draper::Decorator
     markdown.render(object.description).html_safe
   end
 
-  def thumb
-    h.image_tag object.logo.thumb.url, class: "circle responsive-img"
-  end
-
-  def logo
-    h.image_tag object.logo.url
+  def card
+    h.image_tag object.logo.card.url, class: "circle responsive-img",
+                                      "data-at2x" => object.logo.retina_card
   end
 end

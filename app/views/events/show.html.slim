@@ -28,7 +28,7 @@ p#notice= notice
       dd= @event_decorator.location.longitude
 
   - if can? :edit, Event
-    = @event_decorator.link title: 'edit', action: :edit,  class: "waves-effect waves-light btn"
+    = @event_decorator.link title: 'edit', action: :edit,  class: "btn waves-effect waves-light"
 
   - if can? :read, Event
-    = @event_decorator.link title: 'back', action: :index, class: "waves-effect waves-light btn"
+    = @event_decorator.link title: 'back', action: :index, class: "btn waves-effect waves-light"

@@ -1,70 +1,39 @@
-.row.moto
-	.container
-		.col.s12.m8.l8
-			h3 Piter United
-			p Объединение IT-сообществ Санкт-Петербурга
-		- unless user_signed_in?
-			.col.s12.m12.l4.calltoaction-container
-				= link_to 'Присоединиться', new_user_registration_path, class: 'waves-effect waves-light btn-large light-blue darken-4'
+= cover title: t("portal.title"), description: t("portal.description"), image: image_url("landing.jpg") do
+  - link_to 'Присоединиться', new_user_registration_path, class: 'btn-large waves-effect waves-light'
 
-.row.landing-item.about_pu
-	.container
-		.col.s12.m8.l8
-			p.title Piter United
-			p Мы IT-специалисты из различных компаний Питера: программисты, менеджеры, аналитики и т.д. Мы готовы обмениваться своим опытом и знаниями с коллегами и за счет этого профессионально развиваться, расширять кругозор и находить единомышленников.
-		.col.s12.m12.l4
-			svg.z-depth-1.right height="200" width="200" 
-			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
+.container
+  .section
+    p.flow-text
+      / = image_tag 'http://piter-united.ru/img/piterunited.png', class: 'left'
+      ' Мы IT-специалисты из различных компаний Питера: программисты, менеджеры, аналитики и т.д., объединяемся в сообщества вокруг профессиональных различных областей и интересов: языки программирования, платформы, специализации, предметные области и др. Мы обмениваемся своим опытом и знаниями с коллегами, за счет этого профессионально развиваемся, расширяем кругозор и находим единомышленников.
 
-.row.landing-item-white.about_itgm
-	.container
-		.col.s12.m12.l4
-			svg.z-depth-1 height="200" width="200" 
-			  circle cx="100" cy="100" fill="white" r="80" stroke="" stroke-width="" /
 
-		.col.s12.m8.l8
-			p.title Сообщества
-			p Мы объединяемся в сообщества вокруг различных профессиональных областей интересов: языки программирования, платформы, специализации, предметные области и др.
+= cover description: 'Регулярные всречи с единомышленниками', image: image_url("landing_3.jpg") do
+  - link_to 'подробнее', events_path, class: 'btn-large waves-effect waves-light'
 
-.row.landing-item.communities
-	.container
-		.col.s12.m8.l8
-			p.title Митапы
-			p Каждое из сообществ проводит ежемесячные встречи, на которых мы обсуждаем профессиональные темы, знакомимся и общаемся в различных форматах: доклады, круглые столы, совместный кодинг, решение кейсов и др.
-		.col.s12.m12.l4
-			svg.z-depth-1.right height="200" width="200" 
-			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
+.container
+  .section
+    p.flow-text Каждое из сообществ проводит ежемесячные встречи, на которых мы обсуждаем профессиональные темы, знакомимся и общаемся в различных форматах: доклады, круглые столы, совместный кодинг, решение кейсов и др. Вы сможете удовлетворить свою потребность в профессиональном общении, расширить кругозор по интересным Вам темам и найти единомышленников.
 
-- unless user_signed_in?
-	.parallax-container
-	  .parallax
-	  	= image_tag "community.jpg"
-	  = link_to 'Присоединиться', new_user_registration_path, class: 'waves-effect waves-light btn-large light-blue darken-4 callto'
 
-.row.landing-item-white.meetups
-	.container
-		.col.s12.m12.l4
-			svg.z-depth-1 height="200" width="200" 
-			  circle cx="100" cy="100" fill="white" r="80" stroke="" stroke-width="" /
-		.col.s12.m8.l8
-			p.title IT Global Meetup
-			p Примерно раз в квартал, все наши сообщества собираются в одно время в одном месте, на слет IT-сообществ Питера. На этом масштабном мероприятии наши сообщества знакомятся между собой, обсуждают кросс-профессиональные темы и обретают новых участников.
+= cover title: 'IT Global Meetup', image: image_url("landing_2.jpg")
 
-.row.landing-item.communities
-	.container
-		.col.s12.m8.l8
-			p.title Сообщество Piter United
-			p Еще у нас есть сообщество активистов Piter United, которое сформировано с целью создания благоприятной экосистемы для появления новых и развития существующих IT-сообществ Питера. Мы стараемся аккумулировать опыт развития наших сообществ и удачные решения распространять между сообществами.
-		.col.s12.m12.l4
-			svg.z-depth-1.right height="200" width="200" 
-			  circle cx="100" cy="100" fill="#fafafa" r="80" stroke="" stroke-width="" /
+.container
+  .section
+    p.flow-text
+      ' IT Global Meetup - это ежеквартальный слет IT-сообществ Петербурга.
+      ' Собирает на одной площадке сотни IT-специалистов из различных компаний города: программистов, менеджеров, аналитиков, дизайнеров,проектировщиков интерфейсов, тестировщиков для открытого общения и обмена профессиональным опытом, знаниями и мнениями.
+    p.flow-text
+      ' IT Global Meetup - это уникальное по своему формату и атмосфере мероприятие. Мы стараемся максимально отойти от формата конференций “один вещает, а остальные молча слушают” и дать возможность профессионалам своего дела вступить в активные дискуссии, рассказать о своем опыте, поспорить или совместно выработать решения. Для этого мы подбираем подходящие форматы и создаем атмосферу способствующую общению.
 
-.row.landing-item-white.partners
-	.container
-		p.title Нас поддержиают!
-		p логотипы IT-компаний и др. организаций
+.divider
+.container
+  .section
+    h2 Нас поддержиают
+    = render partial: "partners"
 
-javascript:
-	$(document).ready(function(){
-    $('.parallax').parallax();
-  });
+.divider
+.container
+  .section
+    h2 Информационные партнёры
+  = render partial: "info_partners"

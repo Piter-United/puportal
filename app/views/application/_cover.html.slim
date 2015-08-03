@@ -1,0 +1,11 @@
+.parallax-container.cover
+  .section.no-pad-bot
+    .container
+      - if defined? cover_title
+        h1.center.white-text.community_name= cover_title
+      - if defined? cover_description
+        .row.center
+          h4.header.white-text.community_short_description= cover_description
+      - if defined? cover_links
+        .row.center= cover_links
+  .parallax= image_tag cover_image

@@ -1,0 +1,26 @@
+@import "_colors";
+@import "_fonts";
+@import "materialize";
+
+body{
+  background-color: $primary-color;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.text-shadow{
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 1.6px;
+}
+
+.sn_link {
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 1.6px;
+  font-size: 2em;
+  padding: 0.3em;
+}

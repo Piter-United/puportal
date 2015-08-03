@@ -13,6 +13,7 @@ gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
 gem "materialize-sass"
 gem "autoprefixer-rails"
+gem "font-awesome-sass"
 
 gem "devise"
 gem "omniauth-vkontakte"
@@ -29,7 +30,6 @@ gem "active_model_serializers"
 gem "carrierwave", ">= 0.10.0"
 gem "mini_magick"
 gem "foreman"
-gem "rollbar", "~> 1.5.1"
 gem "pg_search"
 gem "cancancan", "~> 1.10"
 gem "gibbon"
@@ -61,6 +61,7 @@ group :test do
 end
 
 group :production do
+  gem "rollbar", "~> 1.5.1"
   gem "unicorn"
   gem "unicorn-worker-killer"
 end

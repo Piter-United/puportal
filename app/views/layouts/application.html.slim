@@ -1,68 +1,41 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
     title PublicHtml
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
-
   body
     .navbar-fixed
       nav
         .nav-wrapper.container
-          / a.brand-logo
-          /   = image_tag "pulogo.png", :class => "brand-img"
-          a.button-collapse data-activates="mobile-demo" href="#" 
-            i.mdi-navigation-menu
-          ul.left.hide-on-med-and-down.rnav
-            li
-              = link_to 'Главная', root_path
-            li
-              = link_to 'Сообщества', communities_path
-            li
-              = link_to 'Митапы', events_path
-          ul.right.hide-on-med-and-down.lnav
-            / li
-            /   = link_to 'Главная', root_path
-            / li
-            /   = link_to 'Сообщества', communities_path
-            / li
-            /   = link_to 'Митапы', events_path
-            / li
-            /   = link_to 'Площадки', places_path
-            li
-              - if user_signed_in?
-                = link_to 'Выйти', destroy_user_session_path, method: :delete
-              - else
-                = link_to 'Войти', new_user_session_path
+          = link_to root_path do
+            = image_tag "logo.png", :class => "brand-img"
+          ul.right
+            - if can? :read, Community
+              li= link_to 'Сообщества', communities_path
 
-          ul#mobile-demo.side-nav
-            li
-              = link_to 'Главная', root_path
-            li
-              = link_to 'Сообщества', communities_path
-            li
-              = link_to 'Митапы', events_path
-            / li
-            /   = link_to 'Площадки', places_path
-            li
-              - if user_signed_in?
-                = link_to 'Выйти', destroy_user_session_path, method: :delete
-              - else
-                = link_to 'Войти', new_user_session_path
+            - if can? :read, Event
+              li= link_to 'Митапы', events_path
 
-    main
-    	= yield
+            - if user_signed_in?
+              li= link_to 'Профиль', profile_path
+              li= link_to 'Выйти', destroy_user_session_path, method: :delete
+            - else
+              li.sign-up= link_to 'Войти', new_user_session_path, class: 'btn-flat blue lighten-2 waves-effect waves-light'
+
+    = yield
 
     footer.page-footer
       .container
         .row
-          .col.l6.s12
+          .col.l7
             h5.white-text Piter United
-            p.grey-text.text-lighten-4 Объединение IT-сообществ Санкт-Петербурга.
-          .col.l4.offset-l2.s12
-            h5.white-text Links
+            p.grey-text.text-lighten-4 Объединение IT-сообществ Санкт-Петербурга
+
+          .col.l5
+            h5.white-text Мы в социальных сетях
             ul
               li
                 a.grey-text.text-lighten-3 href="#!"  Google+ Community
@@ -77,5 +50,4 @@ html
           | © 2015 Piter United
           a.grey-text.text-lighten-4.right href="#!"
 
-  javascript:
-    $(".button-collapse").sideNav();
+    = javascript_include_tag 'application'

@@ -11,3 +11,7 @@ ru:
 
   oauth:
     already_linked_account: Данный аккаунт уже прилинкован другим пользователем
+
+  portal:
+    title: Piter United
+    description: Объединение IT-сообществ Санкт-Петербурга

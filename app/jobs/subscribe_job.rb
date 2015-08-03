@@ -1,10 +1,10 @@
 class SubscribeJob < ActiveJob::Base
-  def perform(user)
-    mailchimp.lists.subscribe(
-      id: ENV["MAILCHIMP_LIST"],
-      email: { email: user.email },
-      double_optin: false
-    )
+  def perform(_user)
+    # mailchimp.lists.subscribe(
+    #   id: ENV["MAILCHIMP_LIST"],
+    #   email: { email: user.email },
+    #   double_optin: false
+    # )
   end
 
   private

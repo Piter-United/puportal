@@ -1,41 +1,22 @@
-.row.moto-community.valign-wrapper
-  .container
-    .col.s12.m6
-      p Санкт-Петербург
-      h3.valign Сообщества
-    .col.s12.m6
+.container
+  .row
+    .col.l12
       .input-field
         = form_tag communities_path, method: :get do
-          = text_field_tag :q, params[:q], class: 'validate'
-
-.row.new
-  - if can? :create, Community
-    = link_to new_community_path, class: 'floating-absolute-right btn-floating btn-large waves-effect waves-light light-blue darken-4 z-depth-2' do
-      i.mdi-content-add
-
-.row.community-list
-  .container
+          = search_field_tag :q, params[:q], class: 'validate', required: false, placeholder: "Поиск сообщества"
+  .row
     - @communities.map{ |c| c.decorate }.each do |decorator|
-      .col.s12.m4
-        .card-panel.center.center
-          svg height="80" width="80"
-            circle cx="40" cy="40" fill="transparent" r="39" stroke="#ddd" stroke-width="1"
-          p.community-name= decorator.link
-          p.community-title= decorator.description
-          p.count-members= decorator.object.members.count
-          p.count-members-title УЧАСТНИКОВ
-
-/ .row.new
-/   a.floating-absolute-right.btn-floating.btn-large.waves-effect.waves-light.light-blue.darken-4.z-depth-2 href= new_community_path
-/     i.mdi-content-add
-
-/ .row.community-list
-/   .container
-/     - @communities.each do |community|
-/       - decorator = community.decorate
-/       .card-panel.white
-/         .row.valign-wrapper
-/           .col.s12.m3.l2.center= decorator.thumb
-/           .col.s12.m9.l10
-/             p.title= decorator.link class: "title"
-/             p= decorator.description
+      .col.l4
+        .card
+          .card-image= decorator.card
+          .card-content
+            h6.card-title.grey-text.text-darken-4.truncate= decorator.name
+            p
+              = link_to "подробнее", decorator.object
+              span.badge.right
+                = [decorator.members_count, icon('user', class: 'blue-text text-darken-1')].join('&nbsp;').html_safe
+          / .card-reveal
+          /   span.card-title.grey-text.text-darken-4
+          /     = decorator.name
+          /     i.material-icons.right close
+          /   = decorator.description

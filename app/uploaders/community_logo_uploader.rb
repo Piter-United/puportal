@@ -7,18 +7,20 @@ class CommunityLogoUploader < CarrierWave::Uploader::Base
     "uploads/#{ model.class.to_s.underscore }/#{ mounted_as }/#{ model.id }"
   end
 
-  # def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # default = "fallback/" + [version_name, "default.png"].compact.join('_')
-  #   # ActionController::Base.helpers.asset_path(default)
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  version :card do
+    process resize_to_fill: [200, 200]
+  end
 
-  process resize_to_fill: [500, 500]
+  version :retina_card do
+    process resize_to_fill: [400, 400]
 
-  version :thumb do
-    process resize_to_fit: [100, 100]
+    # http://blog.remarkablelabs.com/2013/01/creating-retina-images-with-carrierwave
+
+    def full_filename(for_file = model.logo.file)
+      super.tap do |file_name|
+        file_name.gsub(".", "@2x.").gsub("retina_", "")
+      end
+    end
   end
 
   def extension_white_list

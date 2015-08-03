@@ -1,35 +1,27 @@
-.container
-  .row
-    br
-    .card-panel.white.login-card
-      p.title
-        | Регистрация
-      br
+.row
+  .col.l12
+    h4.center= link_to 'Piter United', root_path, class: 'text-shadow'
+
+.row
+  .col.l4.offset-l4.z-depth-1.card-panel.rounded
+    .p-20
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
         .input-field
           = f.label :email
-          = f.email_field :email, autofocus: true
+          = f.text_field :email, autofocus: true, autocomplete: "off"
         .input-field
           = f.label :password
-          / - if @validatable
-          /   em
-          /     | (
-          /     = @minimum_password_length
-          /     |  characters minimum)
           = f.password_field :password, autocomplete: "off"
         .input-field
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off"
-        br
-        .actions
-          = f.submit "Создать", :class => "btn"
+        .actions.center
+          = f.submit "Зарегистрироваться", class: "btn"
 
-          - if controller_name != 'sessions'
-            = link_to "Уже есть аккаунт?", new_session_path(resource_name)
-            br
-  .container
-    .row
-      .card-panel.white.login-card    
-        = render "devise/shared/links"
-  br
+.row
+  .col.l4.offset-l4.center
+    - if controller_name != 'sessions'
+      = link_to "Уже есть аккаунт?", new_session_path(resource_name), class: 'text-shadow p-20'
+
+= render "devise/shared/links"

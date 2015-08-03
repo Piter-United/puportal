@@ -30,5 +30,13 @@ module PublicHtml
       generator.test_framework :rspec, views: false
       generator.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.to_prepare do
+      Devise::SessionsController.layout "center"
+      Devise::RegistrationsController.layout "center"
+      Devise::ConfirmationsController.layout "center"
+      Devise::UnlocksController.layout "center"
+      Devise::PasswordsController.layout "center"
+    end
   end
 end

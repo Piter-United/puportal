@@ -1,0 +1,76 @@
+@import "_colors";
+@import "_fonts";
+@import "materialize";
+
+nav ul {
+  margin: 0;
+
+  li.sign-up {
+    &:hover, &.active {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.cover {
+  padding: 5rem 0;
+}
+
+.parallax-container {
+  height: auto;
+}
+
+.brand-img{
+  width: 60px;
+  padding-top: 5px;
+}
+
+nav ul li.sign-up {
+  a {
+    margin-left: 15px;
+    padding: 0 25px;
+    text-transform: none;
+    color: white;
+  }
+  &.active {
+    background: red;
+  }
+}
+
+.community_header{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  color: white;
+}
+
+.community_name {
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 3.6px;
+}
+
+.community_short_description {
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 3.6px;
+}
+
+.collection .collection-item.avatar {
+  min-height: 84px;
+  padding-left: 72px;
+  position: relative;
+}
+
+.calendar{
+  .meetups {
+    color: white;
+    background: green;
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  .today a, .today strong{
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+}

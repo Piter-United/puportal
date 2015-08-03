@@ -1,18 +1,14 @@
-.container
-	.row
-		br
-	  	.card-panel.white.login-card		
-			p.title
-			  | Забыли пароль?
-			br
-			= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-			  = devise_error_messages!
-			  .input-field
-			    = f.label :email
-			    = f.email_field :email, autofocus: true
-			  br
-			  .actions
-			    = f.submit "Восстановить", :class => "btn"
-			    a
-			    	=link_to "Отмена", root_path
-			/= render "devise/shared/links"
+.row
+  .col.l12
+    h4.center= link_to 'Piter United', root_path, class: 'text-shadow'
+
+.row
+  .col.l4.offset-l4.z-depth-1.card-panel.rounded
+    .p-20
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+        .input-field
+          = f.label :email
+          = f.email_field :email, autofocus: true
+        .actions.center
+          = f.submit "Восстановить", class: "btn"
