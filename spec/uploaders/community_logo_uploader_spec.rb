@@ -8,6 +8,6 @@ RSpec.describe CommunityLogoUploader, type: :uploader, processing: true do
   before { uploader.store! file }
   after  { uploader.remove! }
 
-  it { expect(uploader).to be_no_larger_than(500, 500) }
-  it { expect(uploader.thumb).to be_no_larger_than(100, 100) }
+  it { expect(uploader.card).to be_no_larger_than(200, 200) }
+  it { expect(uploader.card).to be_no_larger_than(400, 400) }
 end
