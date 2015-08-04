@@ -44,8 +44,13 @@ class CommunityDecorator < Draper::Decorator
     markdown.render(object.description).html_safe
   end
 
-  def card
-    h.image_tag object.logo.card.url, class: "circle responsive-img",
-                                      "data-at2x" => object.logo.retina_card
+  def thumb
+    h.image_tag object.logo.thumb.url, class: "responsive-img",
+                                       "data-at2x" => object.logo.retina_thumb.url
+  end
+
+  def cover
+    h.image_tag object.cover.url, class: "responsive-img",
+                                  "data-at2x" => object.cover.url
   end
 end

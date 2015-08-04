@@ -1,4 +1,4 @@
-= cover title: @community_decorator.name, description: @community_decorator.description, image: @community_decorator.object.logo do
+= cover title: @community_decorator.name, description: @community_decorator.description, image: @community_decorator.object.cover do
   - if can? :create, Member
     - @community_decorator.join_link title: 'Присоединиться', class: 'btn-large waves-effect waves-light'
 
@@ -11,7 +11,7 @@
   .container
     = @community_decorator.description
     .row
-      .col.s12
+      .col.l12
         p
           - if can? :create, Member
             = @community_decorator.link action: :join,  title: :join, class: "btn waves-effect waves-light green"

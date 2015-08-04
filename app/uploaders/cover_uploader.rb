@@ -1,4 +1,4 @@
-class CommunityLogoUploader < CarrierWave::Uploader::Base
+class CoverUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   storage :file
@@ -7,12 +7,10 @@ class CommunityLogoUploader < CarrierWave::Uploader::Base
     "uploads/#{ model.class.to_s.underscore }/#{ mounted_as }/#{ model.id }"
   end
 
-  version :thumb do
-    process resize_to_fill: [200, 200]
-  end
+  process resize_to_fill: [851, 315] # facebook cover size
 
-  version :retina_thumb do
-    process resize_to_fill: [400, 400]
+  version :retina do
+    process resize_to_fill: [1702, 630]
 
     # http://blog.remarkablelabs.com/2013/01/creating-retina-images-with-carrierwave
 

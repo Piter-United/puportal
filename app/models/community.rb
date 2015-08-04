@@ -6,7 +6,8 @@ class Community < ActiveRecord::Base
   has_many :members, class_name: "Member", inverse_of: :community
   has_many :users,   class_name: "User",   through: :members
 
-  mount_uploader :logo, ::CommunityLogoUploader
+  mount_uploader :logo,  ::CommunityLogoUploader
+  mount_uploader :cover, ::CoverUploader
 
   array_attribute :tags
 

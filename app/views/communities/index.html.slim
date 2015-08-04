@@ -6,11 +6,11 @@
           = search_field_tag :q, params[:q], class: 'validate', required: false, placeholder: "Поиск сообщества"
   .row
     - @communities.map{ |c| c.decorate }.each do |decorator|
-      .col.l4
+      .col.l3
         .card
-          .card-image= decorator.card
+          .card-image= decorator.thumb
           .card-content
-            h6.card-title.grey-text.text-darken-4.truncate= decorator.name
+            p.card-title.grey-text.text-darken-4.truncate= decorator.name
             p
               = link_to "подробнее", decorator.object
               span.badge.right

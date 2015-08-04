@@ -14,7 +14,7 @@ module ApplicationHelper
       cover_image: image
     }
 
-    options[:cover_links] = yield.html_safe if block_given?
+    options[:cover_links] = yield.try(:html_safe) if block_given?
 
     render partial: "cover", locals: options
   end
