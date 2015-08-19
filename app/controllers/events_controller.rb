@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.rss{ render layout: false }
-      format.json{ render json: @events, each_serializer: EventSerializer }
+      format.json{ render json: Event.on(@day), each_serializer: EventSerializer }
     end
   end
 
