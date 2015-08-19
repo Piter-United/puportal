@@ -34,6 +34,7 @@ gem "pg_search"
 gem "cancancan", "~> 1.10"
 gem "gibbon"
 gem "mandrill_mailer"
+gem "rack-cors", require: "rack/cors"
 
 group :development do
   gem "overcommit"
