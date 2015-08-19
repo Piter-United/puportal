@@ -1,17 +1,26 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require select2
- *= require lepture_editor
- *= require common
- *= require_self
- */
+@import "_colors";
+@import "_fonts";
+@import "materialize";
+
+body{
+  background-color: $primary-color;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.text-shadow{
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 1.6px;
+}
+
+.sn_link {
+  text-shadow: rgba(0, 0, 0, 0.89804) 0.6px 1.6px 1.6px;
+  font-size: 2em;
+  padding: 0.3em;
+}

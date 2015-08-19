@@ -4,7 +4,6 @@ RSpec.describe Event, type: :model do
   subject{ create(:event) }
 
   it { is_expected.to validate_presence_of(:title) }
-  it { is_expected.to validate_presence_of(:date) }
   it { is_expected.to validate_presence_of(:start) }
   it { is_expected.to validate_presence_of(:finish) }
   it { is_expected.to validate_presence_of(:description)}

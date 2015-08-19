@@ -1,12 +1,4 @@
-class CoverUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-
-  storage :file
-
-  def store_dir
-    "uploads/#{ model.class.to_s.underscore }/#{ mounted_as }/#{ model.id }"
-  end
-
+class CoverUploader < ApplicationUploader
   process resize_to_fill: [851, 315] # facebook cover size
 
   version :retina do

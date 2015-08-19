@@ -1,4 +1,6 @@
 class EventSerializer < ActiveModel::Serializer
+  include MD
+
   attributes :id,
              :title,
              :description,
@@ -9,6 +11,10 @@ class EventSerializer < ActiveModel::Serializer
              :updated_at
 
   has_one :community
+
+  def description
+    markdown.render(object.description).html_safe
+  end
 
   def address
     {

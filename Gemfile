@@ -11,36 +11,35 @@ gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "jquery-rails"
-gem "materialize-sass"
-gem "autoprefixer-rails"
 gem "font-awesome-sass"
+gem "materialize-sass"
 
 gem "devise"
 gem "omniauth-vkontakte"
 gem "omniauth-facebook"
 gem "omniauth-gplus"
 gem "omniauth-github"
-gem "activeadmin", "~> 1.0.0.pre1"
-
-gem "geocoder"
-gem "draper"
-gem "redcarpet"
-gem "russian"
-gem "active_model_serializers"
-gem "carrierwave", ">= 0.10.0"
-gem "mini_magick"
-gem "foreman"
-gem "pg_search"
 gem "cancancan", "~> 1.10"
+
+gem "activeadmin", "~> 1.0.0.pre1"
+gem "has_scope"
+gem "active_model_serializers"
+gem "rack-cors", require: "rack/cors"
+gem "foreman"
+gem "redcarpet"
+gem "pg_search"
+gem "russian"
+
+gem "carrierwave", github: "carrierwaveuploader/carrierwave"
+gem "mini_magick"
+
+gem "fog-aws"
 gem "gibbon"
 gem "mandrill_mailer"
-gem "rack-cors", require: "rack/cors"
 
 group :development do
   gem "overcommit"
-  gem "capistrano-rails",           require: false
-  gem "capistrano-bundler",         require: false
-  gem "capistrano-rbenv", "~> 2.0", require: false
+  gem "heroku", require: false
 end
 
 group :development, :test do
@@ -48,21 +47,19 @@ group :development, :test do
   gem "thin"
   gem "dotenv-rails"
   gem "rspec-rails", "~> 3.2.0"
-  gem "rspec-activemodel-mocks"
   gem "rubocop", require: false
 end
 
 group :test do
-  gem "capybara", "~> 2.4.4"
   gem "rspec"
+  gem "rspec-activemodel-mocks"
   gem "database_cleaner"
   gem "factory_girl_rails"
-  gem "json-schema-rspec"
   gem "shoulda-matchers"
 end
 
-group :production do
+group :production, :staging do
   gem "rollbar", "~> 1.5.1"
-  gem "unicorn"
-  gem "unicorn-worker-killer"
+  gem "puma"
+  gem "rails_12factor"
 end

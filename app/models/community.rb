@@ -24,4 +24,6 @@ class Community < ActiveRecord::Base
   }
 
   scope :filter, ->(params){ params[:q].present? ? full_text_search(params[:q]) : all }
+
+  scope :fresh, ->(*){ order("created_at DESC").limit(5) }
 end

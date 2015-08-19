@@ -3,51 +3,9 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
     title PublicHtml
-    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
     = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    .navbar-fixed
-      nav
-        .nav-wrapper.container
-          = link_to root_path do
-            = image_tag "logo.png", :class => "brand-img"
-          ul.right
-            - if can? :read, Community
-              li= link_to 'Сообщества', communities_path
-
-            - if can? :read, Event
-              li= link_to 'Митапы', events_path
-
-            - if user_signed_in?
-              li= link_to 'Профиль', profile_path
-              li= link_to 'Выйти', destroy_user_session_path, method: :delete
-            - else
-              li.sign-up= link_to 'Войти', new_user_session_path, class: 'btn-flat blue lighten-2 waves-effect waves-light'
-
+    .row
     = yield
-
-    footer.page-footer
-      .container
-        .row
-          .col.l7
-            h5.white-text Piter United
-            p.grey-text.text-lighten-4 Объединение IT-сообществ Санкт-Петербурга
-
-          .col.l5
-            h5.white-text Мы в социальных сетях
-            ul
-              li
-                a.grey-text.text-lighten-3 href="#!"  Google+ Community
-              li
-                a.grey-text.text-lighten-3 href="#!"  Vkontakte Group
-              li
-                a.grey-text.text-lighten-3 href="#!"  Facebook Group
-              li
-                a.grey-text.text-lighten-3 href="#!"  Twitter
-      .footer-copyright
-        .container
-          | © 2015 Piter United
-          a.grey-text.text-lighten-4.right href="#!"
-
-    = javascript_include_tag 'application'

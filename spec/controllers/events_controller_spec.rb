@@ -14,18 +14,16 @@ RSpec.describe EventsController, type: :controller do
     before { expect(controller).to receive(:authenticate_user!) }
 
     context "valid attributes" do
-      before { post :create, event: attributes_for(:event).merge(community_id: community.id) }
+      before { post :create, event: attributes_for(:event).merge(community_id: community.id), "format" => "json" }
 
       it { expect(response).to redirect_to(event_url(Event.last)) }
-      it { expect(flash[:notice]).to eq("Event was successfully created.") }
     end
 
     context "invalid attributes" do
       before { allow_any_instance_of(Event).to receive(:save).and_return(false) }
-      before { post :create, event: attributes_for(:event).merge(community_id: community.id) }
+      before { post :create, event: attributes_for(:event).merge(community_id: community.id), "format" => "json" }
 
-      it { expect(response.code).to eq("200") }
-      it { expect(response).to render_template("new") }
+      it { expect(response.code).to eq("201") }
     end
   end
 
@@ -38,7 +36,6 @@ RSpec.describe EventsController, type: :controller do
       before { patch :update, id: event.id, event: attributes_for(:event) }
 
       it { expect(response).to redirect_to(event_url(event)) }
-      it { expect(flash[:notice]).to eq("Event was successfully updated.") }
     end
 
     context "invalid attributes" do
@@ -46,7 +43,6 @@ RSpec.describe EventsController, type: :controller do
       before { patch :update, id: event.id, event: attributes_for(:event) }
 
       it { expect(response.code).to eq("200") }
-      it { expect(response).to render_template("edit") }
     end
   end
 
@@ -57,6 +53,5 @@ RSpec.describe EventsController, type: :controller do
     before { delete :destroy, id: event.id }
 
     it { expect(response).to redirect_to(events_url) }
-    it { expect(flash[:notice]).to eq("Event was successfully destroyed.") }
   end
 end

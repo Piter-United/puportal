@@ -1,26 +1,18 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# you"ve limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module PublicHtml
   class Application < Rails::Application
-    config.time_zone = 'Moscow'
+    config.time_zone = "Moscow"
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = true
+    # config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}").to_s]
 
-    config.autoload_paths += %W[#{ config.root }/lib]
-
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
-    config.assets.precompile += %w(.svg .eot .woff .ttf)
-
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-
-    # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |generator|
@@ -28,25 +20,17 @@ module PublicHtml
       generator.stylesheets false
       generator.javascripts false
       generator.test_framework :rspec, views: false
-      generator.fixture_replacement :factory_girl, dir: 'spec/factories'
+      generator.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
-    config.to_prepare do
-      Devise::SessionsController.layout "center"
-      Devise::RegistrationsController.layout "center"
-      Devise::ConfirmationsController.layout "center"
-      Devise::UnlocksController.layout "center"
-      Devise::PasswordsController.layout "center"
-    end
-
-    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+    config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
       allow do
-        origins '*'
+        origins "*"
 
-        resource '*',
-          :headers => :any,
-          :methods => [:get, :post, :delete, :put, :options, :head],
-          :max_age => 0
+        resource "*",
+          headers: :any,
+          methods: [:get, :post, :delete, :put, :options, :head],
+          max_age: 0
       end
     end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804214038) do
+ActiveRecord::Schema.define(version: 20150822122106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,10 +71,9 @@ ActiveRecord::Schema.define(version: 20150804214038) do
     t.text     "tags",         default: [],              array: true
     t.float    "latitude"
     t.float    "longitude"
-    t.time     "start"
-    t.time     "finish"
-    t.date     "date"
     t.json     "location",     default: {}
+    t.datetime "start"
+    t.datetime "finish"
   end
 
   create_table "members", force: :cascade do |t|
