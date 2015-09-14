@@ -9,9 +9,6 @@
 действующим и потенциальным  участникам сообществ всегда быть в курсе жизни
 сообществ(а).
 
-### Demo
-https://piterunited.herokuapp.com/
-
 #### Кто и как может поучаствовать в разработке?
 
 Если вы хотите присоединиться к разработке, то либо можете написать об этом на
@@ -34,26 +31,4 @@ piterunited@gmail.com, либо *явно* взять на себя задачу
     принадлежность к сообществам и т.д.)
 *   Инфоподдержка встреч (автоматический шаринг по соц. сетям, рассылки и
     т.д.)
-
-#### Roadmap
-*   Release 1: Landing, Communities (CRUD), Events (CRUD), Authorization (G+,
-    Vk, Fb, Github, LinkedIn)
-*   Release 2: Registration Workflow, Permissions for Activists, Places
-    (CRUD), User Profile
-
-#### Технические детали проекта:
-
-*   Ruby > 2.2
-*   Rails 4.2.0
-*   PostgreSQL > 9.3
-*   scss, slim, materializecss
-    (http://materializecss.com/getting-started.html)
-
-тем кто начинает устанавливать окружение Ruby+Rails только для этого проекта
-НЕ советую ставить его через RVM
-
-##### Настройки Postgresql для корректного подключения к БД
-
-*   Юзер: **Mike**
-*   База: **punited_dev**
 
