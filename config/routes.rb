@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :admins, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
-  devise_for :users, controllers: { omniauth_callbacks:  "users/omniauth_callbacks" }
-
-  resource :profile, only: :show
-
-  resources :communities do
-  	resource :membership, only: [:create, :destroy], path_names: { create: 'join', destroy: 'leave' }
+  scope '/', defaults: { format: 'html' } do
+    devise_for :admins, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+    devise_for :users, controllers: { omniauth_callbacks:  "users/omniauth_callbacks" }
   end
 
-  resources :events
+  scope '/', defaults: { format: 'json' } do
+    resource :profile, only: :show
+    resources :events
+
+    resources :communities do
+      resource :membership, only: [:create, :destroy], path_names: { create: 'join', destroy: 'leave' }
+    end
+  end
 end

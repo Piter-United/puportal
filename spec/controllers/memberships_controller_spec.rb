@@ -7,8 +7,7 @@ RSpec.describe MembershipsController, type: :controller do
     before { expect(controller).to receive(:authenticate_user!) }
     before { post :create, community_id: community.id }
 
-    it { expect(response).to redirect_to(community_path(community.id)) }
-    it { expect(flash[:notice]).to eq("Welcome") }
+    it { expect(response.code).to eq("201") }
   end
 
   describe "DELETE destroy", authenticated: :user, authorized: { destroy: Member } do
@@ -17,7 +16,6 @@ RSpec.describe MembershipsController, type: :controller do
     before { expect(controller).to receive(:authenticate_user!) }
     before { delete :destroy, community_id: community.id }
 
-    it { expect(response).to redirect_to(community_path(community.id)) }
-    it { expect(flash[:notice]).to eq("By by") }
+    it { expect(response.code).to eq("204") }
   end
 end

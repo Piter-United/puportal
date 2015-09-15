@@ -25,6 +25,18 @@ module ControllerExamples
       end
     end
   end
+
+  def process(action, http_method, parameters = {}, *args)
+    super action, http_method, parameters.merge(format: 'json'), *args
+  end
+
+  def errors(errors={})
+    ActiveModel::Errors.new(nil).tap do |instance|
+      errors.each do |attribute, message|
+        instance.add(attribute, message)
+      end
+    end
+  end
 end
 
 RSpec.configure do |config|

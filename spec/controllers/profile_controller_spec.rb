@@ -5,7 +5,6 @@ RSpec.describe ProfilesController, type: :controller do
     before { expect(controller).to receive(:authenticate_user!) }
     before { get :show }
 
-    it { expect(response).to render_template("show") }
     it { expect(response.code).to eq("200") }
   end
 end

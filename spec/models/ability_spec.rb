@@ -18,12 +18,10 @@ RSpec.describe Ability do
 
     it { expect(ability).to_not be_able_to(:create,  Member) }
     it { expect(ability).to_not be_able_to(:destroy, Member) }
-
-    it { expect(ability).to_not be_able_to(:read, Geocoder) }
   end
 
   context 'authorized user' do
-    let(:user) { create(:user) }
+    let(:user) { build(:user) }
 
     it { expect(ability).to be_able_to(:read, Community) }
     it { expect(ability).to be_able_to(:create, Community) }
@@ -37,7 +35,5 @@ RSpec.describe Ability do
 
     it { expect(ability).to be_able_to(:create,  Member) }
     it { expect(ability).to be_able_to(:destroy, Member) }
-
-    it { expect(ability).to be_able_to(:read, Geocoder) }
   end
 end

@@ -17,8 +17,6 @@ class Ability
 
       can :create, Member
       can :destroy, Member
-
-      can :read, Geocoder
     end
   end
 end

@@ -28,7 +28,7 @@ RSpec.describe OAuthService do
     end
 
     context "already registered user" do
-      let!(:user)           { create(:user) }
+      let!(:user)           { create(:user, :confirmed) }
       let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: user, uid: omniauth.uid) }
 
       it("not registrate new user")       { expect{ service.authenticate(omniauth) }.to_not change{ User.count } }
@@ -37,7 +37,7 @@ RSpec.describe OAuthService do
   end
 
   describe '#link_accounts' do
-    let!(:user)           { create(:user) }
+    let!(:user)           { create(:user, :confirmed) }
     let!(:authentication) { create(:authentication, omniauth.provider.to_sym, owner: user, uid: omniauth.uid) }
 
     it("not registrate new user")       { expect{ service.link_accounts!(user, omniauth) }.to_not change{ User.count } }
@@ -53,7 +53,7 @@ RSpec.describe OAuthService do
     end
 
     context "already linked account" do
-      let(:other_user) { create(:user) }
+      let(:other_user) { create(:user, :confirmed) }
 
       it("raise already linked account error") { expect{ service.link_accounts!(other_user, omniauth) }.to raise_error(OAuthService::AlreadyLinkedAccount) }
     end
