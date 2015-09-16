@@ -1,4 +1,6 @@
-Community.create!(
+Community.destroy_all
+
+Community.create(
   name: "Software Project Managers Club",
   short_name: "SPM Club",
   hashtag: "spm",
@@ -8,7 +10,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spmclub.png",
 )
 
-Community.create!(
+Community.create(
   name: "Agile Piter",
   short_name: "Agile Piter",
   hashtag: "agile-piter",
@@ -18,7 +20,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/agilepiter.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Community of Analysts",
   short_name: "SPb CoA",
   hashtag: "spb-coa",
@@ -28,7 +30,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spbcoa.png"
 )
 
-Community.create!(
+Community.create(
   name: "SPb SQA Group",
   short_name: "SPb SQA Group",
   hashtag: "spb-sqa",
@@ -38,7 +40,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spbsqa.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Technical Writers",
   short_name: "SPb TechWriters",
   hashtag: "spb-techwriters",
@@ -48,7 +50,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/techwriters.png",
 )
 
-Community.create!(
+Community.create(
   name: "UX SPb",
   short_name: "UX SPb",
   hashtag: "ux-spb",
@@ -58,7 +60,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/uxspb.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Frontend",
   short_name: "SPb Frontend",
   hashtag: "spb-frontend",
@@ -68,7 +70,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/frontend.jpg",
 )
 
-Community.create!(
+Community.create(
   name: "DevOps-40",
   short_name: "DevOps-40",
   hashtag: "spb-frontend",
@@ -78,7 +80,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/devops.png",
 )
 
-Community.create!(
+Community.create(
   name: "IT Talk",
   short_name: "IT Talk",
   hashtag: "it-talk",
@@ -88,7 +90,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/ittalk.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Ruby User Group",
   short_name: "SPRUG",
   hashtag: "sprug",
@@ -98,7 +100,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/sprug.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Python Interest Group",
   short_name: "SPb PIG",
   hashtag: "spb-pig",
@@ -108,7 +110,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/python.png",
 )
 
-Community.create!(
+Community.create(
   name: "FProg",
   short_name: "FProg",
   hashtag: "fprog",
@@ -118,7 +120,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/clojure.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Lisp Users",
   short_name: "SPb Lisp Users",
   hashtag: "spb-lisp",
@@ -128,7 +130,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/lisp.png"
 )
 
-Community.create!(
+Community.create(
   name: "Piter JS",
   short_name: "Piter JS",
   hashtag: "piter-js",
@@ -138,7 +140,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/piterjs.jpg",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Linux User Group",
   short_name: "SPb LUG",
   hashtag: "spb-lug",
@@ -148,7 +150,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spblug.png",
 )
 
-Community.create!(
+Community.create(
   name: "MODX",
   short_name: "MODX",
   hashtag: "modx",
@@ -158,7 +160,7 @@ Community.create!(
   remote_logo_url: "http://www.yotocreative.co.uk/images/articles/modx-logo.jpg"
 )
 
-Community.create!(
+Community.create(
   name: "SPb WordPress",
   short_name: "SPb WordPress",
   hashtag: "spb-wordpress",
@@ -168,7 +170,7 @@ Community.create!(
   remote_logo_url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSxXTIW44FU1SjDXpgON6QhGAU3dPr-sqx6oTrDAhgNdW5FFHEi"
 )
 
-Community.create!(
+Community.create(
   name: "SPb Startup",
   short_name: "SPb Startup",
   hashtag: "spb-startup",
@@ -178,7 +180,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spbstartup.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb PostgreSQL",
   short_name: "SPb PostgreSQL",
   hashtag: "spb-postgresql",
@@ -188,7 +190,7 @@ Community.create!(
   remote_logo_url: "https://s3-ap-northeast-1.amazonaws.com/nt46/logdown/2014/05/install-postgresql-934-on-mac.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb IT HR",
   short_name: "SPb IT HR",
   hashtag: "spb-it-hr",
@@ -198,7 +200,7 @@ Community.create!(
   remote_logo_url: "http://cs619525.vk.me/v619525634/df54/dNQxK-Mry6A.jpg",
 )
 
-Community.create!(
+Community.create(
   name: "SPb eLearning",
   short_name: "SPb eLearning",
   hashtag: "spb-elearning",
@@ -208,7 +210,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/elearning.jpeg"
 )
 
-Community.create!(
+Community.create(
   name: "SPb .Net Community",
   short_name: "SPb .Net Community",
   hashtag: "spb-dotnet",
@@ -218,7 +220,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/netcommunity.png",
 )
 
-Community.create!(
+Community.create(
   name: "SPb CIO Club",
   short_name: "SPb CIO Club",
   hashtag: "spb-cio",
@@ -228,7 +230,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/spbcio.gif",
 )
 
-Community.create!(
+Community.create(
   name: "HackIoT",
   short_name: "HackIoT",
   hashtag: "hackiot",
@@ -238,7 +240,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/hackiot.jpg",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Unity User Group",
   short_name: "UUG - SPb",
   hashtag: "uug-spb",
@@ -248,7 +250,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/uug.png",
 )
 
-Community.create!(
+Community.create(
   name: "3D4WEB",
   short_name: "3D4WEB",
   hashtag: "3d4web",
@@ -258,7 +260,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/3d4web.jpeg",
 )
 
-Community.create!(
+Community.create(
   name: "SPb Cloud & Virtualization Community",
   short_name: "SPb Cloud",
   hashtag: "spb-cloud",
@@ -268,7 +270,7 @@ Community.create!(
   remote_logo_url: "http://piter-united.ru/img/cloud.jpg",
 )
 
-Community.create!(
+Community.create(
   name: "SPb GO Community",
   short_name: "Goland-Piter",
   hashtag: "goland-piter",
