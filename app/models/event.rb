@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 
   scope :day, lambda{ |str|
     date = Time.zone.parse(str)
-    where("start >= ?", date.beginning_of_day).where("finish <= ?", date.end_of_day)
+    where("(start, finish) OVERLAPS (?,?)", date.beginning_of_day, date.end_of_day)
   }
 
   scope :forthcoming, lambda{ |*|
