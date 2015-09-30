@@ -1,0 +1,16 @@
+{
+  "name": "Puter United",
+  "description": "SPB",
+  "keywords": [
+    "it",
+    "cats"
+  ],
+  "website": "https://small-sharp-tool.com/",
+  "repository": "https://github.com/jane-doe/small-sharp-tool",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "success_url": "/",
+  "image": "heroku/ruby",
+  "scripts": {
+    "predeploy": "npm install -g bower && bower install --save"
+  }
+}
