@@ -1,6 +1,6 @@
 {
   "name": "PU",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "authors": [
     "Andrey Zinenko <azinenko@spbtv.com>"
   ],
@@ -20,10 +20,10 @@
     "angular-route" : "1.4.1",
     "angular-cookies" : "1.4.1",
     "angular-sanitize" : "1.4.1",
-    "angular-devise" : "latest",
-    "angular-ui-notification" : "latest",
+    "angular-devise" : "1.1.0",
+    "angular-ui-notification" : "0.0.14",
     "ng-file-upload" : "7.1.0",
-    "ng-rails-csrf" : "latest",
+    "ng-rails-csrf" : "0.1.0",
     "selectize" : "0.12.1",
     "moment" : "2.10.6",
     "epiceditor" : "0.2.2",
