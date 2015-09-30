@@ -1,0 +1,47 @@
+app = angular.module('app')
+
+app.directive "menu", ($timeout, Auth)->
+  restrict: "E"
+  templateUrl: "<%= asset_path('templates/shared/menu.html') %>"
+  scope: false
+  link: (scope, element, attrs) ->
+    scope.menu = []
+    scope.menu.push display: "События", href: '#/events'
+    scope.menu.push display: "Сообщества", href: "#/communities"
+    #scope.menu.push display: "Locations", href: "#/communities"
+    #scope.menu.push display: "Persons",   href: "#/communities"
+
+    scope.isAuthenticated = ()->
+      Auth.isAuthenticated()
+
+    scope.logout = ()->
+      config = headers:
+        "X-HTTP-Method-Override": "POST"
+      Auth.logout(config)
+
+    calculateCurrent = (menu)->
+      candidats = []
+      for x in menu
+        delete x.active
+        if window.location.href.indexOf(x.href) > -1
+          candidats.push(x)
+      active = candidats.sort((x,y)-> y.href.localeCompare(x.href))[0]
+      active && active.active = true
+
+    scope.$on '$locationChangeSuccess', (event, xhr, deferred)->
+      calculateCurrent(scope.menu)
+
+    scope.$on 'devise:login', (event, xhr, deferred)->
+      console.log(event, xhr, deferred)
+      calculateCurrent(scope.menu)
+
+    scope.$on 'devise:new-session', (event, xhr, deferred)->
+      console.log(event, xhr, deferred)
+      calculateCurrent(scope.menu)
+
+    scope.$on 'devise:unauthorized', (event, xhr, deferred)->
+      console.log(event, xhr, deferred)
+      calculateCurrent(scope.menu)
+
+    $timeout ->
+      calculateCurrent(scope.menu)

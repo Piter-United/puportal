@@ -10,9 +10,9 @@ gem "slim-rails"
 gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
-gem "jquery-rails"
-gem "font-awesome-sass"
-gem "materialize-sass"
+gem "less-rails"
+gem "angular_rails_csrf"
+gem "font-awesome-rails"
 
 gem "devise"
 gem "omniauth-vkontakte"

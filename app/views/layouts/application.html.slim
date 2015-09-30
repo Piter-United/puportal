@@ -1,11 +1,14 @@
 doctype html
-html
+html ng-app="app"
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
-    title PublicHtml
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+    title piter-united
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="" name="description"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    = stylesheet_link_tag "application.css"
+    = javascript_include_tag "application.js"
+    = javascript_include_tag "https://api-maps.yandex.ru/2.1/?lang=ru_RU"
     = csrf_meta_tags
   body
-    .row
-    = yield
+    #view ng-view=""

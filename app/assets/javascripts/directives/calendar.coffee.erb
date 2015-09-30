@@ -1,0 +1,59 @@
+app = angular.module('app')
+
+app.directive "calendar", ->
+  remove_time = (date) ->
+    date.day(0).hour(0).minute(0).second(0).millisecond 0
+
+  build_month = (scope, start, month) ->
+    scope.weeks = []
+    done = false
+    date = start.clone()
+    monthIndex = date.month()
+    count = 0
+    results = []
+    until done
+      scope.weeks.push days: build_week(date.clone(), month)
+      date.add 1, "w"
+      done = count++ > 2 and monthIndex isnt date.month()
+      results.push monthIndex = date.month()
+    results
+
+  build_week = (date, month) ->
+    days = []
+    i = 0
+    while i < 7
+      days.push
+        name: date.format("dd").substring(0, 1)
+        number: date.date()
+        isCurrentMonth: date.month() is month.month()
+        isToday: date.isSame(new Date(), "day")
+        date: date
+
+      date = date.clone()
+      date.add 1, "d"
+      i++
+    days
+
+  restrict: "E"
+  templateUrl: "<%= asset_path('templates/shared/calendar.html') %>"
+  scope: false
+  link: (scope) ->
+    scope.selected = remove_time(scope.selected or moment())
+    scope.month = scope.selected.clone()
+    start = scope.selected.clone()
+    start.date 1
+    remove_time start.day(0)
+    build_month scope, start, scope.month
+    scope.next = ->
+      next = undefined
+      next = scope.month.clone()
+      remove_time next.month(next.month() + 1).date(1)
+      scope.month.month scope.month.month() + 1
+      build_month scope, next, scope.month
+
+    scope.previous = ->
+      previous = undefined
+      previous = scope.month.clone()
+      remove_time previous.month(previous.month() - 1).date(1)
+      scope.month.month scope.month.month() - 1
+      build_month scope, previous, scope.month

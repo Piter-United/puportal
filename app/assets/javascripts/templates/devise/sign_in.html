@@ -1,0 +1,22 @@
+<div class="devise_form">
+  <center><a href="/#/" ><img src="http://piter-united.ru/img/piterunited.png"></a></center>
+
+  <form class="devise_form" ng-submit="submit()" novalidate="novalidate" ng-controller="SignInCtrl">
+    {{ error }}
+
+    <input type="email" class="form-control" name="user[email]" id="user_email" ng-model="credentials.email" placeholder="email">
+    <input type="password" class="form-control" name="user[password]" id="user_password" ng-model="credentials.password" placeholder="пароль" autocomplete="off">
+    <input type="submit" name="commit" value="Войти" class="btn btn-lg btn-primary btn-block">
+
+    <center>
+      <br/><a class="text-shadow p-20" href="#/sign_up">Зарегистрироваться</a><br/><br/>
+
+      <p>
+        <a class="sn_link" href="/users/auth/vkontakte"><i class="fa fa-vk text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/facebook"><i class="fa fa-facebook text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/gplus"><i class="fa fa-google-plus text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/github"><i class="fa fa-github text-shadow"></i></a>
+      </p>
+    </center>
+  </form>
+</div>

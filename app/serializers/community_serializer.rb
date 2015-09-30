@@ -1,7 +1,12 @@
 class CommunitySerializer < ActiveModel::Serializer
   include MD
 
-  attributes :id, :name, :description, :tags, :elem, :logo
+  attributes :id,
+             :name,
+             :description,
+             :tags,
+             :elem,
+             :logo
 
   has_many :users
 

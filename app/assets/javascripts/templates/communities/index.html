@@ -1,0 +1,21 @@
+<menu></menu>
+
+<div class="container toolbox">
+  <form></form>
+</div>
+
+<div class="container">
+  <a href="#/communities/new" ng-if="isAuthenticated()" class="btn btn-primary btn-lg pull-right">Добавить</a>
+
+  <br/><br/><br/>
+
+  <ul class="communities">
+    <li ng-repeat="e in communities" style="background-image: url({{ e.logo }})" class="community panel pull-left"><b class="index">{{ e.id }}</b><a href="#/communities/{{e.id}}" class="element pull-right">{{ e.elem }}</a>
+      <ul class="properties">
+        <li class="name"><i class="fa fa-circle"></i> {{e.name}}</li>
+        <li class="members"><i class="fa fa-users"></i> {{e.members_count + 10 }}</li>
+        <li class="meetups"><i class="fa fa-flag"></i> {{ 7 }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

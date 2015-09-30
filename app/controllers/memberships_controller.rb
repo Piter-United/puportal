@@ -1,5 +1,6 @@
 class MembershipsController < ApplicationController
   respond_to :json
+  before_action :authenticate_user!
 
   def create
     authorize! :create, Member

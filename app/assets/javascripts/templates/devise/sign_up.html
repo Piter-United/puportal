@@ -1,0 +1,33 @@
+<div class="devise_form">
+  <center><a href="/#/" ><img src="http://piter-united.ru/img/piterunited.png"></a></center>
+
+  <form ng-submit="submit()" novalidate="novalidate" ng-controller="SignUpCtrl" asction="/users">
+    <input placeholder="email" autocomplete="off" type="text" name="user[email]" class="form-control" ng-model="credentials.email">
+    <div ng-if="hasError('email')" ng-repeat="error in errors['email']" ng-model="credentials.email" class="help-block">
+      <p>{{ error }}</p>
+    </div>
+
+    <input placeholder="пароль" autocomplete="off" type="password" name="user[password]" class="form-control" ng-model="credentials.password">
+    <div ng-if="hasError('password')" ng-repeat="error in errors['password']" class="help-block">
+      <p>{{ error }}</p>
+    </div>
+
+    <input placeholder="подтвердите пароль" autocomplete="off" type="password" name="user[password_confirmation]" class="form-control" ng-model="credentials.password_confirmation">
+    <div ng-if="hasError('password_confirmation')" ng-repeat="error in errors['password_confirmation']" class="help-block">
+      <p>{{ error }}</p>
+    </div>
+
+    <input type="submit" name="commit" value="Зарегистрироваться" class="btn btn-lg btn-primary btn-block">
+
+    <center>
+      <br/><a class="text-shadow p-20" href="#/sign_in">Войти</a><br/><br/>
+
+      <p>
+        <a class="sn_link" href="/users/auth/vkontakte"><i class="fa fa-vk text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/facebook"><i class="fa fa-facebook text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/gplus"><i class="fa fa-google-plus text-shadow"></i></a>
+        <a class="sn_link" href="/users/auth/github"><i class="fa fa-github text-shadow"></i></a>
+      </p>
+    </center>
+  </form>
+</div>

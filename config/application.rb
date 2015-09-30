@@ -23,6 +23,10 @@ module PublicHtml
       generator.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
+
     config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
       allow do
         origins "*"

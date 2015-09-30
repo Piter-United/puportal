@@ -1,0 +1,40 @@
+<menu></menu>
+
+<div class="container">
+  <div class="row">
+    <div class="content col-lg-8">
+      <div class="list-group">
+        <a ng-repeat="event in events" href="#/events/{{event.id}}" class="event list-group-item">
+
+          <h4>{{event.title}}</h4>
+
+          <div class="calendar">
+            <div class="date">{{event.start | date:'dd'}}</div>
+            <div class="month">{{event.start | date:'MMMM'}}</div>
+          </div>
+
+          <div class="tail">
+            <div class="time">{{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}</div>
+            <div class="loc">{{event.location.display}}</div>
+          </div>
+
+        </a>
+      </div>
+    </div>
+
+    <div class="content col-lg-4">
+
+      <div class="row">
+        <div class="col-lg-12"><a href="#/events/new" ng-if="isAuthenticated()" class="btn btn-primary btn-lg btn-block">Добавить</a></div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <hr/>
+          <calendar selected="day"></calendar>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

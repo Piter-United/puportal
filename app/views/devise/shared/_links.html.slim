@@ -1,5 +1,0 @@
-.row
-  .col.l4.offset-l4.center
-    - resource_class.omniauth_providers.each do |provider|
-      = link_to omniauth_authorize_path(resource_name, provider), class: 'sn_link' do
-        = icon({ "vkontakte" => "vk", "facebook" => "facebook", "gplus" => "google-plus", "github" => "github" }["#{ provider }"], class: 'text-shadow')

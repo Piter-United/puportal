@@ -1,5 +1,6 @@
 class CommunitiesController < InheritedResources::Base
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  respond_to :json
+  before_action :authenticate_user!, except: [:index, :show]
 
   actions :index, :show, :create, :update, :destroy
 

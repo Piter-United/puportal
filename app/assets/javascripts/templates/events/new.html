@@ -1,0 +1,66 @@
+<menu></menu>
+
+<div class="container">
+  <hr/>{{ event | json }}
+  <form ng-submit="save()">
+    <h3>New Event</h3>
+    <div ng-if="hasError('base')" ng-repeat="error in errors['base']" class="help-block">
+      <p>{{ error }}</p>
+    </div>
+    <hr/>
+    <div ng-class="{ 'has-error': hasError('title') }" class="form-group">
+      <label for="title">Title</label>
+      <input type="text" ng-model="event.title" class="form-control"/>
+      <div ng-if="hasError('title')" ng-repeat="error in errors['title']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <div ng-class="{ 'has-error': hasError('community') }" class="form-group">
+      <label>Community</label>
+      <select type="text" ng-model="event.community_id" selectize="communityConfig()" class="form-control"></select>
+      <div ng-if="hasError('community')" ng-repeat="error in errors['community']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <div ng-class="{ 'has-error': (hasError('start') || hasError('finish')) }" class="form-group">
+      <label for="start">Time</label>
+      <div class="form-inline">
+        <div class="input-group">
+          <div class="input-group-addon">from</div>
+          <input type="text" ng-datetime-model="event.start" placeholder="From" timepicker="timepicker" class="form-control"/>
+          <div class="input-group-addon">to</div>
+          <input type="text" ng-datetime-model="event.finish" placeholder="To" timepicker="timepicker" class="form-control"/>
+        </div>
+      </div>
+      <div ng-if="hasError('finish')" ng-repeat="error in errors['finish']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+      <div ng-if="hasError('start')" ng-repeat="error in errors['start']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <div ng-class="{ 'has-error': hasError('location') }" class="form-group">
+      <label>Location</label>
+      <select type="text" ng-model="event.location" yandexgeo="yandexgeo" class="form-control"></select>
+      <div ng-if="hasError('start')" ng-repeat="error in errors['location']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <div ng-class="{ 'has-error': hasError('tags') }" class="form-group">
+      <label for="tags">Tags</label>
+      <input type="text" ng-model="event.tags" selectize="tagsConfig()" class="form-control"/>
+      <div ng-if="hasError('tags')" ng-repeat="error in errors['tags']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <div ng-class="{ 'has-error': hasError('description') }" class="form-group">
+      <label>Description (markdown)</label>
+      <textarea ng-model="event.description" epiceditor="descriptionConfig()" rows="10" class="form-control"></textarea>
+      <div ng-if="hasError('description')" ng-repeat="error in errors['description']" class="help-block">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <hr/>
+    <button type="submit" class="btn btn-new">Submit</button>&nbsp;<a href="#/events" class="btn btn-default">Cancel</a>
+  </form>
+</div>
