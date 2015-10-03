@@ -1,0 +1,22 @@
+main-menu
+.container.toolbox
+  form
+.container
+  a.btn.btn-primary.btn-lg.pull-right(href='#/communities/new', ng-if='isAuthenticated()') Добавить
+  br
+  br
+  br
+  ul.communities
+    li.community.panel.pull-left(ng-repeat='e in communities', style='background-image: url({{ e.logo }})')
+      b.index {{ e.id }}
+      a.element.pull-right(href='#/communities/{{e.id}}') {{ e.elem }}
+      ul.properties
+        li.name
+          i.fa.fa-circle
+          |  {{e.name}}
+        li.members
+          i.fa.fa-users
+          |  {{e.members_count + 10 }}
+        li.meetups
+          i.fa.fa-flag
+          |  {{ 7 }}

@@ -174,6 +174,11 @@ GEM
       responders
     iniparse (1.4.0)
     ipaddress (0.8.0)
+    jader (0.0.10)
+      libv8
+      sprockets
+      therubyracer (> 0.12.0)
+      tilt
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -419,6 +424,7 @@ DEPENDENCIES
   gibbon
   has_scope
   heroku
+  jader
   less-rails
   mandrill_mailer
   mini_magick

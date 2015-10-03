@@ -35,7 +35,7 @@ app.directive "calendar", ->
     days
 
   restrict: "E"
-  templateUrl: "<%= asset_path('templates/shared/calendar.html') %>"
+  template: JST["views/shared/calendar"]
   scope: false
   link: (scope) ->
     scope.selected = remove_time(scope.selected or moment())

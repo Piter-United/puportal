@@ -1,0 +1,51 @@
+main-menu
+.jumbotron.cover
+  .container
+    a.btn.btn-primary.btn-lg.pull-right(href='/users/sign_in', role='button') Присоединииться
+    h1 Piter United
+    p Объединение IT-сообществ Санкт-Петербурга
+.container
+  .row
+    .col-lg-4
+      center
+        h1 30
+        h2 Сообществ
+    .col-lg-4
+      center
+        h1 500+
+        h2 Митапов в год
+    .col-lg-4
+      center
+        h1 2000
+        h2 Специалистов
+hr
+.container
+  .row
+    .col-lg-6
+      .anu.alf.akz
+        h4.anv.anw Ближайшие митапы
+      .forthcoming-events.list-group
+        a.event.list-group-item(ng-repeat='event in events', href='#/events/{{event.id}}')
+          h4
+            small.date.pull-right.badge {{event.start | moment}}
+            | {{event.title}}
+          h5
+            | {{event.community.name}}
+            address.pull-right
+              i.fa.fa-map-marker
+              |  Большая морская 19
+        a.more.list-group-item(href='#/events') Посмотреть все митапы
+    .col-lg-6
+      .anu.alf.akz
+        h4.anv.anw Новые сообщества
+      .fresh-communities.list-group
+        a.list-group-item(ng-repeat='community in communities', href='#/communities/{{community.id}}')
+          h4
+            small.date.pull-right.badge {{community.created_at | moment}}
+            | {{ community.name}}
+          .info
+            i.fa.fa-users
+            |  участников – {{community.members_count + 10}}   
+            i.fa.fa-flag
+            |  встречь – {{7}}
+        a.more.list-group-item(href='#/communities') Посмотреть все сообщества

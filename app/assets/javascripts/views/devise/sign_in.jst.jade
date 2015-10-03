@@ -1,0 +1,23 @@
+.devise_form
+  center
+    a(href='/#/')
+      img(src='http://piter-united.ru/img/piterunited.png')
+  form.devise_form(ng-submit='submit()', novalidate='novalidate', ng-controller='SignInCtrl')
+    | {{ error }}
+    input#user_email.form-control(type='email', name='user[email]', ng-model='credentials.email', placeholder='email')
+    input#user_password.form-control(type='password', name='user[password]', ng-model='credentials.password', placeholder='пароль', autocomplete='off')
+    input.btn.btn-lg.btn-primary.btn-block(type='submit', name='commit', value='Войти')
+    center
+      br
+      a.text-shadow.p-20(href='#/sign_up') Зарегистрироваться
+      br
+      br
+      p
+        a.sn_link(href='/users/auth/vkontakte')
+          i.fa.fa-vk.text-shadow
+        a.sn_link(href='/users/auth/facebook')
+          i.fa.fa-facebook.text-shadow
+        a.sn_link(href='/users/auth/gplus')
+          i.fa.fa-google-plus.text-shadow
+        a.sn_link(href='/users/auth/github')
+          i.fa.fa-github.text-shadow

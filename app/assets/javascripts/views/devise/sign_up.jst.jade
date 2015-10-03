@@ -1,0 +1,29 @@
+.devise_form
+  center
+    a(href='/#/')
+      img(src='http://piter-united.ru/img/piterunited.png')
+  form(ng-submit='submit()', novalidate='novalidate', ng-controller='SignUpCtrl', asction='/users')
+    input.form-control(placeholder='email', autocomplete='off', type='text', name='user[email]', ng-model='credentials.email')
+    .help-block(ng-if="hasError('email')", ng-repeat="error in errors['email']", ng-model='credentials.email')
+      p {{ error }}
+    input.form-control(placeholder='пароль', autocomplete='off', type='password', name='user[password]', ng-model='credentials.password')
+    .help-block(ng-if="hasError('password')", ng-repeat="error in errors['password']")
+      p {{ error }}
+    input.form-control(placeholder='подтвердите пароль', autocomplete='off', type='password', name='user[password_confirmation]', ng-model='credentials.password_confirmation')
+    .help-block(ng-if="hasError('password_confirmation')", ng-repeat="error in errors['password_confirmation']")
+      p {{ error }}
+    input.btn.btn-lg.btn-primary.btn-block(type='submit', name='commit', value='Зарегистрироваться')
+    center
+      br
+      a.text-shadow.p-20(href='#/sign_in') Войти
+      br
+      br
+      p
+        a.sn_link(href='/users/auth/vkontakte')
+          i.fa.fa-vk.text-shadow
+        a.sn_link(href='/users/auth/facebook')
+          i.fa.fa-facebook.text-shadow
+        a.sn_link(href='/users/auth/gplus')
+          i.fa.fa-google-plus.text-shadow
+        a.sn_link(href='/users/auth/github')
+          i.fa.fa-github.text-shadow

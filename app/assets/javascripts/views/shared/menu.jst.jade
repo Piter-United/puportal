@@ -1,0 +1,20 @@
+.navbar.navbar-default.navbar-static-top(role='navigation')
+  .container
+    .navbar-header
+      a.navbar-brand(href='/#/')
+        img(src='http://piter-united.ru/img/piterunited.png')
+
+    nav#navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.ng-scope(ng-class="{'active': item.active}", ng-repeat='item in items')
+          a(href='{{ item.href }}')
+            span {{ item.display }}
+
+      ul.nav.navbar-nav.navbar-right
+        li.ng-scope(ng-if='!isAuthenticated()')
+          a.btn.btn-primary(href='#/sign_in')
+            span Войти
+
+        li.ng-scope(ng-if='isAuthenticated()')
+          a.btn.btn-primary(ng-click='logout()')
+            span Выйти

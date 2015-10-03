@@ -1,0 +1,45 @@
+main-menu
+.container(style='width: 40em;')
+  form(ng-submit='save()', novalidate='novalidate', name='form', ng-controller='NewCommunityCtrl')
+    h3 New Community
+    .help-block(ng-if="hasError('base')", ng-repeat="error in errors['base']")
+      p {{ error }}
+    hr
+    .form-group(ng-class="{ 'has-error': hasError('name') }")
+      label(for='name') Name
+      input.form-control(type='text', ng-model='community.name')
+      .help-block(ng-if="hasError('name')", ng-repeat="error in errors['name']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('short_name') }")
+      label(for='short_name') Short name
+      input.form-control(type='text', ng-model='community.short_name')
+      .help-block(ng-if="hasError('short_name')", ng-repeat="error in errors['short_name']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('links') }")
+      label(for='links') Links
+      input.form-control(type='text', ng-model='community.links')
+      .help-block(ng-if="hasError('links')", ng-repeat="error in errors['links']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('logo') }")
+      label(for='logo') Logo
+      .drop-box.ng-pristine.ng-valid(ngf-select='', ngf-drop='', ng-model='logo', accept='image/*')
+        img.preview(ngf-src='logo')
+      .help-block(ng-if="hasError('logo')", ng-repeat="error in errors['logo']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('hashtag') }")
+      label(for='hashtag') Hashtag
+      input.form-control(type='text', ng-model='community.hashtag')
+      .help-block(ng-if="hasError('hashtag')", ng-repeat="error in errors['hashtag']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('tags') }")
+      label(for='tags') Tags
+      input.form-control(type='text', ng-model='community.tags', selectize='tagsConfig()')
+      .help-block(ng-if="hasError('tags')", ng-repeat="error in errors['tags']")
+        p {{ error }}
+    .form-group(ng-class="{ 'has-error': hasError('description') }")
+      label(for='description') Description (markdown)
+      textarea.form-control(ng-model='community.description', epiceditor='descriptionConfig()', rows='10')
+      .help-block(ng-if="hasError('description')", ng-repeat="error in errors['description']")
+        p {{ error }}
+    button.btn.btn-new(type='submit') Submit
+    a.btn.btn-default(href='#/communities') Cancel

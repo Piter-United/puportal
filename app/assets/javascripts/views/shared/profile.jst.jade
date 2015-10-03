@@ -1,0 +1,9 @@
+.container
+  dl
+    dt Name
+    dd {{ profile.name }}
+    dt Avatar
+    dd
+      img(src='{{ profile.avatar }}')
+  pre.
+    \n{{profile | json}}

@@ -1,0 +1,57 @@
+main-menu
+.container
+  hr
+  | {{ event | json }}
+  form(ng-submit='save()')
+    h3 New Event
+    .help-block(ng-if="hasError('base')", ng-repeat="error in errors['base']")
+      p {{ error }}
+    hr
+
+    .form-group(ng-class="{ 'has-error': hasError('title') }")
+      label(for='title') Title
+      input.form-control(type='text', ng-model='event.title')
+      .help-block(ng-if="hasError('title')", ng-repeat="error in errors['title']")
+        p {{ error }}
+
+    .form-group(ng-class="{ 'has-error': hasError('community') }")
+      label Community
+      select.form-control(type='text', ng-model='event.community_id', selectize='communityConfig()')
+      .help-block(ng-if="hasError('community')", ng-repeat="error in errors['community']")
+        p {{ error }}
+
+    .form-group(ng-class="{ 'has-error': (hasError('start') || hasError('finish')) }")
+      label(for='start') Time
+      .form-inline
+        .input-group
+          .input-group-addon from
+          input.form-control(type='text', ng-datetime-model='event.start', placeholder='From', timepicker='timepicker')
+          .input-group-addon to
+          input.form-control(type='text', ng-datetime-model='event.finish', placeholder='To', timepicker='timepicker')
+      .help-block(ng-if="hasError('finish')", ng-repeat="error in errors['finish']")
+        p {{ error }}
+      .help-block(ng-if="hasError('start')", ng-repeat="error in errors['start']")
+        p {{ error }}
+
+    .form-group(ng-class="{ 'has-error': hasError('location') }")
+      label Location
+      select.form-control(type='text', ng-model='event.location', yandexgeo='yandexgeo')
+      .help-block(ng-if="hasError('start')", ng-repeat="error in errors['location']")
+        p {{ error }}
+
+    .form-group(ng-class="{ 'has-error': hasError('tags') }")
+      label(for='tags') Tags
+      input.form-control(type='text', ng-model='event.tags', selectize='tagsConfig()')
+      .help-block(ng-if="hasError('tags')", ng-repeat="error in errors['tags']")
+        p {{ error }}
+
+    .form-group(ng-class="{ 'has-error': hasError('description') }")
+      label Description (markdown)
+      textarea.form-control(ng-model='event.description', epiceditor='descriptionConfig()', rows='10')
+      .help-block(ng-if="hasError('description')", ng-repeat="error in errors['description']")
+        p {{ error }}
+
+    hr
+
+    button.btn.btn-new(type='submit') Submit
+    a.btn.btn-default(href='#/events') Cancel

@@ -1,15 +1,15 @@
-app = angular.module('app')
+app = angular.module("app")
 
-app.directive "mainMenu", ($timeout, Auth)->
+app.directive "mainMenu", ["$timeout", "Auth", ($timeout, Auth)->
   restrict: "E"
-  templateUrl: "<%= asset_path('templates/shared/menu.html') %>"
+  template: JST["views/shared/menu"]
   scope: false
   link: (scope, element, attrs) ->
-    scope.menu = []
-    scope.menu.push display: "События", href: '#/events'
-    scope.menu.push display: "Сообщества", href: "#/communities"
-    #scope.menu.push display: "Locations", href: "#/communities"
-    #scope.menu.push display: "Persons",   href: "#/communities"
+    scope.items = []
+    scope.items.push display: "События", href: "#/events"
+    scope.items.push display: "Сообщества", href: "#/communities"
+    #scope.items.push display: "Locations", href: "#/communities"
+    #scope.items.push display: "Persons",   href: "#/communities"
 
     scope.isAuthenticated = ()->
       Auth.isAuthenticated()
@@ -19,29 +19,30 @@ app.directive "mainMenu", ($timeout, Auth)->
         "X-HTTP-Method-Override": "POST"
       Auth.logout(config)
 
-    calculateCurrent = (menu)->
+    calculateCurrent = (menu_items)->
       candidats = []
-      for x in menu
+      for x in menu_items
         delete x.active
         if window.location.href.indexOf(x.href) > -1
           candidats.push(x)
       active = candidats.sort((x,y)-> y.href.localeCompare(x.href))[0]
       active && active.active = true
 
-    scope.$on '$locationChangeSuccess', (event, xhr, deferred)->
-      calculateCurrent(scope.menu)
+    scope.$on "$locationChangeSuccess", (event, xhr, deferred)->
+      calculateCurrent(scope.items)
 
-    scope.$on 'devise:login', (event, xhr, deferred)->
+    scope.$on "devise:login", (event, xhr, deferred)->
       console.log(event, xhr, deferred)
-      calculateCurrent(scope.menu)
+      calculateCurrent(scope.items)
 
-    scope.$on 'devise:new-session', (event, xhr, deferred)->
+    scope.$on "devise:new-session", (event, xhr, deferred)->
       console.log(event, xhr, deferred)
-      calculateCurrent(scope.menu)
+      calculateCurrent(scope.items)
 
-    scope.$on 'devise:unauthorized', (event, xhr, deferred)->
+    scope.$on "devise:unauthorized", (event, xhr, deferred)->
       console.log(event, xhr, deferred)
-      calculateCurrent(scope.menu)
+      calculateCurrent(scope.items)
 
     $timeout ->
-      calculateCurrent(scope.menu)
+      calculateCurrent(scope.items)
+]

@@ -32,6 +32,7 @@ gem "russian"
 
 gem "carrierwave", github: "carrierwaveuploader/carrierwave"
 gem "mini_magick"
+gem "jader"
 
 gem "fog-aws"
 gem "gibbon"

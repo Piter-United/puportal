@@ -1,3 +1,4 @@
+#= require jade/runtime
 #= require jquery/jquery
 #= require angular/angular
 #= require angular-animate/angular-animate
@@ -9,6 +10,8 @@
 #= require selectize/dist/js/standalone/selectize
 #= require moment/moment
 #= require angular-ui-notification/src/angular-ui-notification
+
+#= require_tree ./views
 #= require_self
 #= require_tree ./factories
 #= require_tree ./filters
@@ -34,7 +37,7 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     horizontalSpacing: 20,
     positionX: 'center',
     positionY: 'top',
-    templateUrl: "<%= asset_path('templates/shared/notification.html') %>"
+    template: JST["views/shared/notification"]
   });
 
   $httpProvider.interceptors.push('flashHttpInterceptor')
@@ -44,52 +47,52 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
 
   rp.when "/",
     name: "index"
-    templateUrl: "<%= asset_path('templates/shared/index.html') %>"
+    template: JST["views/shared/index"]
     controller: "IndexCtrl"
 
   rp.when "/profile",
     name: "profile"
-    templateUrl: "<%= asset_path('templates/shared/profile.html') %>"
+    template: JST["views/shared/profile"]
     controller: "ProfileCtrl"
 
   rp.when "/events",
     name: "events"
-    templateUrl: "<%= asset_path('templates/events/index.html') %>"
+    template: JST["views/events/index"]
     controller: "EventsCtrl"
 
   rp.when "/events/new",
     name: "events"
-    templateUrl: "<%= asset_path('templates/events/new.html') %>"
+    template: JST["views/events/new"]
     controller: "NewEventCtrl"
 
   rp.when "/communities",
     name: "communities"
-    templateUrl: "<%= asset_path('templates/communities/index.html') %>"
+    template: JST["views/communities/index"]
     controller: "CommunitiesCtrl"
 
   rp.when "/communities/new",
     name: "community"
-    templateUrl: "<%= asset_path('templates/communities/new.html') %>"
+    template: JST["views/communities/new"]
     controller: "NewCommunityCtrl"
 
   rp.when "/communities/:id",
     name: "community"
-    templateUrl: "<%= asset_path('templates/communities/show.html') %>"
+    template: JST["views/communities/show"]
     controller: "CommunityCtrl"
 
   rp.when "/events/:id",
     name: "event"
-    templateUrl: "<%= asset_path('templates/events/show.html') %>"
+    template: JST["views/events/show"]
     controller: "EventCtrl"
 
   rp.when "/sign_in",
     name: "sign_in"
-    templateUrl: "<%= asset_path('templates/devise/sign_in.html') %>"
+    template: JST["views/devise/sign_in"]
     controller: "SignInCtrl"
 
   rp.when "/sign_up",
     name: "sign_in"
-    templateUrl: "<%= asset_path('templates/devise/sign_up.html') %>"
+    template: JST["views/devise/sign_up"]
     controller: "SignUpCtrl"
 ]
 

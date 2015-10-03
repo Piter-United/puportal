@@ -1,0 +1,12 @@
+main-menu
+.container
+  .event
+    .calendar
+      .date {{event.start | date:'dd'}}
+      .month {{event.start | date:'MMMM'}}
+    .title-blk
+      .title {{event.title }}
+      .subtitle(ng-bind-html='event.description | rawHtml')
+    .tail
+      .time {{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}
+      .loc {{event.location.display}}

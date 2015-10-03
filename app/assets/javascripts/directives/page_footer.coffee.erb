@@ -2,7 +2,7 @@ app = angular.module('app')
 
 app.directive "page-footer", ($timeout)->
   restrict: "E"
-  templateUrl: "<%= asset_path('templates/shared/page_footer.html') %>"
+  template: JST["views/shared/page_footer"]
   scope: false
   link: (scope, element, attrs) ->
     true

@@ -1,0 +1,3 @@
+.alerts(ng-if='length(flash.messages)')
+  .alert(class='alert-{{ message.type }}', ng-repeat='message in flash.messages', role='alert')
+    | {{ message.text }}

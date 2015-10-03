@@ -1,0 +1,22 @@
+main-menu
+.container
+  .row
+    .content.col-lg-8
+      .list-group
+        a.event.list-group-item(ng-repeat='event in events', href='#/events/{{event.id}}')
+          h4 {{event.title}}
+          .calendar
+            .date {{event.start | date:'dd'}}
+            .month {{event.start | date:'MMMM'}}
+          .tail
+            .time {{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}
+            .loc {{event.location.display}}
+
+    .content.col-lg-4
+      .row
+        .col-lg-12
+          a.btn.btn-primary.btn-lg.btn-block(href='#/events/new', ng-if='isAuthenticated()') Добавить
+      .row
+        .col-lg-12
+          hr
+          calendar(selected='day')
