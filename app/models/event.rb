@@ -16,9 +16,6 @@ class Event < ActiveRecord::Base
     where("(start, finish) OVERLAPS (?,?)", date.beginning_of_day, date.end_of_day)
   }
 
-  scope :forthcoming, lambda{ |*|
-    order("start, finish DESC").limit(5)
-  }
-
+  scope :forthcoming, ->(*){ order("start, finish DESC").limit(5) }
   scope :communities, ->(ids){ where(community_id: ids) }
 end

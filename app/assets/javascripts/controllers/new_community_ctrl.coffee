@@ -45,17 +45,8 @@ app.controller "NewCommunityCtrl", ($scope, $location, Data) ->
     Data.communities.create($scope.community, $scope.logo)
       .progress((evt) ->
         progressPercentage = parseInt(100.0 * evt.loaded / evt.total)
-        console.log "progress: " + progressPercentage + "% ", evt.config.file
       ).success((data, status, headers, config) ->
-        console.log "file " + config.file + "uploaded. Response: ", data
         $location.path("/communities")
       ).error (data, status, headers, config) ->
-        console.log "error status: " + status, data
         if data.errors
           $scope.errors = data.errors
-
-#      .then (result)->
-#        if result.data && result.data.errors
-#          $scope.errors = result.data.errors
-#        else
-#          $location.path("/communities")

@@ -27,6 +27,7 @@
     "selectize" : "0.12.1",
     "moment" : "2.10.6",
     "epiceditor" : "0.2.2",
-    "bootstrap" : "~3.3.5"
+    "bootstrap" : "~3.3.5",
+    "skeleton" : "latest"
   }
 }

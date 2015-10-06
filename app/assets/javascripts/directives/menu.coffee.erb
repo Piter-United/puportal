@@ -1,11 +1,12 @@
 app = angular.module("app")
 
-app.directive "mainMenu", ["$timeout", "Auth", ($timeout, Auth)->
-  restrict: "E"
+app.directive "mainMenu", ["$timeout", "Auth", "$window", ($timeout, Auth, $window)->
+  restrict: "A"
   template: JST["views/shared/menu"]
   scope: false
   link: (scope, element, attrs) ->
     scope.items = []
+    #scope.items.push display: "О нас", href: "#/"
     scope.items.push display: "События", href: "#/events"
     scope.items.push display: "Сообщества", href: "#/communities"
     #scope.items.push display: "Locations", href: "#/communities"
@@ -18,6 +19,14 @@ app.directive "mainMenu", ["$timeout", "Auth", ($timeout, Auth)->
       config = headers:
         "X-HTTP-Method-Override": "POST"
       Auth.logout(config)
+
+    navbartop = $("nav.navbar").offset().top
+
+    change_docked = ()->
+      if navbartop > $(window).scrollTop()
+        $("body").removeClass("has-docked-nav")
+      else
+        $("body").addClass("has-docked-nav")
 
     calculateCurrent = (menu_items)->
       candidats = []
@@ -32,17 +41,16 @@ app.directive "mainMenu", ["$timeout", "Auth", ($timeout, Auth)->
       calculateCurrent(scope.items)
 
     scope.$on "devise:login", (event, xhr, deferred)->
-      console.log(event, xhr, deferred)
       calculateCurrent(scope.items)
 
     scope.$on "devise:new-session", (event, xhr, deferred)->
-      console.log(event, xhr, deferred)
       calculateCurrent(scope.items)
 
     scope.$on "devise:unauthorized", (event, xhr, deferred)->
-      console.log(event, xhr, deferred)
       calculateCurrent(scope.items)
 
     $timeout ->
+      #$(window).on 'scroll', change_docked
+      #$(window).on 'resize', change_docked
       calculateCurrent(scope.items)
 ]

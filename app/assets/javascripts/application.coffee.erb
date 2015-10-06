@@ -19,6 +19,8 @@
 #= require_tree ./controllers
 #= require_tree ./interceptors
 
+
+
 app = angular.module "app", [
   "ngCookies"
   "ngRoute"
@@ -96,8 +98,21 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     controller: "SignUpCtrl"
 ]
 
-app.run ($rootScope, $window, Data, Auth, Notification)->
+app.run ($rootScope, $window, $timeout, Data, Auth, Notification)->
   Auth.currentUser()
 
   $rootScope.$on "flash", (event, message)->
     Notification(message)
+
+  $timeout ()->
+    #openPopover = (e) ->
+    #  e.preventDefault()
+    #  closePopover()
+    #  popover = $($(this).data('popover'))
+    #  popover.toggleClass 'open'
+    #  e.stopImmediatePropagation()
+
+    #closePopover = (e) ->
+    #  if $('.popover.open').length > 0
+    #    $('.popover').removeClass 'open'
+

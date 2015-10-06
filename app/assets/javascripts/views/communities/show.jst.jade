@@ -1,32 +1,88 @@
-main-menu
+nav.navbar(main-menu=true)
+
 .container
   .row
-    .col-lg-3
-      .thumbnail
-        img(src='{{community.logo}}')
-    .col-lg-9
-      h2  {{community.name}}
-      p.lead(ng-bind-html='community.description | rawHtml')
-      div(ng-if='isAuthenticated()')
-        button.btn.btn-primary(ng-click='join()', ng-if='!isMember()') Присоединиться
-        button.btn.btn-primary(ng-click='leave()', ng-if='isMember()') Выйти из сообщества
-  .row
-    .col-lg-6
-      .forthcoming-events.list-group
-        a.event.list-group-item(ng-repeat='event in events', href='#/events/{{event.id}}')
-          h4
-            small.date.pull-right.badge {{event.start | moment}}
-            | {{event.title}}
-          h5
-            | {{event.community.name}}
-            address.pull-right
-              i.fa.fa-map-marker
-              |  Большая морская 19
-    .col-lg-6
-      ul.members.list-group
-        a.user.list-group-item(ng-repeat='user in community.users', href='#/users/{{user.id}}')
-          .row
-            .col-lg-2
-              img.img-circle(src='{{user.avatar}}')
-            .col-lg-10
-              h4 {{user.name}}
+    .two.columns
+      .community
+        a(href='#/communities/{{ community.id }}')
+          b.index {{ community.id }}
+
+          span.element_name(href='#/communities/{{ community.id }}') {{ community.elem }}
+
+          ul.properties
+            li.members
+              i.fa.fa-users
+              |  {{e.members_count + 10 }}
+            li.meetups
+              i.fa.fa-flag
+              |  {{ 7 }}
+
+    .ten.columns
+      div.pull-right(ng-if='isAuthenticated()')
+        button.button.button-primary(ng-click='join()', ng-if='!isMember()') Присоединиться
+        button.button.button-primary(ng-click='leave()', ng-if='isMember()') Выйти из сообщества
+
+      h4 {{community.name}}
+      //p.lead(ng-bind-html='community.description | rawHtml')
+      p.info
+        | Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
+        | Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+        | В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн
+        ul
+          li Aliena dixit in physicis nec ea ipsa, quae tibi probarentur;
+          li Quod autem in homine praestantissimum atque optimum est, id deseruit.
+          li Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.
+          li Non est enim vitium in oratione solum, sed etiam in moribus.
+
+    .row
+      .six.columns
+          .underline
+            h6
+              i.fa.fa-users   Участники
+          ul
+            li(ng-repeat='user in community.users')
+              a(href='#/users/{{user.id}}')
+                h6 {{user.name}}
+
+      .six.columns
+          .underline
+            h6
+              i.fa.fa-flag   События
+          ul.events
+            li.event(ng-repeat='event in events')
+              a(href='#/events/{{event.id}}')
+                p
+                  small.date.pull-right.badge {{event.start | moment}}
+                  | {{event.title}}
+                //- h5
+                //-   | {{event.community.name}}
+                //-   address.pull-right
+                //-     small.fa.fa-map-marker
+                //-     span  Большая морская 19
+
+
+
+  //- .row
+  //-   .six.columns
+  //-     .list-header
+  //-       h6 События
+  //-     ul.events
+  //-       li.event(ng-repeat='event in events')
+  //-         a(href='#/events/{{event.id}}')
+  //-           p
+  //-             small.date.pull-right.badge {{event.start | moment}}
+  //-             | {{event.title}}
+  //-           h5
+  //-             | {{event.community.name}}
+  //-             address.pull-right
+  //-               small.fa.fa-map-marker
+  //-               span  Большая морская 19
+
+  //-   .six.columns
+  //-     .list-header
+  //-       h6 Участники
+  //-     ul
+  //-       li(ng-repeat='user in community.users')
+  //-         a(href='#/users/{{user.id}}')
+  //-           img.img-circle(src='{{user.avatar}}')
+  //-           h4 {{user.name}}

@@ -1,22 +1,38 @@
-main-menu
-.container
-  .row
-    .content.col-lg-8
-      .list-group
-        a.event.list-group-item(ng-repeat='event in events', href='#/events/{{event.id}}')
-          h4 {{event.title}}
-          .calendar
-            .date {{event.start | date:'dd'}}
-            .month {{event.start | date:'MMMM'}}
-          .tail
-            .time {{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}
-            .loc {{event.location.display}}
+nav.navbar(main-menu=true)
 
-    .content.col-lg-4
-      .row
-        .col-lg-12
-          a.btn.btn-primary.btn-lg.btn-block(href='#/events/new', ng-if='isAuthenticated()') Добавить
-      .row
-        .col-lg-12
-          hr
-          calendar(selected='day')
+.container
+  form.toolbox.columns.twelve
+    .row
+      .columns.nine
+        input.u-full-width(type="text", placeholder="найти")
+
+      .columns.three
+        a.button.button-primary.u-full-width(href='#/events/new', ng-if='isAuthenticated()') Добавить
+
+  .row
+    .columns.twelve
+      ul.events
+        li.event(ng-repeat='event in events')
+          .event-header
+            i.fa.fa-circle
+              a(href='#/events/{{event.id}}')
+                {{event.title}}
+
+            a.time.u-pull-right
+              {{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}
+
+          .info
+            | Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
+            | Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+            | В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн
+
+            ul
+              li Aliena dixit in physicis nec ea ipsa, quae tibi probarentur;
+              li Quod autem in homine praestantissimum atque optimum est, id deseruit.
+              li Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.
+              li Non est enim vitium in oratione solum, sed etiam in moribus.
+
+            span.loc {{event.location.display}}
+            span.tail
+              span.date {{event.start | date:'dd'}}
+              span.month {{event.start | date:'MMMM'}}

@@ -12,7 +12,7 @@
     input.form-control(placeholder='подтвердите пароль', autocomplete='off', type='password', name='user[password_confirmation]', ng-model='credentials.password_confirmation')
     .help-block(ng-if="hasError('password_confirmation')", ng-repeat="error in errors['password_confirmation']")
       p {{ error }}
-    input.btn.btn-lg.btn-primary.btn-block(type='submit', name='commit', value='Зарегистрироваться')
+    input.button.button-lg.button-primary.button-block(type='submit', name='commit', value='Зарегистрироваться')
     center
       br
       a.text-shadow.p-20(href='#/sign_in') Войти

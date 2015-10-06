@@ -1,20 +1,15 @@
-.navbar.navbar-default.navbar-static-top(role='navigation')
-  .container
-    .navbar-header
-      a.navbar-brand(href='/#/')
-        img(src='http://piter-united.ru/img/piterunited.png')
+.container
+  ul.navbar-list
+    li.navbar-item
+      a.navbar-link(href="#/") piter – united
 
-    nav#navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li.ng-scope(ng-class="{'active': item.active}", ng-repeat='item in items')
-          a(href='{{ item.href }}')
-            span {{ item.display }}
+    li.navbar-item(ng-class="{ 'active': item.active }", ng-repeat='item in items')
+      a.navbar-link(href='{{ item.href }}')
+        span {{ item.display }}
 
-      ul.nav.navbar-nav.navbar-right
-        li.ng-scope(ng-if='!isAuthenticated()')
-          a.btn.btn-primary(href='#/sign_in')
-            span Войти
+  ul.navbar-list.profile-navbar.u-pull-right
+    li.navbar-item(ng-class="{ 'active': item.active }", ng-if="!isAuthenticated()")
+      a.button.button-primary(href='#/sign_in') войти
 
-        li.ng-scope(ng-if='isAuthenticated()')
-          a.btn.btn-primary(ng-click='logout()')
-            span Выйти
+    li.navbar-item(ng-class="{ 'active': item.active }", ng-if="isAuthenticated()")
+        a.button(ng-click='logout()') выйти
