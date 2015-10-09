@@ -8,14 +8,12 @@ nav.navbar(main-menu=true)
     .row
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('title') }")
-          label Заголовок
           input.u-full-width(type='text', ng-model='event.title')
           .help-block(ng-if="hasError('title')", ng-repeat="error in errors['title']")
             p {{ error }}
 
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('community') }")
-          label Сообщество
           select.u-full-width(type='text', ng-model='event.community_id', selectize='communityConfig()')
           .help-block(ng-if="hasError('community')", ng-repeat="error in errors['community']")
             p {{ error }}
@@ -23,39 +21,31 @@ nav.navbar(main-menu=true)
     .row
       .columns.twelve
         .form-group(ng-class="{ 'has-error': (hasError('start') || hasError('finish')) }")
-          label(for='start') Время
           .row.form-inline
             .columns.six
-              label с
               input.u-full-width(type='text', ng-datetime-model='event.start', placeholder='From', timepicker='timepicker')
               .help-block(ng-if="hasError('start')", ng-repeat="error in errors['start']")
                 p {{ error }}
 
             .columns.six
-              label по
               input.u-full-width(type='text', ng-datetime-model='event.finish', placeholder='To', timepicker='timepicker')
               .help-block(ng-if="hasError('finish')", ng-repeat="error in errors['finish']")
                 p {{ error }}
 
     .form-group(ng-class="{ 'has-error': hasError('location') }")
-      label Location
       select.u-full-width(type='text', ng-model='event.location', yandexgeo='yandexgeo')
       .help-block(ng-if="hasError('start')", ng-repeat="error in errors['location']")
         p {{ error }}
 
     .form-group(ng-class="{ 'has-error': hasError('tags') }")
-      label(for='tags') Tags
       input.u-full-width(type='text', ng-model='event.tags', selectize='tagsConfig()')
       .help-block(ng-if="hasError('tags')", ng-repeat="error in errors['tags']")
         p {{ error }}
 
     .form-group(ng-class="{ 'has-error': hasError('description') }")
-      label Description (markdown)
       textarea.u-full-width(ng-model='event.description', epiceditor='descriptionConfig()', rows='10')
       .help-block(ng-if="hasError('description')", ng-repeat="error in errors['description']")
         p {{ error }}
-
-    hr
 
     button.button.button-new(type='submit') Submit
     a.button.button-default(href='#/events') Cancel

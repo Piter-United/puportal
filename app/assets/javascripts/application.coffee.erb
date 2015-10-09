@@ -6,7 +6,6 @@
 #= require angular-route/angular-route
 #= require angular-sanitize/angular-sanitize
 #= require angular-devise/lib/devise
-#= require ng-file-upload/ng-file-upload-all
 #= require selectize/dist/js/standalone/selectize
 #= require moment/moment
 #= require angular-ui-notification/src/angular-ui-notification
@@ -19,13 +18,10 @@
 #= require_tree ./controllers
 #= require_tree ./interceptors
 
-
-
 app = angular.module "app", [
   "ngCookies"
   "ngRoute"
   "ngAnimate"
-  "ngFileUpload"
   "Devise"
   "ui-notification"
 ]
@@ -67,6 +63,11 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     template: JST["views/events/new"]
     controller: "NewEventCtrl"
 
+  rp.when "/people",
+    name: "people"
+    template: JST["views/people/index"]
+    controller: "PeopleCtrl"
+
   rp.when "/communities",
     name: "communities"
     template: JST["views/communities/index"]
@@ -103,16 +104,4 @@ app.run ($rootScope, $window, $timeout, Data, Auth, Notification)->
 
   $rootScope.$on "flash", (event, message)->
     Notification(message)
-
-  $timeout ()->
-    #openPopover = (e) ->
-    #  e.preventDefault()
-    #  closePopover()
-    #  popover = $($(this).data('popover'))
-    #  popover.toggleClass 'open'
-    #  e.stopImmediatePropagation()
-
-    #closePopover = (e) ->
-    #  if $('.popover.open').length > 0
-    #    $('.popover').removeClass 'open'
 

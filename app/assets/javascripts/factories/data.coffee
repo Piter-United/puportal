@@ -5,7 +5,7 @@ with_deff = ($q, cb)->
   cb(deff)
   deff.promise
 
-app.factory "Data", ($http, $q, $cookies, Upload)->
+app.factory "Data", ($http, $q, $cookies)->
   profile: ->
     with_deff $q, (deff)->
       $http(method: "GET", url: "/profile.json")
@@ -46,22 +46,12 @@ app.factory "Data", ($http, $q, $cookies, Upload)->
             deff.resolve(data.community)
 
     create: (params, logo)->
-      console.log(params, logo)
-      Upload.upload(
-        url: "/communities.json"
-        method: "POST"
-        fields: params || {}
-        fileFormDataName: "community[logo]"
-        file: logo
-        formDataAppender: (fd, key, val)->
-          if angular.isArray(val)
-            angular.forEach val, (v)->
-              fd.append("community["+key+"]", v)
-          else
-            fd.append("community["+key+"]", val)
-
-          console.log("fd", fd)
-      )
+      with_deff $q, (deff)->
+        $http(method: "POST", url: "/communities.json", data: { "community" : (params || {}) })
+          .then (data) ->
+            deff.resolve(data)
+          , (data) ->
+            deff.resolve(data)
 
     join: (id)->
       with_deff $q, (deff)->

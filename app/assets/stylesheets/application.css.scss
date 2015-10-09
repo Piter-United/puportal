@@ -1,5 +1,6 @@
 //= require skeleton/css/normalize
 //= require skeleton/css/skeleton
+//= require selectize/dist/css/selectize
 //= require font-awesome
 //= require angular-ui-notification/src/angular-ui-notification
 //= require_self
@@ -12,7 +13,63 @@
 @lgray: #AAB5BF;
 
 .header{
-  min-height: 200px; }
+  min-height: 200px;
+}
+
+.selectize-input input { height: 20px; }
+.selectize-input div.item + input { display: inline-block; }
+
+.form-group {
+  margin-bottom: 30px;
+
+  .has-error{
+    input, textarea, select {
+      border-color: red;
+    }
+  }
+
+  &.has-error input, &.has-error textarea, &.has-error select {
+    border-color: red;
+  }
+}
+
+.selectize-control{
+  margin-top: 10px;
+  width: 100%;
+  border: 2px solid black;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+  padding: 8px;
+}
+
+.selectize-input {
+  border: 2px solid black;
+  box-shadow: none;
+
+  &:hover, &:focus {
+    box-shadow: none;
+  }
+}
+
+.selectize-input.not-full > input {
+  width: 100% !important;
+}
+
+.selectize-control.multi .selectize-input > div {
+  border: 1px solid blueviolet;
+  color: blueviolet;
+  background: white;
+  border-radius: 3px;
+}
+
+.selectize-dropdown, .selectize-input, .selectize-input { 
+  line-height: 14px; 
+}
 
 .communities {
   list-style-type: none;
@@ -378,7 +435,6 @@ input[type="url"],
 input[type="password"],
 textarea,
 select {
-  height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: none;
@@ -444,4 +500,44 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal;
+}
+
+.devise_form {
+  width: 250px;
+  margin: 100px auto;
+  text-align: center;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  input {
+    text-align: center;
+  }
+
+  .brand_link{
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    line-height: 6.5rem;
+    color: #222;
+  }
+}
+
+ul.sn_links {
+  li {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 3rem;
+    color: black;
+  }
+}
+
+textarea, textarea:hover, textarea:focus {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 4px;
 }

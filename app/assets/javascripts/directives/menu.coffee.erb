@@ -9,8 +9,8 @@ app.directive "mainMenu", ["$timeout", "Auth", "$window", ($timeout, Auth, $wind
     #scope.items.push display: "О нас", href: "#/"
     scope.items.push display: "События", href: "#/events"
     scope.items.push display: "Сообщества", href: "#/communities"
-    #scope.items.push display: "Locations", href: "#/communities"
-    #scope.items.push display: "Persons",   href: "#/communities"
+    #scope.items.push display: "Площадки", href: "#/places"
+    scope.items.push display: "Специалисты", href: "#/people"
 
     scope.isAuthenticated = ()->
       Auth.isAuthenticated()

@@ -42,11 +42,11 @@ app.controller "NewCommunityCtrl", ($scope, $location, Data) ->
     autogrow: false
 
   $scope.save = ()->
-    Data.communities.create($scope.community, $scope.logo)
-      .progress((evt) ->
-        progressPercentage = parseInt(100.0 * evt.loaded / evt.total)
-      ).success((data, status, headers, config) ->
-        $location.path("/communities")
-      ).error (data, status, headers, config) ->
-        if data.errors
-          $scope.errors = data.errors
+    community = $scope.community;
+
+    Data.communities.create(community)
+      .then (result)->
+        if result.data && result.data.errors
+          $scope.errors = result.data.errors
+        else
+          $location.path("/communities")

@@ -8,53 +8,41 @@ nav.navbar(main-menu=true)
     .row
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('name') }")
-          label(for='name') Название
-          input.u-full-width(type='text', ng-model='community.name')
+          input.u-full-width(type='text', ng-model='community.name', placeholder='Название')
           .help-block(ng-if="hasError('name')", ng-repeat="error in errors['name']")
             p {{ error }}
+
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('short_name') }")
-          label(for='short_name') Короткое название
-          input.u-full-width(type='text', ng-model='community.short_name')
+          input.u-full-width(type='text', ng-model='community.short_name', placeholder='Короткое название')
           .help-block(ng-if="hasError('short_name')", ng-repeat="error in errors['short_name']")
             p {{ error }}
 
     .row
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('element') }")
-          label(for='element') Элемент
-          input.u-full-width(type='text', ng-model='community.element')
+          input.u-full-width(type='text', ng-model='community.element', placeholder='Элемент')
           .help-block(ng-if="hasError('element')", ng-repeat="error in errors['element']")
             p {{ error }}
 
       .columns.six
         .form-group(ng-class="{ 'has-error': hasError('hashtag') }")
-          label(for='hashtag') Хештег
-          input.u-full-width(type='text', ng-model='community.hashtag')
+          input.u-full-width(type='text', ng-model='community.hashtag', placeholder='Хештег')
           .help-block(ng-if="hasError('hashtag')", ng-repeat="error in errors['hashtag']")
             p {{ error }}
 
     .row
       .columns.twelve
         .form-group(ng-class="{ 'has-error': hasError('tags') }")
-          label(for='tags') Теги
-          input.u-full-width(style='width: 100%', type='text', ng-model='community.tags', selectize='tagsConfig()')
+          input(style="width: 100%;", type='text', ng-model='community.tags', placeholder='Теги', selectize='tagsConfig()')
           .help-block(ng-if="hasError('tags')", ng-repeat="error in errors['tags']")
-            p {{ error }}
-
-      .columns.twelve
-        .form-group(ng-class="{ 'has-error': hasError('description') }")
-          label(for='description') Описание (markdown)
-          textarea.u-full-width(ng-model='community.description', epiceditor='descriptionConfig()', rows='20')
-          .help-block(ng-if="hasError('description')", ng-repeat="error in errors['description']")
             p {{ error }}
 
     .row
       .columns.twelve
-        .form-group.u-full-width(ng-class="{ 'has-error': hasError('links') }")
-          label(for='links') Ссылки
-          input.u-full-width(type='text', ng-model='community.links')
-          .help-block(ng-if="hasError('links')", ng-repeat="error in errors['links']")
+        .form-group(ng-class="{ 'has-error': hasError('description') }")
+          textarea.u-full-width(ng-model='community.description', epiceditor='descriptionConfig()', rows='20', placeholder="Описание (markdown)")
+          .help-block(ng-if="hasError('description')", ng-repeat="error in errors['description']")
             p {{ error }}
 
     .row
