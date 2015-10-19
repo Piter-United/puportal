@@ -13,11 +13,11 @@
 
 Если вы хотите присоединиться к разработке, то либо можете написать об этом на
 piterunited@gmail.com, либо *явно* взять на себя задачу из
-[Isseues](https://github.com/Piter-United/puportal/issues), реализовать ее и
+[Issues](https://github.com/Piter-United/puportal/issues), реализовать ее и
 послать [pull request](https://help.github.com/articles/using-pull-requests/).
 Все задачи, предполагаемые для выполнения, доступны тут (этот перечень будет
 обновляться по мере надобности):
-[Isseues](https://github.com/Piter-United/puportal/issues).
+[Issues](https://github.com/Piter-United/puportal/issues).
 
 #### Scope of Project
 
