@@ -1,14 +1,22 @@
-.header
-  i.fa.fa-angle-left(ng-click='previous()')
-  span {{month.format("MMMM, YYYY")}}
-  i.fa.fa-angle-right(ng-click='next()')
-.week.names
-  span.day Sun
-  span.day Mon
-  span.day Tue
-  span.day Wed
-  span.day Thu
-  span.day Fri
-  span.day Sat
-.week(ng-repeat='week in weeks')
-  span.day(ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }", ng-click='select(day)', ng-repeat='day in week.days') {{day.number}}
+.callendar
+  .callendar-header.row
+    .columns.one
+      i.link.fa.fa-angle-left(ng-click='previous()')
+    center.columns.ten
+      span {{ month.format("MMMM, YYYY") }}
+    .columns.one
+      i.link.fa.fa-angle-right(ng-click='next()')
+
+  .callendar-numbers.row
+    table
+      tr
+        th ВС
+        th ПН
+        th ВТ
+        th СР
+        th ЧТ
+        th ПТ
+        th СБ
+      tr(ng-repeat='week in weeks')
+        td(ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }", ng-click='select(day)', ng-repeat='day in week.days')
+          span.link.day {{day.number}}

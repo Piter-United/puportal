@@ -1,0 +1,9 @@
+communities {
+  display: block;
+}
+
+.communities__item {
+  margin-bottom: 40px;
+  flex: 0 0 calc(100%/5);
+  max-width: calc(100%/5);
+}

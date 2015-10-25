@@ -1,0 +1,9 @@
+angular.module('app').directive('tags', function() {
+  return {
+    restrict: 'E',
+    template: JST["views/directives/tags"],
+    scope: {
+      tags: '='
+    }
+  };
+});

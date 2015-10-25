@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "NewCommunityCtrl", ($scope, $location, Data) ->
+angular.module("app").controller "NewCommunityCtrl", ($scope, $location, Data) ->
   $scope.errors = {}
   $scope.community = {}
 

@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "NewEventCtrl", ($scope, $location, Data) ->
+angular.module("app").controller "NewEventCtrl", ($scope, $location, Data) ->
   $scope.event = {}
   $scope.errors = {}
   $scope.options = []

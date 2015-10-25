@@ -1,0 +1,14 @@
+.container.margin-v
+  .layout-row.layout-wrap.layout-margin.communities__list
+    .communities__item.flex(ng-repeat="community in communities")
+      a.community(ng-href="#/communities/{{ community.id }}")
+        .community__count {{ community.id }}
+        .community__abbr {{ community.elem }}
+        .community__meta
+          span.fa.fa-user
+          = ' '
+          span 10
+          = ', '
+          span.fa.fa-flag
+          = ' '
+          span 7

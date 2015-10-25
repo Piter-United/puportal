@@ -1,0 +1,16 @@
+.container.layout-row.layout-center
+  .logo
+    a(href="#/", class="logo__link") Piter United
+
+  span.flex
+  nav.app-nav
+    ul.app-nav__list
+      li.app-nav__item(ng-class="{ 'active': item.active }", ng-repeat="item in items")
+        a.app-nav__link(href="{{ item.href }}")
+          span {{ item.display }}
+
+      li.app-nav__item(ng-if="!isAuthenticated()")
+        a.app-nav__link(href="#/sign_in") войти
+
+      li.app-nav__item(ng-if="isAuthenticated()")
+        a.app-nav__link(ng-click="logout()") выйти

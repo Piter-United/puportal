@@ -18,6 +18,6 @@ Rails.application.config.assets.css_compressor = NoCompression.new
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 Rails.application.config.assets.precompile += %w(center.css select2x2.png icomoon.svg icomoon.eot icomoon.woff icomoon.ttf)
 Rails.application.config.assets.precompile += %w(.svg .eot .woff .ttf)

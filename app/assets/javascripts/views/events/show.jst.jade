@@ -1,12 +1,65 @@
-nav.navbar(main-menu=true)
-.container
-  .event
-    .calendar
-      .date {{event.start | date:'dd'}}
-      .month {{event.start | date:'MMMM'}}
-    .title-blk
-      .title {{event.title }}
-      .subtitle(ng-bind-html='event.description | rawHtml')
-    .tail
-      .time {{event.start | date: 'HH:mm'}} - {{event.finish | date: 'HH:mm'}}
-      .loc {{event.location.display}}
+header.app-header
+  app-header
+  jumbotron(ng-init="timer = true; count='December 4, 2015 10:50:00'")
+
+section.app-main
+  .container.margin-v
+    .layout-row.layout-wrap.layout-margin.communities__list
+      .communities__item.flex
+        .community
+          .community__count 8
+          .community__abbr Dev
+          .community__meta
+            span.fa.fa-user
+            = " "
+            span 10
+            = ", "
+            span.fa.fa-flag
+            = " "
+            span 7
+      .flex
+        h1 {{event.title }}
+        .info(ng-bind-html="event.description | rawHtml")
+
+        .layout-row.layout-wrap.layout-margin
+          .flex
+            ul.aside__list
+              li.aside__item
+                .aside__item-container
+                  .aside__title
+                    span.fa.fa-user
+                    |&nbsp;
+                    |Janet Sanders
+                    |&mdash;
+                    |Идет на мероприятие
+
+              li.aside__item
+                .aside__item-container
+                  .aside__title
+                    span.fa.fa-user
+                    |&nbsp;
+                    |Janet Sanders
+                    |&mdash;
+                    | Не идет на мероприятие
+
+              li.aside__item
+                .aside__item-container
+                  .aside__title
+                    span.fa.fa-user
+                    |&nbsp;
+                    |Janet Sanders
+                    |&mdash;
+                    |Возможно придет
+
+              li.aside__item
+                .aside__item-container
+                  .aside__title
+                    span.fa.fa-user
+                    |&nbsp;
+                    |Janet Sanders
+                    |&mdash;
+                    | Не идет на мероприятие
+
+
+  map
+app-footer.app-footer

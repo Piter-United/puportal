@@ -1,0 +1,61 @@
+.app-header {
+  display: block;
+
+  background: rgb(255,131,0);
+  background: linear-gradient(45deg,  rgba(255,131,0,1) 0%,rgba(249,91,0,1) 44%,rgba(249,124,0,1) 73%,rgba(255,131,0,1) 100%);
+
+}
+
+.logo {}
+
+.logo__link {
+  display: block;
+  padding: 15px 0;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.app-nav {
+
+}
+
+.app-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+.app-nav__item {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.app-nav__link {
+  display: block;
+  padding: 18px 30px;
+  color: white;
+
+  transition: background-color .2s ease-in;
+
+  &:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.13);
+  }
+
+  .active & {
+    text-decoration: none;
+  }
+}

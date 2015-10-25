@@ -3,7 +3,7 @@ Jader.configure do |config|
   # make your client-side views directory discoverable to Rails
   config.views_path = Rails.root.join('app','assets','javascripts','templates')
   # Use some javascript from a file that's not available in the asset pipeline
-  config.includes << IO.read(Rails.root.join('app','assets','javascripts','includes','util.js'))
+  # config.includes << IO.read(Rails.root.join('app','assets','javascripts','includes','util.js'))
   # In Rails 3 applications, prepend views_path using a controller before filter.
   # This is set to false by default
   config.prepend_view_path = true

@@ -1,0 +1,45 @@
+@import "variables";
+
+community {
+  display: block;
+}
+.community {
+  display: block;
+  position: relative;
+  padding: 10px;
+  height: 156px;
+  border: 1px solid #FDD4BA;
+  text-decoration: none;
+
+  border-radius: 4px;
+
+  transition: border-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+a.community {
+  &:hover {
+    border-color: $link-color;
+  }
+}
+
+.community__abbr {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 3em;
+  color: $link-color;
+}
+.community__meta {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.community__count,
+.community__meta {
+  color: $text-color;
+}
+
+.communities__item--top-padding {
+  padding-top: 11px;
+}

@@ -1,0 +1,24 @@
+action {
+  display: block;
+}
+
+.actions__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.actions__item {
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+.action {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 5px 0;
+}
+
+.action__icon {
+  margin-right: 10px;
+}
+.action__text {}

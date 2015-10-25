@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "SignInCtrl", ($scope, $location, Auth) ->
+angular.module("app").controller "SignInCtrl", ($scope, $location, Auth) ->
   $scope.error = ''
   $scope.credentials = {}
   $scope.config = headers:

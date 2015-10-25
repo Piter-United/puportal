@@ -1,0 +1,108 @@
+@import "variables";
+
+.form__auth {
+	width: 380px;
+	margin: 4em auto 2em;
+	padding: 3em 2em 2em 2em;
+	background: #fafafa;
+	border: 1px solid #ebebeb;
+	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+.form__legend {
+  margin-bottom: 30px;
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.control__group {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.control__input,
+.control__textarea {
+	-webkit-appearance: none;
+}
+
+.control__input,
+.control__textarea,
+.control__select {
+	font-size: 18px;
+	padding: 10px;
+	display: block;
+	background: #fafafa;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+
+  &:focus { outline: none; }
+
+
+  .success & {
+    border-bottom: 1px solid $color-success;
+  }
+  .error & {
+    border-bottom: 1px solid $color-error;
+  }
+}
+
+.control__textarea {
+	min-height: 240px;
+	resize: vertical;
+}
+
+.control__label {
+	color: #999;
+	font-size: 1em;
+	font-weight: normal;
+  cursor: pointer;
+}
+
+.control__error {
+  color: #F95400;
+  font-size: .9em;
+  padding: 10px 0 0;
+}
+
+.control__hint {
+	font-size: .9em;
+	padding: 10px 0 0;
+	color: #999;
+}
+
+.auth__subnav {
+  margin: 0 auto 2em;
+  text-align: center;
+}
+
+/* SELECTIEZ OVVERVIDE */
+
+.control__group {
+  .selectize-control {
+    @extend .control__input;
+
+    .selectize-input,
+    .selectize-input.has-items {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .selectize-input,
+    &.single .selectize-input.focus {
+      background-color: transparent;
+    }
+
+    .selectize-input > div {
+      margin: 0 3px 0 0;
+    }
+
+  }
+
+}

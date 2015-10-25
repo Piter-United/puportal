@@ -1,6 +1,4 @@
-app = angular.module('app')
-
-app.directive 'epiceditor', ($timeout) ->
+angular.module('app').directive 'epiceditor', ($timeout) ->
   restrict: 'A'
   scope: false
   link: (scope, element, attrs) ->

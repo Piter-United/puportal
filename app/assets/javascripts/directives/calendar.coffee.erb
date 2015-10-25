@@ -1,6 +1,4 @@
-app = angular.module('app')
-
-app.directive "calendar", ->
+angular.module('app').directive "calendar", ->
   remove_time = (date) ->
     date.day(0).hour(0).minute(0).second(0).millisecond 0
 

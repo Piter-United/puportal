@@ -1,6 +1,4 @@
-app = angular.module('app')
-
-app.directive 'yandexgeo', ($timeout)->
+angular.module('app').directive 'yandexgeo', ($timeout)->
   options = ()->
     valueField: 'coordinates',
     labelField: 'coordinates',
@@ -12,15 +10,17 @@ app.directive 'yandexgeo', ($timeout)->
       callback() unless query.length
       console.log('geoqeury', query)
 
-      ymaps.geocode(query).then (result)->
+      ymaps.geocode(query, { house: "house" }).then (result)->
         data = []
+        #window.geo = result
 
         result.geoObjects.each (geoObject)->
           coordinates = geoObject.geometry.getCoordinates()
 
           data.push {
             address: geoObject.properties.get('name'),
-            coordinates: coordinates
+            coordinates: coordinates,
+            properties: geoObject.properties.getAll()
           }
 
         callback(data)
@@ -30,7 +30,11 @@ app.directive 'yandexgeo', ($timeout)->
         return "<div>#{ escape item.address }</div>"
 
       option: (item, escape) ->
-        return "<div>#{ escape item.address }</div>"
+        result = "<div class='geo-object'>"
+        result += "<h5>#{ escape item.address }</h5>"
+        result += "<h6>#{ item.properties.description }</h6>" if item.properties.description
+        result += "</div>"
+        return result
 
   return {
     restrict: 'A'

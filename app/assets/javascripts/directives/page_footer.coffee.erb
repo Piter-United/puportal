@@ -1,8 +1,0 @@
-app = angular.module('app')
-
-app.directive "page-footer", ($timeout)->
-  restrict: "E"
-  template: JST["views/shared/page_footer"]
-  scope: false
-  link: (scope, element, attrs) ->
-    true

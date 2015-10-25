@@ -1,0 +1,21 @@
+angular.module('app').directive('communities', function() {
+  return {
+    restrict: 'E',
+    template: JST["views/directives/communities"],
+    scope: '=',
+    link: function(scope) {
+      scope.communities = [
+        'Agi',
+        'SPb',
+        'UX',
+        'Dev',
+        'IT',
+        'FPr',
+        'Pit',
+        'MOD',
+        'Hac',
+        '3D4'
+      ]
+    }
+  };
+});

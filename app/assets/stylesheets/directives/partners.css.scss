@@ -1,0 +1,32 @@
+@import "variables";
+
+partners {
+  display: block;
+  margin: 40px 0 0;
+  padding: 40px 0;
+  color: white;
+  background: rgb(255,131,0);
+  background: linear-gradient(45deg,  rgba(255,131,0,1) 0%,rgba(249,91,0,1) 44%,rgba(249,124,0,1) 73%,rgba(255,131,0,1) 100%);
+}
+.partners-item {
+  flex: 0 0 33%;
+  max-width: 33%;
+  margin-bottom: 40px;
+}
+.partners-item__container {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  color: $text-color;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.partners-item__logo {
+  height: 70px;
+
+  > img {
+    max-width: 100%;
+  }
+}

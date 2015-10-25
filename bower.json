@@ -14,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
+    "marked" : "0.3.4",
     "jquery" : "2.0.0",
     "angular" : "1.4.1",
     "angular-animate" : "1.4.1",
@@ -27,7 +28,6 @@
     "selectize" : "0.12.1",
     "moment" : "2.10.6",
     "epiceditor" : "0.2.2",
-    "bootstrap" : "~3.3.5",
-    "skeleton" : "latest"
+    "normalize-css" : "3.0.3"
   }
 }

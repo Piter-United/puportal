@@ -1,0 +1,20 @@
+@import "variables";
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+h1 {}
+h2 {
+  font-size: 1.5em;
+}
+
+a {
+  color: $link-color;
+
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}

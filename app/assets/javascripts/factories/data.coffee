@@ -1,11 +1,9 @@
-app = angular.module("app")
-
 with_deff = ($q, cb)->
   deff = $q.defer()
   cb(deff)
   deff.promise
 
-app.factory "Data", ($http, $q, $cookies)->
+angular.module("app").factory "Data", ($http, $q, $cookies)->
   profile: ->
     with_deff $q, (deff)->
       $http(method: "GET", url: "/profile.json")

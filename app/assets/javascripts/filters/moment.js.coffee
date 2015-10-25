@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.filter "moment", ()->
+angular.module("app").filter "moment", ()->
   (value) ->
     now = moment()
     date = moment(value)

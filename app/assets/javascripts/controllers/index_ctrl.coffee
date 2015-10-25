@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "IndexCtrl", ($scope, $location, Data) ->
+angular.module("app").controller "IndexCtrl", ($scope, $location, Data) ->
   Data.events.all(forthcoming: true).then (events)->
     $scope.events = events
 

@@ -1,0 +1,33 @@
+header.app-header
+  app-header
+
+section.app-main
+  .container.margin-v
+    form.layout-row.layout-wrap.layout-margin
+      .flex.communities__item--top-padding
+        h1 Добавление встречи
+
+        .control__group
+          label.control__label Название
+          input(type="text", class="control__input", placeholder="Abc")
+
+        .control__group
+          label.control__label Сообщество
+          select(class="control__select")
+            option Agile Piter
+            option SPb Community of Analysts
+            option SPb SQA Group
+            option UX SPb
+
+        .control__group
+          label.control__label Описание
+          textarea(class="control__textarea")
+
+        .control__group
+          label.control__label Адрес
+          input(type="text", class="control__input")
+
+        .control__group
+          button(class="button button-success") Сохранить
+
+app-footer.app-footer

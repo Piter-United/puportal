@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.factory "flashHttpInterceptor", ['$q', '$log', '$rootScope', ($q, $log, $rootScope)->
+angular.module("app").factory "flashHttpInterceptor", ['$q', '$log', '$rootScope', ($q, $log, $rootScope)->
   request: (config) ->
     config
 

@@ -9,6 +9,8 @@
 #= require selectize/dist/js/standalone/selectize
 #= require moment/moment
 #= require angular-ui-notification/src/angular-ui-notification
+#= require marked/lib/marked
+#= require epiceditor/src/editor
 
 #= require_tree ./views
 #= require_self
@@ -33,24 +35,24 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     startRight: 10,
     verticalSpacing: 20,
     horizontalSpacing: 20,
-    positionX: 'center',
-    positionY: 'top',
+    positionX: "center",
+    positionY: "top",
     template: JST["views/shared/notification"]
   });
 
-  $httpProvider.interceptors.push('flashHttpInterceptor')
+  $httpProvider.interceptors.push("flashHttpInterceptor")
   AuthInterceptProvider.interceptAuth(true);
 
   rp = $routeProvider
 
   rp.when "/",
     name: "index"
-    template: JST["views/shared/index"]
+    template: JST["views/main/view"]
     controller: "IndexCtrl"
 
   rp.when "/profile",
     name: "profile"
-    template: JST["views/shared/profile"]
+    template: JST["views/profile/show"]
     controller: "ProfileCtrl"
 
   rp.when "/events",
@@ -60,7 +62,7 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
 
   rp.when "/events/new",
     name: "events"
-    template: JST["views/events/new"]
+    template: JST["views/events/form"]
     controller: "NewEventCtrl"
 
   rp.when "/people",
@@ -75,7 +77,7 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
 
   rp.when "/communities/new",
     name: "community"
-    template: JST["views/communities/new"]
+    template: JST["views/communities/form"]
     controller: "NewCommunityCtrl"
 
   rp.when "/communities/:id",

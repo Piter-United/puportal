@@ -1,88 +1,27 @@
-nav.navbar(main-menu=true)
+header.app-header
+  app-header
 
-.container
-  .row
-    .two.columns
-      .community
-        a(href='#/communities/{{ community.id }}')
-          b.index {{ community.id }}
+section.app-main
+  .container.margin-v
+    .layout-row.layout-wrap.layout-margin.communities__list
+      .communities__item.flex
+        .community
+          .community__count 8
+          .community__abbr {{ community.elem }}
+          .community__meta
+            span.fa.fa-user
+            = " "
+            span 10
+            = ", "
+            span.fa.fa-flag
+            = " "
+            span 7
+      .flex
+        h1 {{ community.name }}
+        .info(ng-bind-html="community.description | rawHtml")
 
-          span.element_name(href='#/communities/{{ community.id }}') {{ community.elem }}
+        .layout-row.layout-wrap.layout-margin
+          events-soon.flex
+          members.flex
 
-          ul.properties
-            li.members
-              i.fa.fa-users
-              |  {{e.members_count + 10 }}
-            li.meetups
-              i.fa.fa-flag
-              |  {{ 7 }}
-
-    .ten.columns
-      div.pull-right(ng-if='isAuthenticated()')
-        button.button.button-primary(ng-click='join()', ng-if='!isMember()') Присоединиться
-        button.button.button-primary(ng-click='leave()', ng-if='isMember()') Выйти из сообщества
-
-      h4 {{community.name}}
-      //p.lead(ng-bind-html='community.description | rawHtml')
-      p.info
-        | Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
-        | Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
-        | В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн
-        ul
-          li Aliena dixit in physicis nec ea ipsa, quae tibi probarentur;
-          li Quod autem in homine praestantissimum atque optimum est, id deseruit.
-          li Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.
-          li Non est enim vitium in oratione solum, sed etiam in moribus.
-
-    .row
-      .six.columns
-          .underline
-            h6
-              i.fa.fa-users   Участники
-          ul
-            li(ng-repeat='user in community.users')
-              a(href='#/users/{{user.id}}')
-                h6 {{user.name}}
-
-      .six.columns
-          .underline
-            h6
-              i.fa.fa-flag   События
-          ul.events
-            li.event(ng-repeat='event in events')
-              a(href='#/events/{{event.id}}')
-                p
-                  small.date.pull-right.badge {{event.start | moment}}
-                  | {{event.title}}
-                //- h5
-                //-   | {{event.community.name}}
-                //-   address.pull-right
-                //-     small.fa.fa-map-marker
-                //-     span  Большая морская 19
-
-
-
-  //- .row
-  //-   .six.columns
-  //-     .list-header
-  //-       h6 События
-  //-     ul.events
-  //-       li.event(ng-repeat='event in events')
-  //-         a(href='#/events/{{event.id}}')
-  //-           p
-  //-             small.date.pull-right.badge {{event.start | moment}}
-  //-             | {{event.title}}
-  //-           h5
-  //-             | {{event.community.name}}
-  //-             address.pull-right
-  //-               small.fa.fa-map-marker
-  //-               span  Большая морская 19
-
-  //-   .six.columns
-  //-     .list-header
-  //-       h6 Участники
-  //-     ul
-  //-       li(ng-repeat='user in community.users')
-  //-         a(href='#/users/{{user.id}}')
-  //-           img.img-circle(src='{{user.avatar}}')
-  //-           h4 {{user.name}}
+app-footer.app-footer

@@ -1,0 +1,52 @@
+header.app-header
+  app-header(ng-init="auth = true")
+
+section.app-main
+  .container.margin-v
+    .layout-row.layout-wrap.layout-margin
+      .flex
+        section
+          h1 Denis FL
+          p
+            span.fa.fa-envelope-o
+            | &nbsp;
+            a(href="") info@mail.ru
+
+        section.margin-v
+          h2 Привязать аккаунты соц. сетей
+          ul.auth__social-list.text-left
+            //- Если акк привязан,
+            //- к li.auth__social-item добавляется .active
+
+            li.auth__social-item
+              a(href="", class="auth__social-link")
+                span.fa.fa-vk
+
+            li.auth__social-item.active
+              a(href="", class="auth__social-link")
+                span.fa.fa-facebook
+
+            li.auth__social-item.active
+              a(href="", class="auth__social-link")
+                span.fa.fa-twitter
+
+            li.auth__social-item.active
+              a(href="", class="auth__social-link")
+                span.fa.fa-google-plus
+
+            li.auth__social-item
+              a(href="", class="auth__social-link")
+                span.fa.fa-github
+
+        section.margin-v
+          h2 Мои скиллы
+          tags(tags="skills")
+
+        section.margin-v
+          active-community(ng-init=" title = 'Мои сообщества' ")
+
+      .flex
+        h2 История действий
+        actions
+
+app-footer.app-footer

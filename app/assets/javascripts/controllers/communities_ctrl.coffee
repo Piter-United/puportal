@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "CommunitiesCtrl", ($scope, $location, Data, $routeParams, Auth) ->
+angular.module("app").controller "CommunitiesCtrl", ($scope, $location, Data, $routeParams, Auth) ->
   $scope.isAuthenticated = ()->
     Auth.isAuthenticated()
 

@@ -1,0 +1,6 @@
+ul.actions__list
+  li.actions__item(ng-repeat="action in actions ")
+    .action
+      .action__icon
+        span(class="fa fa-{{ action.icon }}")
+      .action__text {{ action.text }}

@@ -1,6 +1,4 @@
-app = angular.module('app')
-
-app.directive 'timepicker', ($timeout) ->
+angular.module('app').directive 'timepicker', ($timeout) ->
   restrict: 'A'
   scope: false
   link: (scope, element, attrs) ->

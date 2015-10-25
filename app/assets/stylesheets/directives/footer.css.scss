@@ -1,0 +1,22 @@
+app-footer {
+  display: block;
+  background: #333;
+
+  color: #fff;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      color: darken(#fff, 15%);;
+    }
+  }
+  .social-list {}
+  .social__link {
+    padding: 10px;
+  }
+}
+
+.app-footer__container {
+  padding: 20px 0;
+}

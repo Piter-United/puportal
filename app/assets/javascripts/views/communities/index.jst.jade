@@ -1,26 +1,7 @@
-nav.navbar(main-menu=true)
+header.app-header
+  app-header
 
-.container
-  form.toolbox.columns.twelve
-    .row
-      .columns.nine
-        input.u-full-width(type="text", placeholder="найти")
-      .columns.three
-        a.button.button-primary.u-full-width(href='#/communities/new', ng-if='isAuthenticated()') Добавить
+section.app-main
+  communities
 
-  .row
-    .columns.twelve
-      ul.communities
-        li.community(ng-repeat='e in communities')
-          a(href='#/communities/{{ e.id }}')
-            b.index {{ $index }}
-
-            span.element_name(href='#/communities/{{ e.id }}') {{ e.elem }}
-
-            ul.properties
-              li.members
-                i.fa.fa-users
-                |  {{e.members_count + 10 }}
-              li.meetups
-                i.fa.fa-flag
-                |  {{ 7 }}
+app-footer.app-footer

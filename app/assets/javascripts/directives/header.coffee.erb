@@ -1,8 +1,6 @@
-app = angular.module("app")
-
-app.directive "mainMenu", ["$timeout", "Auth", "$window", ($timeout, Auth, $window)->
-  restrict: "A"
-  template: JST["views/shared/menu"]
+angular.module("app").directive "appHeader", ["$timeout", "Auth", "$window", ($timeout, Auth, $window)->
+  restrict: 'AE',
+  template: JST["views/directives/header"]
   scope: false
   link: (scope, element, attrs) ->
     scope.items = []
@@ -19,14 +17,6 @@ app.directive "mainMenu", ["$timeout", "Auth", "$window", ($timeout, Auth, $wind
       config = headers:
         "X-HTTP-Method-Override": "POST"
       Auth.logout(config)
-
-    navbartop = $("nav.navbar").offset().top
-
-    change_docked = ()->
-      if navbartop > $(window).scrollTop()
-        $("body").removeClass("has-docked-nav")
-      else
-        $("body").addClass("has-docked-nav")
 
     calculateCurrent = (menu_items)->
       candidats = []
@@ -50,7 +40,5 @@ app.directive "mainMenu", ["$timeout", "Auth", "$window", ($timeout, Auth, $wind
       calculateCurrent(scope.items)
 
     $timeout ->
-      #$(window).on 'scroll', change_docked
-      #$(window).on 'resize', change_docked
       calculateCurrent(scope.items)
 ]

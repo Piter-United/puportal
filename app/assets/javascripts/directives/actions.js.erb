@@ -1,0 +1,27 @@
+angular.module("app").directive("actions", function() {
+  return {
+    restrict: "E",
+    template: JST["views/directives/actions"],
+    scope: "=",
+    link: function(scope) {
+      scope.actions = [
+        {
+          "icon": "sign-in",
+          "text": "Регистрация"
+        },
+        {
+          "icon": "calendar-check-o",
+          "text": "Присоединился к сообществу"
+        },
+        {
+          "icon": "calendar-plus-o",
+          "text": "Возможно пойду на мероприятие"
+        },
+        {
+          "icon": "calendar-plus-o",
+          "text": "Движение ротора, в отличие от некоторых других случаев, колебательно участвует в погрешности определения курса меньше, чем жидкий кинетический момент."
+        }
+      ];
+    }
+  };
+});

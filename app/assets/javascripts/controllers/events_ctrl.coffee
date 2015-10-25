@@ -1,6 +1,4 @@
-app = angular.module("app")
-
-app.controller "EventsCtrl", ($scope, $location, Data, Auth) ->
+angular.module("app").controller "EventsCtrl", ($scope, $location, Data, Auth) ->
   $scope.isAuthenticated = ()->
     Auth.isAuthenticated()
 

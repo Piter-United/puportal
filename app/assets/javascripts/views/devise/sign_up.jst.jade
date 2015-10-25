@@ -1,40 +1,46 @@
-.devise_form
-  a.brand_link(href="#/") piter – united
+form.form__auth
+  legend.form__legend Зарегистрироваться
+  //- Если нужны стейты success, error
+  //- можно добавлять к .control__group классы
+  //- .success, .error
 
-  form(ng-submit='submit()', novalidate='novalidate', ng-controller='SignUpCtrl')
-    input.u-full-width(placeholder='email', autocomplete='off', type='text', name='user[email]', ng-model='credentials.email')
-    .help-block(ng-if="hasError('email')", ng-repeat="error in errors['email']", ng-model='credentials.email')
-      p {{ error }}
+  .control__group
+    ul.auth__social-list.text-center
+      li.auth__social-item
+        a(href="/users/auth/vkontakte", class="auth__social-link")
+          span.fa.fa-vk
 
-    input.u-full-width(placeholder='пароль', autocomplete='off', type='password', name='user[password]', ng-model='credentials.password')
-    .help-block(ng-if="hasError('password')", ng-repeat="error in errors['password']")
-      p {{ error }}
+      li.auth__social-item
+        a(href="/users/auth/facebook", class="auth__social-link")
+          span.fa.fa-facebook
 
-    input.u-full-width(placeholder='подтвердите пароль', autocomplete='off', type='password', name='user[password_confirmation]', ng-model='credentials.password_confirmation')
-    .help-block(ng-if="hasError('password_confirmation')", ng-repeat="error in errors['password_confirmation']")
-      p {{ error }}
+      //- li.auth__social-item
+      //-   a(href="/users/auth/twitter", class="auth__social-link")
+      //-     span.fa.fa-twitter
 
-    br
-    br
+      li.auth__social-item
+        a(href="/users/auth/gplus", class="auth__social-link")
+          span.fa.fa-google-plus
 
-    input.button.button-lg.button-primary.button-block(type='submit', name='commit', value='Зарегистрироваться')
+      li.auth__social-item
+        a(href="/users/auth/github", class="auth__social-link")
+          span.fa.fa-github
 
-  p
-    a.text-shadow.p-20(href='#/sign_in') Войти
+  .control__group.error
+    label(for="email", class="control__label") Email
+    input(type="email", id="email", class="control__input", require)
+    .control__error Пользователя с таким адресом не существует
 
-  ul.sn_links
-    li
-      a.sn_link(href='/users/auth/vkontakte')
-        i.fa.fa-vk.text-shadow
+  .control__group
+    label(for="password", class="control__label") Пароль
+    input(type="password", id="password", class="control__input", require)
 
-    li
-      a.sn_link(href='/users/auth/facebook')
-        i.fa.fa-facebook.text-shadow
+  .control__group
+    label(for="password-again", class="control__label") Подтвердите пароль
+    input(type="password", id="password-again", class="control__input", require)
 
-    li
-      a.sn_link(href='/users/auth/gplus')
-        i.fa.fa-google-plus.text-shadow
+  .control__group
+    button(class="button button-block button-success") Зарегистрироваться
 
-    li
-      a.sn_link(href='/users/auth/github')
-        i.fa.fa-github.text-shadow
+.auth__subnav
+  a(ui-sref="register()") Войти
