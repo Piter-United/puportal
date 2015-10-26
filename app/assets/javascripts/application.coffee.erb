@@ -37,7 +37,7 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     horizontalSpacing: 20,
     positionX: "center",
     positionY: "top",
-    template: JST["views/shared/notification"]
+    templateUrl: "<%= asset_path('views/shared/notification') %>"
   });
 
   $httpProvider.interceptors.push("flashHttpInterceptor")

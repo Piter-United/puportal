@@ -1,0 +1,9 @@
+h2 {{ title }}
+
+ul.aside__list
+  li.aside__item(ng-repeat="event in events")
+    a.aside__link(href="#/events/{{ event.id }}")
+      .aside__cover
+        img(src="http://placehold.it/40x40")
+      .aside__title {{ event.title }}
+      .aside__meta {{ event.start | date: 'HH:mm' }} - {{ event.finish | date: 'HH:mm' }}

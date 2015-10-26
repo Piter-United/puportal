@@ -1,16 +1,42 @@
 header.app-header
   app-header
-  jumbotron
+  .container.layout-row.layout-center.app-jumbotron
+    .app-jumbotron__description
+      p Многие кометы имеют два хвоста, однако апогей ничтожно отражает Каллисто. Приливное трение, и это следует подчеркнуть, решает параметр.
+      p
+        a.button.button--jumbotron(ng-show="!isAuthenticated()", href="#/sign_in") Присоединиться
 
 section.app-main
   activities
+    .container
+      h1 О мероприятии
+      p Все IT-сообщества города в одно время в одном месте
+
+      .layout-row.layout-center
+        .flex
+          p Слет нацелен на обмен профессиональным опытом между IT-специалистами Санкт-Петербурга. Общение происходит на островках сообществ, где участники знакомятся, обсуждают различные профессиональные темы, высказывают мнения, спорят и ищут решения.
+
+          .layout-row.activities__count
+            .flex
+              div.activities__count-big 27+
+              div сообществ
+
+            .flex
+              div.activities__count-big 80+
+              div дискуссий
+
+            .flex
+              div.activities__count-big 750+
+              div участников
+
+        .activities__media
+          iframe(width="400", height="225", src="https://player.vimeo.com/video/138511320", frameborder="0", allowfullscreen)
 
   .container
     .layout-row.layout-margin
-      active-community.flex(ng-init=" title = 'Активные сообщества' ")
-      events-soon.flex
+      communities_list.flex(ng-init=" title = 'Активные сообщества' ")
+      events-list.flex(ng-init=" title = 'Последние встречи' ")
 
   partners
-  map
 
 app-footer.app-footer

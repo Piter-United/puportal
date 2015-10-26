@@ -40,7 +40,12 @@ section.app-main
 
         section.margin-v
           h2 Мои скиллы
-          tags(tags="skills")
+          ul.tags__list
+            li.tags__item(ng-repeat="tag in tags")
+              span.fa.fa-tag
+              |&nbsp;
+              {{ tag }}
+
 
         section.margin-v
           active-community(ng-init=" title = 'Мои сообщества' ")

@@ -1,0 +1,9 @@
+h2 {{ title }}
+
+ul.aside__list
+  li.aside__item(ng-repeat="user in users")
+    .aside__item-container
+      .aside__title
+        span.fa.fa-user
+        |&nbsp;
+        a(href="#/users/{{ user.id }}"){{ user.name }}

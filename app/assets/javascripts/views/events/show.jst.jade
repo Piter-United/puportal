@@ -1,6 +1,9 @@
 header.app-header
   app-header
-  jumbotron(ng-init="timer = true; count='December 4, 2015 10:50:00'")
+  .container.layout-row.layout-center.app-jumbotron
+    .app-jumbotron__description
+      p Многие кометы имеют два хвоста, однако апогей ничтожно отражает Каллисто. Приливное трение, и это следует подчеркнуть, решает параметр.
+      timer(ng-show="timer", date="count")
 
 section.app-main
   .container.margin-v
