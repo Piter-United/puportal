@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :communities do
     resource :membership, only: [:create, :destroy], path_names: { create: "join", destroy: "leave" }
   end
+  resources :users, only: [:index, :show], controller: :people
 end

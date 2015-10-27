@@ -8,7 +8,7 @@ angular.module("app").directive "appHeader", ["$timeout", "Auth", "$window", ($t
     scope.items.push display: "События", href: "#/events"
     scope.items.push display: "Сообщества", href: "#/communities"
     #scope.items.push display: "Площадки", href: "#/places"
-    scope.items.push display: "Специалисты", href: "#/people"
+    scope.items.push display: "Специалисты", href: "#/users"
 
     scope.isAuthenticated = ()->
       Auth.isAuthenticated()

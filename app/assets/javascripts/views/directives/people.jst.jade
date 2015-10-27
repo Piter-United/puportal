@@ -1,0 +1,43 @@
+.people__list
+  .man__item(ng-repeat="man in people")
+    .layout-row.layout-wrap.layout-margin
+      .flex
+        h2
+          a(href="#/users/{{ man.id }}") {{ man.name }}
+        p
+          span.fa.fa-beer
+          = ' '
+          |Количество встреч: 7
+        p
+          span.fa.fa-users
+          = ' '
+          |Состоит в сообществах:
+
+        //- Это копия директивы activeCommunity
+        ul.aside__list
+          li.aside__item
+            a.aside__link(href="")
+              .aside__cover Agi
+              .aside__title Agile Piter
+              .aside__meta
+                span.fa.fa-user
+                = ' '
+                span 10
+                = ', '
+                span.fa.fa-flag
+                = ' '
+                span 7
+          li.aside__item
+            a.aside__link(href="")
+              .aside__cover Spb
+              .aside__title SPb Community of Analysts
+              .aside__meta
+                span.fa.fa-user
+                = ' '
+                span 10
+                = ', '
+                span.fa.fa-flag
+                = ' '
+                span 7
+
+        hr.divider.divider--transparent

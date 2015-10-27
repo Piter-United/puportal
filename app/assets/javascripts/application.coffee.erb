@@ -65,10 +65,15 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     template: JST["views/events/form"]
     controller: "NewEventCtrl"
 
-  rp.when "/people",
-    name: "people"
-    template: JST["views/people/index"]
-    controller: "PeopleCtrl"
+  rp.when "/users",
+    name: "users"
+    template: JST["views/users/index"]
+    controller: "UsersCtrl"
+
+  rp.when "/users/:id",
+    name: "user"
+    template: JST["views/profile/show"]
+    controller: "UserCtrl"
 
   rp.when "/communities",
     name: "communities"
