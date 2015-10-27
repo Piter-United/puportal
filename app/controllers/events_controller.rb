@@ -4,6 +4,7 @@ class EventsController < InheritedResources::Base
 
   has_scope :day
   has_scope :forthcoming
+  has_scope :q
   has_scope :communities, type: :array
 
   actions :index, :show, :create, :update, :destroy

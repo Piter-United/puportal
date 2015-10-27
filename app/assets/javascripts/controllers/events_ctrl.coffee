@@ -1,9 +1,11 @@
 angular.module("app").controller "EventsCtrl", ($scope, $location, Data, Auth) ->
+  $scope.query = null
+
   $scope.isAuthenticated = ()->
     Auth.isAuthenticated()
 
   $scope.fetch = ()->
-    Data.events.all(day: $scope.selected.toJSON()).then (events)->
+    Data.events.all(day: $scope.selected.toJSON(), q: $scope.query).then (events)->
       $scope.events = events
 
   $scope.select = (day)->
@@ -12,4 +14,6 @@ angular.module("app").controller "EventsCtrl", ($scope, $location, Data, Auth) -
 
   $scope.day = moment();
   $scope.selected = $scope.day;
+
+  $scope.$watch "query", ()-> $scope.fetch()
   $scope.fetch()
