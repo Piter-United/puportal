@@ -1,22 +1,19 @@
-.callendar
-  .callendar-header.row
-    .columns.one
-      i.link.fa.fa-angle-left(ng-click='previous()')
-    center.columns.ten
-      span {{ month.format("MMMM, YYYY") }}
-    .columns.one
-      i.link.fa.fa-angle-right(ng-click='next()')
-
-  .callendar-numbers.row
-    table
-      tr
-        th ВС
-        th ПН
-        th ВТ
-        th СР
-        th ЧТ
-        th ПТ
-        th СБ
-      tr(ng-repeat='week in weeks')
-        td(ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }", ng-click='select(day)', ng-repeat='day in week.days')
-          span.link.day {{day.number}}
+.calendar
+  .layout-row.layout-center.calendar__head
+    button(class="button calendar__nav", type="button", ng-click='previous()')
+      span.fa.fa-chevron-left
+    .flex.calendar__title {{ month.format("MMMM, YYYY") }}
+    button(class="button calendar__nav", type="button", ng-click='next()')
+      span.fa.fa-chevron-right
+  .calendar__content
+    .layout-row.calendar__week-days
+      .flex ВС
+      .flex ПН
+      .flex ВТ
+      .flex СР
+      .flex ЧТ
+      .flex ПТ
+      .flex СБ
+    .layout-row.layout-wrap
+      .flex.calendar__monthday(ng-repeat="day in days", ng-class="{ current: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }")
+        button.button(type="button", ng-click='select(day)') {{ day.number }}

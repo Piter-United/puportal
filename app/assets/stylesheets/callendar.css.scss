@@ -1,0 +1,50 @@
+@import "variables";
+
+calendar {
+  display: block;
+}
+
+.calendar__content {
+  text-align: center;
+}
+.calendar__title {
+  font-size: 16px;
+  text-align: center;
+}
+
+.calendar__week-days {
+  padding: 10px 0;
+}
+.calendar__monthday {
+  flex: 0 0 calc(100%/7);
+  width: calc(100%/7);
+
+  > .button {
+    padding: 5px;
+    width: 100%;
+    border-radius: 0;
+    transition: background-color 0.2s ease-in;
+
+    &:hover {
+      background-color: #FFF6EC;
+    }
+  }
+
+  &.current {
+    color: $link-color;
+  }
+  &.select {
+    background-color: #FFF6EC;
+  }
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: #ccc;
+
+    >.button:hover {
+      pointer-events: none;
+      cursor: not-allowed;
+
+    }
+  }
+}

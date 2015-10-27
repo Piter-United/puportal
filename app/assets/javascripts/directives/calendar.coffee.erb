@@ -3,14 +3,16 @@ angular.module('app').directive "calendar", ->
     date.day(0).hour(0).minute(0).second(0).millisecond 0
 
   build_month = (scope, start, month) ->
-    scope.weeks = []
+    scope.days = []
     done = false
     date = start.clone()
     monthIndex = date.month()
     count = 0
     results = []
     until done
-      scope.weeks.push days: build_week(date.clone(), month)
+      for day in build_week(date.clone(), month)
+        scope.days.push day
+
       date.add 1, "w"
       done = count++ > 2 and monthIndex isnt date.month()
       results.push monthIndex = date.month()
@@ -32,7 +34,7 @@ angular.module('app').directive "calendar", ->
       i++
     days
 
-  restrict: "E"
+  restrict: 'AE'
   template: JST["views/shared/calendar"]
   scope: false
   link: (scope) ->
@@ -42,6 +44,7 @@ angular.module('app').directive "calendar", ->
     start.date 1
     remove_time start.day(0)
     build_month scope, start, scope.month
+
     scope.next = ->
       next = undefined
       next = scope.month.clone()

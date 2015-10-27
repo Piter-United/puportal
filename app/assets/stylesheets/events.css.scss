@@ -1,0 +1,23 @@
+events {
+  display: block;
+}
+
+.event__item {
+}
+
+.event__community {
+  flex: 0 0 calc(100%/6);
+  width: calc(100%/6);
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 120px;
+}
+
+.event__name {
+  margin-top: 0;
+}
+
+.event__tags {
+  font-size: 12px;
+  color: #A2A2A2;
+}

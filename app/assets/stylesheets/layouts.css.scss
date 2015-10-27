@@ -59,6 +59,11 @@ body {
   flex: 1;
 }
 
+.layout-sidebar {
+  flex: 0 0 calc(100%/4);
+  width: calc(100%/4);
+}
+
 .layout-margin {
   margin-left: -20px;
   margin-right: -20px;

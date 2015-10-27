@@ -1,3 +1,13 @@
 .text-left   {text-align: left;}
 .text-center {text-align: center;}
 .text-right  {text-align: right;}
+
+.divider {
+  margin: 40px 0;
+  border-top: 1px solid #EFEFEF;
+  border-bottom: none;
+}
+
+.divider--transparent {
+  border-top-color: transparent;
+}

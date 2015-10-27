@@ -1,0 +1,31 @@
+.events__list
+  .event__item(ng-repeat="event in events")
+    .layout-row.layout-wrap.layout-margin
+      a.event__community.community(ui-sref="community()")
+        .community__abbr {{ event.community.elem }}
+        .community__meta
+          span.fa.fa-user
+          = ' '
+          span 10
+          = ', '
+          span.fa.fa-flag
+          = ' '
+          span 7
+
+      .flex
+        h2.event__name
+          a(href="#/events/{{ event.id }}") {{ event.title }}
+        p(ng-bind-html="event.description | rawHtml")
+        p
+          span.fa.fa-users
+          = ' '
+          |Количество участников: 7
+        p
+          span.fa.fa-map-o
+          = ' '
+          |Адрес:
+          = ' '
+          |Большая морская 100500
+        tags(tags="skills", class="event__tags")
+
+        hr.divider
