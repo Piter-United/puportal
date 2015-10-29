@@ -28,7 +28,7 @@ app = angular.module "app", [
   "ui-notification"
 ]
 
-app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptProvider" , "NotificationProvider", ($routeProvider, $httpProvider, AuthProvider, AuthInterceptProvider, NotificationProvider)->
+app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptProvider" , "NotificationProvider", "$locationProvider", ($routeProvider, $httpProvider, AuthProvider, AuthInterceptProvider, NotificationProvider, $locationProvider)->
   NotificationProvider.setOptions({
     delay: 10000,
     startTop: 20,
@@ -104,6 +104,8 @@ app.config ["$routeProvider", "$httpProvider", "AuthProvider" , "AuthInterceptPr
     name: "sign_in"
     template: JST["views/devise/sign_up"]
     controller: "SignUpCtrl"
+
+  $locationProvider.html5Mode true
 ]
 
 app.run ($rootScope, $window, $timeout, Data, Auth, Notification)->

@@ -4,11 +4,11 @@ angular.module("app").directive "appHeader", ["$timeout", "Auth", "$window", ($t
   scope: false
   link: (scope, element, attrs) ->
     scope.items = []
-    #scope.items.push display: "О нас", href: "#/"
-    scope.items.push display: "События", href: "#/events"
-    scope.items.push display: "Сообщества", href: "#/communities"
-    #scope.items.push display: "Площадки", href: "#/places"
-    scope.items.push display: "Специалисты", href: "#/users"
+    #scope.items.push display: "О нас", href: "/"
+    scope.items.push display: "События", href: "/events"
+    scope.items.push display: "Сообщества", href: "/communities"
+    #scope.items.push display: "Площадки", href: "/places"
+    scope.items.push display: "Специалисты", href: "/users"
 
     scope.isAuthenticated = ()->
       Auth.isAuthenticated()

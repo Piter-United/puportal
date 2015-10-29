@@ -2,7 +2,7 @@ h2 {{ title }}
 
 ul.aside__list
   li.aside__item(ng-repeat="community in communities")
-    a.aside__link(href="#/communities/{{ community.id }}")
+    a.aside__link(href="/communities/{{ community.id }}")
       .aside__cover {{ community.elem }}
       .aside__title {{ community.name }}
       .aside__meta
