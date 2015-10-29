@@ -6,13 +6,10 @@ class Community < ActiveRecord::Base
   has_many :members, class_name: "Member", inverse_of: :community
   has_many :users,   class_name: "User",   through: :members
 
-  mount_uploader :logo,  ::CommunityLogoUploader
-  mount_uploader :cover, ::CoverUploader
-
   array_attribute :tags
 
-  validates :hashtag, :description, presence: true
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :hashtag, :description, :short_name, presence: true
+  validates :name, :hashtag, :elem, presence: true, uniqueness: { case_sensitive: false }
 
   pg_search_scope :full_text_search, using: {
     tsearch: { dictionary: "russian" },

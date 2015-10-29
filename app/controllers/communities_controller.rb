@@ -14,6 +14,7 @@ class CommunitiesController < InheritedResources::Base
       :short_name,
       :links,
       :logo,
+      :elem,
       :tags
     )
   end
