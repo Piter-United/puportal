@@ -3,29 +3,34 @@ header.app-header
 
 section.app-main
   .container.margin-v
-    form.layout-row.layout-wrap.layout-margin
+    form.layout-row.layout-wrap.layout-margin(ng-submit='save()', novalidate='novalidate', name='form', ng-controller='NewEventCtrl')
       .flex.communities__item--top-padding
         h1 Добавление встречи
 
         .control__group
+          .control__error(ng-if="hasError('base')", ng-repeat="error in errors['base']") {{ error }}
+
+        .control__group
           label.control__label Название
-          input(type="text", class="control__input", placeholder="Abc")
+          input(ng-model="event.title", type="text", class="control__input", placeholder="Abc")
+          .control__hint Например : Global meetup
+          .control__error(ng-if="hasError('title')", ng-repeat="error in errors['title']") {{ error }}
 
         .control__group
           label.control__label Сообщество
-          select(class="control__select")
-            option Agile Piter
-            option SPb Community of Analysts
-            option SPb SQA Group
-            option UX SPb
+          select(type="text", ng-model="event.community_id", selectize="communityConfig()", class="control__select")
+          .control__error(ng-if="hasError('community_id')", ng-repeat="error in errors['community_id']") {{ error }}
+          .control__error(ng-if="hasError('community')", ng-repeat="error in errors['community']") {{ error }}
 
         .control__group
           label.control__label Описание
-          textarea(class="control__textarea")
+          textarea(ng-model="event.description", class="control__textarea")
+          .control__error(ng-if="hasError('description')", ng-repeat="error in errors['description']") {{ error }}
 
         .control__group
           label.control__label Адрес
-          input(type="text", class="control__input")
+          select(type="text", ng-model="event.location", yandexgeo="yandexgeo", class="control__select")
+          .control__error(ng-if="hasError('location')", ng-repeat="error in errors['location']") {{ error }}
 
         .control__group
           button(class="button button-success") Сохранить
