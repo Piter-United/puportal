@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resource :membership, only: [:create, :destroy], path_names: { create: "join", destroy: "leave" }
     end
     resources :users, only: [:index, :show], controller: :people
+    resources :partners, only: [:index]
   end
 
   root to: "application#angular"

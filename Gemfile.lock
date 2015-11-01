@@ -401,6 +401,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    validators (2.5.2)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -452,3 +453,4 @@ DEPENDENCIES
   slim-rails
   therubyracer
   thin
+  validators

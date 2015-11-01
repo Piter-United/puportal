@@ -17,6 +17,14 @@ angular.module("app").factory "Data", ($http, $q, $cookies)->
           .success (data)->
             deff.resolve(data.people)
 
+  partners:
+    all: (params)->
+      with_deff $q, (deff)->
+        $http(method: "GET", url: "/partners.json", params: params)
+          .success (data)->
+            deff.resolve(data.partners)
+
+
   events:
     find: (id)->
       with_deff $q, (deff)->

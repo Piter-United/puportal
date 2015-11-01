@@ -29,6 +29,7 @@ gem "foreman"
 gem "redcarpet"
 gem "pg_search"
 gem "russian"
+gem "validators"
 
 gem "carrierwave", github: "carrierwaveuploader/carrierwave"
 gem "mini_magick"

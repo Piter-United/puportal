@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029212717) do
+ActiveRecord::Schema.define(version: 20151101152937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 20151029212717) do
   end
 
   add_index "members", ["community_id", "user_id"], name: "index_members_on_community_id_and_user_id", unique: true, using: :btree
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "url"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "places", force: :cascade do |t|
     t.string   "address"

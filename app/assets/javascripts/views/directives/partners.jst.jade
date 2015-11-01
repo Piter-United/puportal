@@ -1,33 +1,10 @@
 .container
-  h1 Партнеры
+  h1 Партнеры мероприятия
 
   .layout-row.layout-wrap.layout-margin
-    .flex.partners-itemo8
-      a.partners-item__container
+    .flex.partners-itemo8(ng-repeat="partner in partners")
+      a.partners-item__container(href="{{ partner.url }}", target="_blank")
         .partners-item__logo
-          img(src="http://placehold.it/70x70")
-        .partners-item__desc Организатор
-
-    .flex.partners-item
-      a.partners-item__container
-        .partners-item__logo
-          img(src="http://placehold.it/70x70")
-        .partners-item__desc Организатор
-
-    .flex.partners-item
-      a.partners-item__container
-        .partners-item__logo
-          img(src="http://placehold.it/70x70")
-        .partners-item__desc Организатор
-
-    .flex.partners-item
-      a.partners-item__container
-        .partners-item__logo
-          img(src="http://placehold.it/70x70")
-        .partners-item__desc Организатор
-
-    .flex.partners-item
-      a.partners-item__container
-        .partners-item__logo
-          img(src="http://placehold.it/70x70")
-        .partners-item__desc Организатор
+          img(src="{{ partner.logo }}")
+        .partners-item__desc {{ partner.name }}
+        {{ partner.status }}
