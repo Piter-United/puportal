@@ -4,13 +4,8 @@
       a.event__community.community(ui-sref="community()")
         .community__abbr {{ event.community.elem }}
         .community__meta
-          span.fa.fa-user
-          = ' '
-          span 10
-          = ', '
-          span.fa.fa-flag
-          = ' '
-          span 7
+          span.fa.counter.fa-user {{ event.community.size }}
+          span.fa.counter.fa-flag {{ event.community.activity }}
 
       .flex
         h2.event__name

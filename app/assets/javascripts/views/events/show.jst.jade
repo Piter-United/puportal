@@ -10,16 +10,12 @@ section.app-main
     .layout-row.layout-wrap.layout-margin.communities__list
       .communities__item.flex
         .community
-          .community__count 8
-          .community__abbr Dev
+          .community__count {{ event.community.id }}
+          .community__abbr {{ event.community.elem }}
           .community__meta
-            span.fa.fa-user
-            = " "
-            span 10
-            = ", "
-            span.fa.fa-flag
-            = " "
-            span 7
+            span.fa.counter.fa-user {{ event.community.size }}
+            span.fa.counter.fa-flag {{ event.community.activity }}
+
       .flex
         h1 {{event.title }}
         .info(ng-bind-html="event.description | rawHtml")

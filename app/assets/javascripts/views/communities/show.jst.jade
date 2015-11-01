@@ -9,13 +9,8 @@ section.app-main
           .community__count {{ community.id }}
           .community__abbr {{ community.elem }}
           .community__meta
-            span.fa.fa-user
-            = " "
-            span 10
-            = ", "
-            span.fa.fa-flag
-            = " "
-            span 7
+            span.fa.counter.fa-user {{ community.size }}
+            span.fa.counter.fa-flag {{ community.activity }}
 
         br
 

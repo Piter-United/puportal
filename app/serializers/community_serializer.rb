@@ -8,6 +8,8 @@ class CommunitySerializer < ActiveModel::Serializer
              :hashtag,
              :description,
              :tags,
+             :size,
+             :activity,
              :created_at,
              :updated_at
 
@@ -15,5 +17,13 @@ class CommunitySerializer < ActiveModel::Serializer
 
   def description
     markdown.render(object.description.to_s).html_safe
+  end
+
+  def size
+    object.events.count
+  end
+
+  def activity
+    object.members.count
   end
 end

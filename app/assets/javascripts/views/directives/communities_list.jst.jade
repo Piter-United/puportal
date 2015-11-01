@@ -6,10 +6,5 @@ ul.aside__list
       .aside__cover {{ community.elem }}
       .aside__title {{ community.name }}
       .aside__meta
-        span.fa.fa-user
-        = ' '
-        span 10
-        = ', '
-        span.fa.fa-flag
-        = ' '
-        span 7
+        span.fa.counter.fa-user {{ community.activity }}
+        span.fa.counter.fa-flag {{ community.size }}
