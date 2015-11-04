@@ -26,20 +26,20 @@ calendar {
     transition: background-color 0.2s ease-in;
 
     &:hover {
-      background-color: #FFF6EC;
+      background-color: $calendarSelectDateBg;
     }
   }
 
   &.current {
-    color: $link-color;
+    color: $calendarCurrentDateColor;
   }
   &.select {
-    background-color: #FFF6EC;
+    background-color: $calendarSelectDateBg;
   }
   &.disabled {
     pointer-events: none;
     cursor: not-allowed;
-    color: #ccc;
+    color: $calendarDisabledDateColor;
 
     >.button:hover {
       pointer-events: none;
@@ -48,3 +48,4 @@ calendar {
     }
   }
 }
+

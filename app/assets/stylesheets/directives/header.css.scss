@@ -1,7 +1,9 @@
+@import "variables";
+
 .app-header {
   display: block;
 
-  background: rgb(255,131,0);
+  background: $headerBg;
   background: linear-gradient(45deg,  rgba(255,131,0,1) 0%,rgba(249,91,0,1) 44%,rgba(249,124,0,1) 73%,rgba(255,131,0,1) 100%);
 
 }
@@ -11,13 +13,13 @@
 .logo__link {
   display: block;
   padding: 15px 0;
-  color: white;
+  color: $logoColor;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
 
   &:hover {
-    color: white;
+    color: $logoColorHover;
   }
 }
 
@@ -46,7 +48,7 @@
 .app-nav__link {
   display: block;
   padding: 18px 30px;
-  color: white;
+  color: $navLinkColor;
   text-transform: lowercase;
   text-decoration: none;
   font-weight: 600;
@@ -54,8 +56,8 @@
   transition: background-color .2s ease-in;
 
   &:hover {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.13);
+    color: $navLinkHoverColor;
+    background-color: $navLinkHoverBg;
   }
 
   .active & {

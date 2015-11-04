@@ -8,9 +8,9 @@ input[type="search"] {
   width: 380px;
   margin: 4em auto 2em;
   padding: 3em 2em 2em 2em;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+  background: $authFormBg;
+  border: 1px solid $authFormBorderColor;
+  box-shadow: $authFormBoxShadow;
 }
 
 .form__legend {
@@ -37,12 +37,12 @@ input[type="search"] {
   font-size: 18px;
   padding: 10px;
   display: block;
-  background: #fafafa;
-  color: #636363;
+  background: $formElBg;
+  color: $formElColor;
   width: 100%;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #757575;
+  border-bottom: 1px solid $formElBorderColor;
 
   &:focus { outline: none; }
 
@@ -61,14 +61,14 @@ input[type="search"] {
 }
 
 .control__label {
-  color: #999;
+  color: $formLabelDefaultColor;
   font-size: 1em;
   font-weight: normal;
   cursor: pointer;
 }
 
 .control__error {
-  color: #F95400;
+  color: $formLabelErrorColor;
   font-size: .9em;
   padding: 10px 0 0;
 }
@@ -76,11 +76,36 @@ input[type="search"] {
 .control__hint {
   font-size: .9em;
   padding: 10px 0 0;
-  color: #999;
+  color: $formHintColor;
 }
 
 .auth__subnav {
   margin: 0 auto 2em;
   text-align: center;
+}
+
+.control__group {
+  .selectize-control {
+    @extend .control__input;
+
+    .selectize-input,
+    .selectize-input.has-items {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .selectize-input,
+    &.single .selectize-input.focus {
+      background-color: transparent;
+    }
+
+    .selectize-input > div {
+      margin: 0 3px 0 0;
+    }
+
+  }
+
 }
 

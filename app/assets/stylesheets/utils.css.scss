@@ -1,10 +1,12 @@
+@import "variables";
+
 .text-left   {text-align: left;}
 .text-center {text-align: center;}
 .text-right  {text-align: right;}
 
 .divider {
   margin: 40px 0;
-  border-top: 1px solid #EFEFEF;
+  border-top: 1px solid $dividerBorderColor;
   border-bottom: none;
 }
 

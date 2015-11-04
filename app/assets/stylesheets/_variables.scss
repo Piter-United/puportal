@@ -8,6 +8,76 @@ $link-hover-color: darken($link-color, 10%);
 $color-success: #85BB1A;
 $color-error: #F96A21;
 
+$buttonSuccessColor: #FFF;
+$buttonSuccessBg: $color-success;
+
+$buttonDefaultColor: #FFF;
+$buttonDefaultBg: $link-color;
+
+$buttonJumbotronColor: #F95C00;
+$buttonJumbotronBg: #FFF;
+
+$calendarCurrentDateColor: $link-color;
+$calendarDisabledDateColor: #CCC;
+
+$calendarSelectDateBg: #FFF6EC;
+
+$communityBorderColor: #FDD4BA;
+
+$tagsColor: #A2A2A2;
+
+$headerBg: rgb(255,131,0);
+
+$logoColor: #FFF;
+$logoColorHover: #FFF;
+
+$navLinkHoverBg: rgba(255, 255, 255, 0.13);
+$navLinkColor: #FFF;
+$navLinkHoverColor: #FFF;
+
+$jumbotronColor: #FFF;
+
+$searchBg: #fafafa;
+$serchInputBg: #FFF;
+
+$asideItemBorderColor: #f2f2f2;
+$asideLinkColor: #FFFBF8;
+$asideCoverBorderColor: #FDD4BA;
+$asideTitleColor: #505050;
+$asideMetaColor: #999;
+
+$partnersColor: #FFF;
+$partnersItemBg: #FFF;
+$partnersItemDesc: #777;
+
+$mapCardBg: #FFF;
+
+$footerBg: #333;
+$footerColor: #FFF;
+$footerLinkColor: #FFF;
+
+
+$authFormBg: #fafafa;
+$authFormBorderColor: #ebebeb;
+$authFormBoxShadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+$authLinkColor: #797979;
+$authLinkColorHover: #333;
+
+$formElColor: #636363;
+$formElBg: #fafafa;
+$formElBorderColor: #757575;
+$formLabelDefaultColor: #999;
+$formLabelErrorColor: #F95400;
+$formHintColor: #999;
+
+$dividerBorderColor: #EFEFEF; 
+
+$iconVK: #45688E;
+$iconFb: #3b5998;
+$iconTw: #55ACEE;
+$iconG: #DB4437;
+$iconGithub: #000;
+
 $font-family: Roboto, "Helvetica Neue", "Helvetica", Arial, sans-serif;
 $font-size-base: 14px;
 

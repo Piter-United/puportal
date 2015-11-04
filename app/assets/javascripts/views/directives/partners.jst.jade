@@ -2,7 +2,7 @@
   h1 Партнеры мероприятия
 
   .layout-row.layout-wrap.layout-margin
-    .flex.partners-itemo8(ng-repeat="partner in partners")
+    .flex.partners-item(ng-repeat="partner in partners")
       a.partners-item__container(href="{{ partner.url }}", target="_blank")
         .partners-item__logo
           img(src="{{ partner.logo }}")

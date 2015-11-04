@@ -8,4 +8,6 @@ section.app-main
         events
       .flex.layout-sidebar
         calendar
+        p(ng-if="isAuthenticated()")
+          a.button.button-default.button-block(href="/events/new") Добавить событие
 app-footer.app-footer

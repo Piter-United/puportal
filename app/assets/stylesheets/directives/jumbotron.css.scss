@@ -1,8 +1,10 @@
+@import "variables";
+
 .app-jumbotron {
   padding-bottom: 20px;
   min-height: 300px;
   text-align: center;
-  color: #fff;
+  color: $jumbotronColor;
 }
 
 .app-jumbotron__description {
@@ -12,6 +14,6 @@
 
 
 .button--jumbotron {
-  color: #F95C00;
-  background: white;
+  color: $buttonJumbotronColor;
+  background: $buttonJumbotronBg;
 }

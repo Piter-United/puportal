@@ -4,7 +4,7 @@ partners {
   display: block;
   margin: 40px 0 0;
   padding: 40px 0;
-  color: white;
+  color: $partnersColor;
   background: rgb(255,131,0);
   background: linear-gradient(45deg,  rgba(255,131,0,1) 0%,rgba(249,91,0,1) 44%,rgba(249,124,0,1) 73%,rgba(255,131,0,1) 100%);
 }
@@ -19,14 +19,24 @@ partners {
   text-decoration: none;
   text-align: center;
   color: $text-color;
-  background-color: #fff;
+  background-color: $partnersItemBg;
   border-radius: 4px;
 }
 
 .partners-item__logo {
-  height: 70px;
+  margin-bottom: 10px;
+  height: 120px;
 
   > img {
     max-width: 100%;
+    max-height: 120px;
   }
+}
+
+.partners-item__name {
+  font-size: 1rem;
+}
+
+.partners-item__desc {
+  color: $partnersItemDesc;
 }

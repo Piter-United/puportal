@@ -1,3 +1,5 @@
+@import "variables";
+
 .auth__social-list {
   margin: 0 0 0 -10px;
   padding: 0;
@@ -15,19 +17,19 @@
   padding: 10px;
   display: block;
   font-size: 2em;
-  color: #797979;
+  color: $authLinkColor;
 
   transition: color .2s ease-in;
 
   &:hover {
-    color: #333;
+    color: $authLinkColorHover;
   }
 
   .active & {
-    .fa-vk {color: #45688E;}
-    .fa-facebook {color: #3b5998;}
-    .fa-twitter {color: #55ACEE;}
-    .fa-google-plus {color: #DB4437;}
-    .fa-github {color: #000;}
+    .fa-vk {color: $iconVK;}
+    .fa-facebook {color: $iconFb;}
+    .fa-twitter {color: $iconTw;}
+    .fa-google-plus {color: $iconG;}
+    .fa-github {color: $iconGithub;}
   }
 }

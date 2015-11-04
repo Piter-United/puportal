@@ -1,3 +1,5 @@
+@import "variables";
+
 .aside__list {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 .aside__item {
   margin: 0;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid $asideItemBorderColor;
 }
 .aside__item-container {
   padding: 10px 10px 10px 0;
@@ -19,7 +21,7 @@
   transition: background-color .2s ease-in;
 
   &:hover {
-    background-color: #FFFBF8;
+    background-color: $asideLinkColor;
   }
 }
 
@@ -30,7 +32,7 @@
   top: 10px;
   left: 10px;
   border-radius: 4px;
-  border: 1px solid #FDD4BA;
+  border: 1px solid $asideCoverBorderColor;
   font-size: 18px;
   text-align: center;
   line-height: 2;
@@ -44,12 +46,12 @@
 }
 
 .aside__title {
-  color: #505050;
+  color: $asideTitleColor;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .aside__meta {
-  color: #999;
+  color: $asideMetaColor;
   font-size: .8em;
 }

@@ -1,10 +1,12 @@
+@import "variables";
+
 search {
   display: block;
   padding: 10px 0;
-  background: #fafafa;
+  background: $searchBg;
 
   .control__input--search {
-    background-color: #fff;
+    background-color: $serchInputBg;
     border:none;
   }
 }

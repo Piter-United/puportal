@@ -1,14 +1,16 @@
+@import "variables";
+
 app-footer {
   display: block;
-  background: #333;
+  background: $footerBg;
 
-  color: #fff;
+  color: $footerColor;
 
   a {
-    color: #fff;
+    color: $footerLinkColor;
 
     &:hover {
-      color: darken(#fff, 15%);;
+      color: darken($footerLinkColor, 15%);;
     }
   }
   .social-list {}
