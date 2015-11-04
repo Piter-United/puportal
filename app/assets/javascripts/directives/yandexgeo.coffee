@@ -32,7 +32,7 @@ angular.module('app').directive 'yandexgeo', ($timeout)->
       option: (item, escape) ->
         result = "<div class='geo-object'>"
         result += "<h5>#{ escape item.address }</h5>"
-        result += "<h6>#{ item.properties.description }</h6>" if item.properties.description
+        result += "<h6>#{ item.properties.description }</h6>" if item.properties && item.properties.description
         result += "</div>"
         return result
 
@@ -41,18 +41,30 @@ angular.module('app').directive 'yandexgeo', ($timeout)->
     scope: false
     link: (scope, element, attrs, modelCtrl) ->
       $timeout ->
-        opts = options()
-        opts.onChange = (value)->
-          scope.$apply ()->
-            root = scope
-            scopename = $(element).attr('ng-model').split('.')
+        load_yandex_map = (cb)->
+          script = document.createElement("script")
+          script.onload = -> ymaps.ready(cb)
+          script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+          document.getElementsByTagName("head")[0].appendChild(script)
 
-            # for `scope.a.b.c.d.etc = value` setting
-            $.each scopename, (index, propery)->
-              if index == (scopename.length - 1)
-                root[propery] = value
-              else
-                root = root[propery]
+        initialize_input = ->
+          opts = options()
+          opts.onChange = (value)->
+            scope.$apply ()->
+              root = scope
+              scopename = $(element).attr('ng-model').split('.')
 
-        $(element).selectize(opts)
+              # for `scope.a.b.c.d.etc = value` setting
+              $.each scopename, (index, propery)->
+                if index == (scopename.length - 1)
+                  root[propery] = value
+                else
+                  root = root[propery]
+
+          $(element).selectize(opts)
+
+        if typeof (ymaps) is "undefined"
+          load_yandex_map(initialize_input)
+        else
+          initialize_input()
   }
